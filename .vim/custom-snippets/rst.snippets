@@ -1,0 +1,19 @@
+# global !p
+# def complete(key, hints):
+#         if key:
+#                 hints = [x[len(key):] for x in hints if x.startswith(key)]
+#         return '|'.join(hints)
+# endglobal
+# 
+# snippet til "TIL Entry" !b
+# - "`date '+%F %a'`",$1`!p snip.rv = complete(t[1], ['found', 'overviewed', 'read', 'summarised', 'documented'])`,$2`!p snip.rv = '"' + t[2] + '"' if t[2] else 'D'`
+#   $0
+# endsnippet
+
+snippet a "Anonymous link"
+\`$1 <$2>\`__$0
+endsnippet
+
+snippet ` "Generic Interpreted Text Role" b
+:$1:\`$2\`$0
+endsnippet

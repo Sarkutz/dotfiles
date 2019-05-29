@@ -1,0 +1,36 @@
+snippet c "Start with boilerplate code" b
+SOURCES = $(shell find . -name '*\.c' 2> /dev/null)
+TARGET = ${2:a.out}
+LIBS = $3
+
+all: $(TARGET)
+
+clean:
+	rm -rf $(TARGET)
+
+$(TARGET): $(SOURCES)
+	gcc -g  -W -Wall  -o $@  $^  $(LIBS)
+endsnippet
+
+
+snippet scala "Template for SCALA"	
+TARGET=${1:Demo.class}
+
+all: build run
+
+clean:
+	rm -f *.class
+	
+build: $(TARGET)
+
+run:
+	scala $(patsubst %.class,%,$(TARGET))
+
+
+%.class: %.scala
+	scalac $<
+
+
+$(TARGET): ${2:Location.class Point.class}
+${3:Location.class: Point.class}
+endsnippet

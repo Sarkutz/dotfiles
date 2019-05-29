@@ -1,0 +1,21 @@
+snippet t "HTML tag" b
+<${1:div}>
+$0
+</${1/\s.*//}>
+endsnippet
+
+snippet s "HTML tag" b
+<${1:span}>$0</${1/\s.*//}>
+endsnippet
+
+snippet comment "HTML comment"
+<!-- $1
+${VISUAL}$0
+-->
+endsnippet
+
+snippet ngt "Angular HTML tag"
+<${1:div} ${2:ng-controller${3:=name}}>
+$0
+</${1/(\w*).*/$1/}>
+endsnippet

@@ -1,0 +1,8 @@
+snippet usage "Add usage check for BASH function" b
+usage='${1:Function name}: ${2:Purpose of function}
+USAGE: ${3:Usage syntax}'
+if [[ $# -ne ${4:1} ]]${5: && [[ $# -ne ${6:2} ]]}; then
+    echo "$usage"
+    return 1
+fi
+endsnippet
