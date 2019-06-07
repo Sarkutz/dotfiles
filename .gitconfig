@@ -1,0 +1,98 @@
+[user]
+        name = Ashim Ghosh
+	email = ashim.atiit@gmail.com
+
+[http]
+	sslverify = false
+
+[alias]
+	# ec: Edit git's Configs
+        ec = config --global -e
+
+	# cl: Clone
+	# Create clone from locate repo.
+	cl = "! f() {  \
+			if [ $1 == ads ]; then  \
+				git clone $DOTFILES_REPOS/adserver;  \
+			elif [ $1 == ml ]; then  \
+				git clone $DOTFILES_REPOS/machine-learning;  \
+			fi  \
+		};  \
+		f"
+
+	# ok:
+	# Check state of repo before a push
+        ok = "! f() { git b; echo \"len(git d) = $( git d | wc -l )\"; echo \"len(git dc) = $( git dc | wc -l )\"; git ls -10; }; f"
+
+	# co: CheckOut
+        co = checkout
+
+	# Log
+        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+	# d: Diff
+        d = diff
+	# dc: Diff Cached
+        dc = diff --cached
+
+	# br: Branch with Paging
+	# If no args. to ``br``, then use pager (if required) to list all branches;
+	# else use args.
+        br = "! f() {  \
+                        if [ $# -gt 0 ]; then  \
+                                git branch $@;  \
+                        elif [ $( git branch -a | wc -l ) -gt 45 ]; then  \
+                                git branch -a | less;  \
+                        else  \
+                                git branch -a;  \
+                        fi  \
+                };  \
+                f"
+
+	# b: 
+        b = branch --contains
+
+	# fo: Fetch Origin
+        fo = fetch origin
+
+	# po: Push Origin
+	# Push current branch to origin
+        po = "! f() {  \
+			git push origin \"$( git branch | grep '*' | cut -d' ' -f 2 )\";  \
+                };  \
+                f"
+
+	# s: Status  (Deprecated: Use vim-fugitive Gstatus instead?)
+	# Condensed status.
+        s = "! f() {  \
+                        if [ $( git status --porcelain | wc -l ) -gt 45 ]; then  \
+                                git status --porcelain | less;  \
+                        else  \
+                                git status --porcelain;  \
+                        fi  \
+                };  \
+                f"
+
+	# rev: Review  (Deprecated: Not required anymore?)
+	# Create diff for merge code review
+        rev = "! f() {  \
+                        if [ $# -ne 1 ]; then  \
+				echo 'ERROR: Usage: git rev <review-branch>';  \
+                        else  \
+                                git merge --no-commit --no-ff $1;  \
+                                git diff -w HEAD;  \
+                                git reset --hard HEAD;  \
+                        fi  \
+                };  \
+                f"
+
+        # Clean branches that have been merged...
+        # bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+
+[merge]
+        conflictstyle = diff3
+        tool = painlessmerge
+
+[mergetool "painlessmerge"]
+        cmd = painlessmerge.sh vimdiff $BASE $LOCAL $REMOTE $MERGED
