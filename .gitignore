@@ -1,1 +1,4 @@
 .dotfiles.git
+__pycache__
+*.pyc
+*.sw?
