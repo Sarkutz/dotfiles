@@ -1,0 +1,7 @@
+export DOTFILES_REPOS="/Users/ashim/resources/repos"
+export DOTFILES_SOFTWARE_INSTALL_PREFIX="/Users/ashim/resources/software/installed/"
+export DOTFILES_SOFTWARE_STANDALONE="/Users/ashim/resources/software/standalone/"
+export DOTFILES_GTD="/Users/ashim/private/gtd/"
+export DOTFILES_PYENVS="/Users/ashim/resources/software/pyenvs/"
+export DOTFILES_WWW="/Users/ashim/pub/www/"
+export DOTFILES_PERSONAL_WORKSPACE="/Users/ashim/me"

@@ -1,0 +1,11 @@
+name: test
+windows:
+  - first: myvsplit
+  - second: myhsplit
+models:
+  myvsplit:
+    layout: even-vertical
+    panes: 2
+  myhsplit:
+    layout: even-horizontal
+    panes: 3
