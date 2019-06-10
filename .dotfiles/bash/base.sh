@@ -53,7 +53,10 @@ source "${DOTFILES}/utils/bash-powerline.sh"
 
 
 # Setup paths
+# Add binaries added by user.
 prefix_to_path "${DOTFILES_SOFTWARE_INSTALL_PREFIX}/bin/"
+# For OS X, add binaries added by brew.
+[[ $(uname) == 'Darwin' ]] && prefix_to_path '/usr/local/sbin'
 
 
 # Keep longer bash history
@@ -177,10 +180,17 @@ alias f='fg'
 # dfgit: dotfiles git: Manipulate the Git bare repo containing all dotfiles
 alias kdfgit='git --git-dir=${HOME}/.dotfiles.git/ --work-tree=${HOME}'
 
-# scc (Copy Clipboard)
-alias scc='xclip -i -selection clipboard'
-# spc (Paste Clipboard)
-alias spc='xclip -o -selection clipboard'
+if [[ $(uname) == 'Darwin' ]]; then
+    # scc (Copy Clipboard)
+    alias scc=pbcopy
+    # spc (Paste Clipboard)
+    alias scp=pbpaste
+else
+    # scc (Copy Clipboard)
+    alias scc='xclip -i -selection clipboard'
+    # spc (Paste Clipboard)
+    alias spc='xclip -o -selection clipboard'
+fi
 
 
 # kd (Docker)
