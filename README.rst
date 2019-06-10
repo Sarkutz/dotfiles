@@ -24,6 +24,48 @@ Install these dotfiles by performing the following steps in order.
    :local:
    
 
+Install Dotfiles
+================
+
+Clone and install as follows (`source
+<https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/>`__)::
+
+  git clone --bare |git-repo-url| $HOME/.dotfiles.git
+  alias kdfgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+  kdfgit checkout
+  if [ $? = 0 ]; then
+    echo "Checked out config.";
+  else
+    echo "Backing up pre-existing dot files.";
+    mkdir -p .config-backup
+    kdfgit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+  fi;
+  kdfgit checkout
+  kdfgit submodule init
+  kdfgit submodule update --recursive
+  kdfgit config status.showUntrackedFiles no
+  kdfgit config status.submodulesummary 1
+
+Setup Folders
+-------------
+
+Optionally, run :file:`utils/setup-folders.sh` to create the folder hierarchy. ::
+
+  export DOTFILES=$HOME/.dotfiles/bash/
+  bash $DOTFILES/utils/setup-folders.sh
+
+If required, configure :file:`utils/setup-folders.sh` before running the
+script.  The following can be configured by editing the script.
+
+- Call appropriate ``setup_*`` function at the end of the file.  Default:
+  :code:`setup_home`.
+- Set :code:`ONLY_EXPORT_PATHS` variable to 1, if we want to export the
+  env. vars.  without creating the paths.
+- Set PREFIX variable, if required.  Default: :code:`$HOME` env. var.
+- Set DRY_RUN to 1 to check what changes the script would make.  (No changes
+  are made during dry run.)
+
+
 Install Dependencies
 ====================
 
@@ -75,50 +117,13 @@ Install using the `usual process to build from sources
   make install
 
 
-Install Dotfiles
-================
-
-Clone and install as follows (`source
-<https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/>`__)::
-
-  git clone --bare |git-repo-url| $HOME/.dotfiles.git
-  alias kdfgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-  kdfgit checkout
-  if [ $? = 0 ]; then
-    echo "Checked out config.";
-  else
-    echo "Backing up pre-existing dot files.";
-    mkdir -p .config-backup
-    kdfgit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
-  fi;
-  kdfgit checkout
-  kdfgit submodule init
-  kdfgit submodule update --recursive
-  kdfgit config status.showUntrackedFiles no
-  kdfgit config status.submodulesummary 1
-
-Setup Folders
--------------
-
-Optionally, run :file:`utils/setup-folders.sh` to create the folder hierarchy. ::
-
-  export DOTFILES=$HOME/.dotfiles/bash/
-  bash $DOTFILES/utils/setup-folders.sh
-
-If required, configure :file:`utils/setup-folders.sh` before running the
-script.  The following can be configured by editing the script.
-
-- Call appropriate ``setup_*`` function at the end of the file.  Default:
-  :code:`setup_home`.
-- Set :code:`ONLY_EXPORT_PATHS` variable to 1, if we want to export the
-  env. vars.  without creating the paths.
-- Set PREFIX variable, if required.  Default: :code:`$HOME` env. var.
-- Set DRY_RUN to 1 to check what changes the script would make.  (No changes
-  are made during dry run.)
+Install Python Virtual Environments
+-----------------------------------
 
 Setup Python virtual enviroments (for ``dve``):
 
-  source ~/.dotfiles/bash/utils/path-info.sh
+  export DOTFILES=$HOME/.dotfiles/bash/
+  source $DOTFILES/utils/path-info.sh
 
   cd "$DOTFILES_PYENVS" && \
     ls *.requirements.txt | \
@@ -353,7 +358,7 @@ recommended to install these dependencies before installing the dotfiles.
        For example, download the Miniconda installation script and execute as
        follows::
 
-          bash Miniconda3-latest-MacOSX-x86_64.sh -b -p ~/resources/software/standalone/miniconda3
+          bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $DOTFILES_SOFTWARE_STANDALONE/miniconda3
 
      - No need to initialise Miniconda.  This can be done by calling
        ``act_conda`` (Defined in the Python Alias Space).  Prefer Miniconda?
@@ -374,7 +379,7 @@ recommended to install these dependencies before installing the dotfiles.
      - System's package manager.
      -
 
-       + Copy gtd-dreams.mm and backlog.mm to $DOTFILES_GTD
+       + Copy gtd-dash.mm and revisit.mm to $DOTFILES_GTD
        + Copy template-dreams-topic.mm to appropriate directory
        + Setup Freeplane keyboard shortcuts.
 
@@ -387,7 +392,8 @@ recommended to install these dependencies before installing the dotfiles.
      - ``scc`` and ``spc`` aliases in base.sh
      - Distro's package manager.  Repo: `astrand/xclip
        <https://github.com/astrand/xclip>`__
-     - Don't install on Mac as it won't work (``xclip`` needs X11).
+     - Required for Linux.  On Mac OS X, we use ``pbcopy`` and ``pbpaste``
+       commands instead of ``xclip``.  Hence, ``xclip`` is not required.
 
    * - ``jq``
      - Various utilities (base.sh)
