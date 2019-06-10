@@ -81,7 +81,7 @@ function create_workspace() {
   space_name="$1"
   mkdir "$space_name"
   cd "$space_name" &&
-    $MKDIR sandbox projfg projbg projint projar knowl
+    $MKDIR sandbox projfg projbg projint projar knowl wiki
 }
 
 # Folder Setup
