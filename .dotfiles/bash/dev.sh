@@ -173,7 +173,7 @@ function act_scala_alias_space() {
 function act_go_alias_space() {
   prefix_to_alias_spaces_variable go
 
-  go_bin_dir="${DOTFILES_REPOS}/go/bin/"
+  go_bin_dir="${DOTFILES_REPOS}/github.com/golang/go/bin/"
   prefix_to_path "$go_bin_dir"
 
   # Go path
@@ -181,6 +181,9 @@ function act_go_alias_space() {
     export GOPATH="${HOME}/go"
     prefix_to_path "${GOPATH}/bin"
   fi
+
+  # No need to set GOROOT as it is already set to the root used during the
+  # Go build.
 
   # goplay: Open Go in Docker for quick experiments.
   function goplay()
