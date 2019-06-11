@@ -208,7 +208,7 @@ to Vim.  Hence, we choose any one.
 Install using the `usual process to build from sources
 <https://passingcuriosity.com/2015/installing-python-from-source/>`__::
 
-  source ~/.dotfiles/bash/utils/path-info.sh
+  source $DOTFILES/utils/path-info.sh
 
   # For Python 2
   ./configure --prefix=$DOTFILES_SOFTWARE_INSTALL_PREFIX --enable-pythoninterp --with-python-config-dir=$DOTFILES_SOFTWARE_INSTALL_PREFIX/bin/lib/python2.7/config
@@ -279,7 +279,7 @@ Since version 1.5, a working Go installation is required to build Go by
 it.  It's usually possible to download a binary of Go for the target machine
 from the Go website to use for the bootstrap::
 
-  source ~/.dotfiles/bash/utils/path-info.sh
+  source $DOTFILES/utils/path-info.sh
 
   curl -LSso $DOTFILES_SOFTWARE_STANDALONE/go1.9.2.linux-amd64.tar.gz https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz
   cd $DOTFILES_SOFTWARE_STANDALONE && tar xzf go1.9.2.linux-amd64.tar.gz
@@ -287,7 +287,7 @@ from the Go website to use for the bootstrap::
 
 Finally, get the source and install it as follows::
 
-  source ~/.dotfiles/bash/utils/path-info.sh
+  source $DOTFILES/utils/path-info.sh
 
   git clone https://github.com/golang/go $DOTFILES_REPOS/github.com/golang/go
   cd $DOTFILES_REPOS/github.com/golang/go/src && ./all.bash
@@ -564,7 +564,9 @@ Please find the details of the (Neo)Vim plugins provided by this repository.
    * - vim-go
      - Dev. (Go)
      - IDE for Go.  Installation: Clone `fatih/vim-go
-       <https://github.com/fatih/vim-go.git>`__.
+       <https://github.com/fatih/vim-go.git>`__. ::
+
+          :GoInstallBinaries
 
    * - UltiSnips
      - Dev.
