@@ -53,10 +53,10 @@ source "${DOTFILES}/utils/bash-powerline.sh"
 
 
 # Setup paths
+# HomeBrew/LinuxBrew: Add path to sbin.
+prefix_to_path '/usr/local/sbin'
 # Add binaries added by user.
 prefix_to_path "${DOTFILES_SOFTWARE_INSTALL_PREFIX}/bin/"
-# For OS X, add binaries added by brew.
-[[ $(uname) == 'Darwin' ]] && prefix_to_path '/usr/local/sbin'
 
 
 # Keep longer bash history
@@ -137,9 +137,6 @@ function cp()
 	return $?
 }
 
-# Safety: Only homebrew user should execute brew command.
-[[ $( id -F ) != 'homebrew' ]] && alias brew='echo "Logging into homebrew" && su -l homebrew #'
-
 
 # Development (d)
 # ===============
@@ -184,7 +181,7 @@ if [[ $(uname) == 'Darwin' ]]; then
     # scc (Copy Clipboard)
     alias scc=pbcopy
     # spc (Paste Clipboard)
-    alias scp=pbpaste
+    alias spc=pbpaste
 else
     # scc (Copy Clipboard)
     alias scc='xclip -i -selection clipboard'
