@@ -142,7 +142,7 @@ Install Utilities (Optional)
 
 You might also want to install the following useful utilities-
 
-.. list-table:: Utilities
+.. list-table:: Common Utilities
    :widths: auto
    :header-rows: 1
 
@@ -169,29 +169,52 @@ You might also want to install the following useful utilities-
      - System's package manager
      -
 
+   * - Sphinx Document Generator
+     - PyPI
+     - Install into a python venv (perhaps the doc venv) using pip.
+
    * - Anki
      - System's package manager
      - https://apps.ankiweb.net
 
        Import your old Anki decks, if required.
 
+   * -
+     -
+     -
+
+.. list-table:: Linux-only Utilities
+   :widths: auto
+   :header-rows: 1
+
+   * - Utility
+     - Installation Source
+     - Notes
+
+   * - redshift
+     - System's package manager
+     - Linux only.  Not required on Mac.
+
+
+.. list-table:: Mac-only Utilities
+   :widths: auto
+   :header-rows: 1
+
+   * - Utility
+     - Installation Source
+     - Notes
+
+   * - Karabiner Elements
+     - `Karabiner-Elements GitHub page
+       <https://github.com/pqrs-org/Karabiner-Elements>`__
+     -
+
    * - Jumpcut
      - System's package manager
      - For Mac OS only::
 
          brew cask install jumpcut
-         
-   * - redshift
-     - System's package manager
-     - Linux only?
 
-   * - Sphinx Document Generator
-     - PyPI
-     - Install into a python venv (perhaps the doc venv) using pip.
-
-   * -
-     -
-     -
 
 Install Vim (from sources)
 ==========================
@@ -375,7 +398,7 @@ recommended to install these dependencies before installing the dotfiles.
      -
 
    * - Freeplane
-     - ``gtd`` alias in home.sh
+     - ``gtd`` alias in home.sh; GTD workflow
      - System's package manager.
      -
 
@@ -399,9 +422,20 @@ recommended to install these dependencies before installing the dotfiles.
      - Various utilities (base.sh)
      - Distro's package manager.  `Website
        <https://stedolan.github.io/jq/>`__.
-     -
+     - .
+
+   * - ``brew``
+     - Various BASH dotfiles.
+     - `Homebrew website <https://brew.sh/>`__
+     - Occurances of "system package manager" means Homebrew on Mac.
+
+   * - Dropbox
+     - Required to sync GTD.
+     - `Dropbox website <https://www.dropbox.com/>`__
+     - .
 
    * -
+     -
      -
      -
 
