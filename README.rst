@@ -83,8 +83,8 @@ Install Python Utilities
 Ensure that the following are also installed
 
 - Python3: If system does not have Python3, either install using system's
-package manager, activate Conda's Python installation, or `Install Python
-(from sources)`_ as detailed below.
+  package manager, activate Conda's Python installation, or `Install Python
+  (from sources)`_ as detailed below.
 
 - Python2: Python3 has pip and virtualenv built-in.  However, for Python2,
   these must be installed.
@@ -120,7 +120,7 @@ Install using the `usual process to build from sources
 Install Python Virtual Environments
 -----------------------------------
 
-Setup Python virtual enviroments (for ``dve``):
+Setup Python virtual enviroments (for ``dve``)::
 
   export DOTFILES=$HOME/.dotfiles/bash/
   source $DOTFILES/utils/path-info.sh
@@ -140,7 +140,7 @@ Setup Python virtual enviroments (for ``dve``):
 Install Utilities (Optional)
 ============================
 
-You might also want to intall the following useful utilities-
+You might also want to install the following useful utilities-
 
 .. list-table:: Utilities
    :widths: auto
