@@ -151,7 +151,11 @@ alias dvi="find . -maxdepth 1 -name '*.sw?'; sps -wE 'n?vim'"
 alias diff='/usr/bin/diff -u'
 
 # dtag (Tag): Create tags for code navigation
-alias dtag=' ctags -R . 2> /dev/null; cscope -Rb'
+if [[ $(uname) == 'Darwin' ]]; then
+    alias dtag="$( brew --prefix )/bin/ctags -R . 2> /dev/null; cscope -Rb"
+else
+    alias dtag='ctags -R . 2> /dev/null; cscope -Rb'
+fi
 
 # dgr (Grep Directory)
 function dgd() {
