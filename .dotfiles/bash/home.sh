@@ -26,7 +26,21 @@ source "${DOTFILES}/dev.sh"
 # ===============
 
 # gtd: Start GTD resources
-alias gtd='freeplane $DOTFILES_GTD/revisit.mm $DOTFILES_GTD/gtd-dash.mm &> /dev/null & vim $DOTFILES_GTD/scratch.rst'
+freeplane_path=
+which 'freeplane'
+if [[ $? -eq 0 ]]
+then
+    freeplane_path='freeplane'
+else
+    # mac_freeplane_path='/Applications/Freeplane.app/Contents/MacOS/JavaAppLauncher'
+    mac_freeplane_path='/Applications/Freeplane.app'
+    if [[ -e "$mac_freeplane_path" ]]
+    then
+        freeplane_path="open $mac_freeplane_path"
+    fi
+fi
+export FREEPLANE_PATH="$freeplane_path"
+alias gtd='$FREEPLANE_PATH $DOTFILES_GTD/clarify.mm $DOTFILES_GTD/gtd-dash.mm &> /dev/null & vim $DOTFILES_GTD/scratch.rst'
 
 
 # Jump (j)
