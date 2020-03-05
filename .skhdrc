@@ -106,16 +106,16 @@
 # ]
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+# cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # open qutebrowser
-cmd + shift - return : ~/Scripts/qtb.sh
+# cmd + shift - return : ~/Scripts/qtb.sh
 
 # open mpv
-cmd - m : open -na /Applications/mpv.app $(pbpaste)
+# cmd - m : open -na /Applications/mpv.app $(pbpaste)
 
 # close focused window
-alt - w : chunkc tiling::window --close
+# alt - w : chunkc tiling::window --close
 
 # focus window
 alt - h : chunkc tiling::window --focus west
@@ -125,9 +125,6 @@ alt - l : chunkc tiling::window --focus east
 
 # cmd - j : chunkc tiling::window --focus prev
 # cmd - k : chunkc tiling::window --focus next
-
-# equalize size of windows
-shift + alt - 0 : chunkc tiling::desktop --equalize
 
 # swap window
 shift + alt - h : chunkc tiling::window --swap west
@@ -142,7 +139,8 @@ shift + cmd - k : chunkc tiling::window --warp north
 shift + cmd - l : chunkc tiling::window --warp east
 
 # make floating window fill screen
-shift + alt - up     : chunkc tiling::window --grid-layout 1:1:0:0:1:1
+# DOUBT
+# shift + alt - up     : chunkc tiling::window --grid-layout 1:1:0:0:1:1
 
 # make floating window fill left-half of screen
 # shift + alt - left   : chunkc tiling::window --grid-layout 1:2:0:0:1:1
@@ -181,7 +179,7 @@ cmd + alt - 0 : chunkc tiling::desktop --focus 10
 # send window to desktop and follow focus
 shift + cmd - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop); chunkc tiling::desktop --focus $(chunkc get _last_active_desktop)
 shift + cmd - z : chunkc tiling::window --send-to-desktop prev; chunkc tiling::desktop --focus prev
-shift + cmd - c : chunkc tiling::window --send-to-desktop next; chunkc tiling::desktop --focus next
+# shift + cmd - c : chunkc tiling::window --send-to-desktop next; chunkc tiling::desktop --focus next
 shift + cmd - 1 : chunkc tiling::window --send-to-desktop 1; chunkc tiling::desktop --focus 1
 shift + cmd - 2 : chunkc tiling::window --send-to-desktop 2; chunkc tiling::desktop --focus 2
 shift + cmd - 3 : chunkc tiling::window --send-to-desktop 3; chunkc tiling::desktop --focus 3
@@ -218,6 +216,9 @@ shift + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-wind
 shift + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
 shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
 shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+
+# equalize size of windows
+shift + alt - 0 : chunkc tiling::desktop --equalize
 
 # set insertion point for focused container
 ctrl + alt - f : chunkc tiling::window --use-insertion-point cancel
