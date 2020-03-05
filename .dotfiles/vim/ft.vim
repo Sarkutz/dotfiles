@@ -34,7 +34,7 @@ function! ConfigRst()
 	command! -nargs=1 Stitle normal yyp:s/./<args>/g<CR>:nohlsearch<CR>
 
 	" rst2conflu then copy to clipboard: `` :ToConflu ``
-	command! ToConflu rst2confluence "%" > "/tmp/$( basename % ).txt" && xclip -i -selection clipboard "/tmp/$( basename % ).txt"
+	command! ToConflu !bash $DOTFILES/../vim/utils/rst2conflu.sh %
 endfunction
 autocmd Filetype rst call ConfigRst()
 
