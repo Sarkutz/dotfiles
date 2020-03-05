@@ -685,6 +685,7 @@ TODO: List out conventions
   - Fix errors during DRY_RUN
   - Ensure no state changes during DRY_RUN
 
+- Update chunkwm to yabai
 - Creating scaffolding for new project (use Yeoman?)
 - Can we use rg instead of grep?
 - mutt setup???
