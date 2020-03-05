@@ -137,6 +137,15 @@ Setup Python virtual enviroments (for ``dve``)::
    :file:`$DOTFILES_PYENVS/*.requirements.txt` file.
 
 
+Install Crontab
+===============
+
+Add the following to the current user's crontab::
+
+   # Sync GTD using Dropbox (hourly)
+   0 * * * * rsync -ru --exclude '*.sw?' ~/private/gtd/ ~/Dropbox/gtd/ && rsync -ru --exclude '*.sw?' ~/Dropbox/gtd/ticker/ ~/private/gtd/ticker/
+
+
 Install Utilities (Optional)
 ============================
 
