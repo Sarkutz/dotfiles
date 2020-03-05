@@ -263,9 +263,9 @@ Install Plugins::
 
    * - ``rst2confluence.py``
      - ToConflu command in rst filetype
-     - sudo pip install rst2confluence
-     - Github: `netresearch/rst2confluence
-       <https://github.com/netresearch/rst2confluence>`__
+     - Github: `kenichiro22/rst2confluence
+       <https://github.com/kenichiro22/rst2confluence>`__
+     - ``pip install`` did not work properly.
 
 
 Install Go (from sources)
