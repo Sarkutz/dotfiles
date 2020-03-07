@@ -87,6 +87,10 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     fi
 }
 
+# Jump to diary
+alias jdia="cd ~/private/diary/source/$( date +%Y )/$( date +%m ) && ls"
+
+
 # Tools/Kit (k)
 # =============
 

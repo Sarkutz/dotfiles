@@ -154,6 +154,13 @@ Jump
          If ``searchterm`` is provided, ``find`` for path that matches
          ``*searchterm*``.'
 
+   * - ``jdia``
+     - ``home.sh``
+     - Jump to diary
+       Usage::
+
+         jdia
+
 Tool/Kit
 --------
 
