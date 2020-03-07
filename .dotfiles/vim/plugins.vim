@@ -21,7 +21,12 @@ syntax on
 " colorscheme zenburn
 
 " GruvBox: Provides decent light mode
-let g:gruvbox_italic=1
+let g:gruvbox_bold='1'
+let g:gruvbox_underline='1'
+let g:gruvbox_undercurl='1'
+let g:gruvbox_italic='1'
+let g:gruvbox_hls_cursor='red'  " Not getting reflected?
+" let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
 set background=light    " Setting dark mode
 
