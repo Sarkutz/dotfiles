@@ -56,6 +56,7 @@ export DOTFILES_GTD="$PREFIX/private/gtd/"
 export DOTFILES_PYENVS="$PREFIX/resources/software/pyenvs/"
 export DOTFILES_WWW="$PREFIX/pub/www/"
 export DOTFILES_PERSONAL_WORKSPACE="$PREFIX/me"
+# Note: FREEPLANE_PATH exported by home.sh
 EOF
 source $PATH_INFO
 
@@ -123,7 +124,8 @@ function setup_home() {
     $LN "$PREFIX/Public/" share
   
   cd "$PREFIX/pub/website/" &&
-    $LN "$PREFIX/private/knowl/"
+    $LN "$PREFIX/private/knowl/" &&
+    $MKDIR online/blog online/kbase
 
 
   cd "$PREFIX/" &&
