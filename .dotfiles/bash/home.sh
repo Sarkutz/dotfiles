@@ -90,6 +90,22 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
 # Jump to diary
 alias jdia="cd ~/private/diary/source/$( date +%Y )/$( date +%m ) && ls"
 
+function jme() {
+    usage='jme: Jump to me workspace directory.
+USAGE: jme [searchterm]
+If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+    if [[ $# -gt 1 ]]; then
+        echo "$usage"
+        return 1
+    fi
+    search_term="$1"
+
+    cd ~/me/
+    if [[ $# -eq 1 ]]
+    then
+        find knowl/ proj*  -type d -name '*'"$search_term"'*'
+    fi
+}
 
 # Tools/Kit (k)
 # =============

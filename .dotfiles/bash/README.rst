@@ -161,6 +161,16 @@ Jump
 
          jdia
 
+   * - ``jme``
+     - ``home.sh``
+     - Jump to me workspace directory.
+      Usage::
+      
+         jme [searchterm]
+
+         If ``searchterm`` is provided, ``find`` for path that matches
+         ``*searchterm*``.'
+
 Tool/Kit
 --------
 
