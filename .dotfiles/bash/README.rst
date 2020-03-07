@@ -144,6 +144,15 @@ Jump
 
        - "t" or "ticker": Jump to todays ticker directory.'
 
+   * - ``jkno``
+     - ``home.sh``
+     - Jump to knowl directory.
+       Usage::
+
+         jkno [searchterm]
+
+         If ``searchterm`` is provided, ``find`` for path that matches
+         ``*searchterm*``.'
 
 Tool/Kit
 --------

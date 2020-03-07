@@ -67,6 +67,25 @@ where ``command`` can be-
     ls
 }
 
+function jkno() {
+    usage='jkno: Jump to knowl directory.
+USAGE: jkno [searchterm]
+If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+    if [[ $# -gt 1 ]]; then
+        echo "$usage"
+        return 1
+    fi
+    [[ $# -eq 1 ]] && search_term="$1"
+
+    cd ~/private/knowl/source/
+    if [[ $# -eq 1 ]]
+    then
+        find . -type d -name '*'"$search_term"'*'
+    else
+        cd comp
+        ls
+    fi
+}
 
 # Tools/Kit (k)
 # =============
