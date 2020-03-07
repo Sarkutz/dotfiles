@@ -10,10 +10,44 @@
 #   $0
 # endsnippet
 
-snippet a "Anonymous link"
+# Inline Decorators
+# =================
+
+snippet a "Anonymous link" w
 \`$1 <$2>\`__$0
 endsnippet
 
-snippet ` "Generic Interpreted Text Role" b
+
+# Roles
+# =====
+
+snippet ` "Generic Interpreted Text Role" w
 :$1:\`$2\`$0
 endsnippet
+
+snippet `c "Add code Role" w
+:code:\`${1:${VISUAL}}\`$0
+endsnippet
+
+
+# Directives
+# ==========
+
+snippet toc "Table of Contents" b
+.. toctree::
+   :caption: Contents
+   :maxdepth: 1
+
+   $0
+endsnippet
+
+snippet `m "Generic math Interpreted Text Role" w
+:math:\`$1\`$0
+endsnippet
+
+snippet m: "Math Block" b
+.. math::
+
+   $0
+endsnippet
+
