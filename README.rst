@@ -161,10 +161,13 @@ You might also want to install the following useful utilities-
 
    * - ``tmux``
      - Distro's package manager.
-     -
+     - ``tmux`` Dotfiles are provided by this repository under
+       :file:`.dotfiles/tmux`.  (This requires some setup.  Please see
+       :file:`.dotfiles/tmux/README.rst`.)
 
    * - ``initmux``
-     - Install from Git repo as mentioned on `iasj/IniTmux <https://github.com/iasj/IniTmux>`__.
+     - Install from Git repo as mentioned on
+       `iasj/IniTmux <https://github.com/iasj/IniTmux>`__.
      - Notes-
 
        + Might need to alter the first line to #!/usr/bin/env python3.
@@ -457,9 +460,6 @@ Please find the details of the dotfiles provided by this repository.
    * - Dependency
      - Notes
 
-   * - tmux
-     - Single file: .tmux.conf from this repo
-
    * - BASH
      - Files in :file:`.dotfiles/bash/` from this repo.  See
        `Install BASH Dotfiles`_.  See :file:`.dotfiles/bash/README.rst`.
@@ -474,6 +474,11 @@ Please find the details of the dotfiles provided by this repository.
 
    * - NeoVim
      - :file:`$HOME/.config/nvim/init.vim` from this repo.
+
+   * - ``tmux``
+     - ``tmux`` dotfiles are provided by the :file:`.dotfiles/tmux/tmux-config`
+       sub-repository.  Please set it up as per instructions in
+       :file:`.dotfiles/tmux/README.rst`.
 
    * - initmux
      - Files in :file:`.config/initmux/` from this repo.
