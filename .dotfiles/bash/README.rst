@@ -3,6 +3,9 @@
 BASH Dotfiles
 #############
 
+.. contents::
+   :local:
+
 **********
  Commands
 **********
@@ -28,8 +31,7 @@ Misc/All
 System
 ------
 
-.. list-table::
-   :caption: System Commands
+.. list-table:: System Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -54,8 +56,7 @@ System
 Development
 -----------
 
-.. list-table::
-   :caption: Development Commands
+.. list-table:: Development Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -100,8 +101,7 @@ fg (f)
 Jump
 ----
 
-.. list-table::
-   :caption: Jump Commands
+.. list-table:: Jump Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -112,6 +112,8 @@ Jump
 
    * - ``kdfgit``
      -
+     -
+
    * - ``scc``
      - ``base.sh``
      - Copy to Clipboard.
@@ -129,8 +131,7 @@ Jump
 Tool/Kit
 --------
 
-.. list-table::
-   :caption: Tool/Kit Commands
+.. list-table:: Tool/Kit Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -162,8 +163,7 @@ Tool/Kit
 ls Related
 ----------
 
-.. list-table::
-   :caption: ls Related Commands
+.. list-table:: ls Related Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -235,8 +235,7 @@ Dependencies
 Commands
 --------
 
-.. list-table::
-   :caption: Python Alias Space Commands
+.. list-table:: Python Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -263,10 +262,6 @@ Commands
        See ``python_venv_activate``. ::
 
          alias dve=python_venv_activate
-
-   * -
-     -
-     -
 
 
 Java Alias Space
@@ -296,8 +291,7 @@ Commands
 
 - Add $DOTFILES_SOFTWARE_STANDALONE/spark-2.4.0-bin-hadoop2.7/bin to PATH
 
-.. list-table::
-   :caption: Python Alias Space Commands
+.. list-table:: Python Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -326,8 +320,7 @@ Commands
 - Adds ``${DOTFILES_REPOS}/go/bin/`` to PATH.
 - Exports GOPATH
 
-.. list-table::
-   :caption: Python Alias Space Commands
+.. list-table:: Python Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -339,10 +332,6 @@ Commands
    * - ``goplay``
      - ``home.sh``
      - Function to open Go runtime in Docker for quick experiments in Golang.
-
-   * -
-     -
-     -
 
 
 R Alias Space
@@ -368,8 +357,7 @@ Dependencies
 Commands
 --------
 
-.. list-table::
-   :caption: Python Alias Space Commands
+.. list-table:: Python Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -387,19 +375,15 @@ Commands
      - Function to open a test website in Docker for quick experiments on
        basic web development.
 
-   * -
-     -
-     -
-
 
 *******************
  Utility Functions
 *******************
 
-Utility functions are implemented in :file:`utils/bashrc-utils.sh`` and :file:`utils/bashrcutils.py`.
+Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
+:file:`utils/bashrcutils.py`.
 
-.. list-table::
-   :caption: Utility Function (BASH)
+.. list-table:: Utility Function (BASH)
    :widths: auto
    :header-rows: 1
 
@@ -454,12 +438,8 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh`` and :file:`u
 
          rest es GET /_cat/indices?v'
 
-   * -
-     -
 
-
-.. list-table::
-   :caption: Utility Function (Python)
+.. list-table:: Utility Function (Python)
    :widths: auto
    :header-rows: 1
 
@@ -471,9 +451,6 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh`` and :file:`u
        ``sep`` character, remove ``token`` from the list.  Example::
   
         remove_token('a:b:c:b:d', 'b', ':')
-
-   * -
-     -
 
 
 *********************
@@ -568,9 +545,6 @@ Git Aliases
      - Review
      - (Deprecated: Not required anymore?)  Create diff for merged code review.
 
-   * -
-     -
-     -
 
 *************
 Painlessmerge
