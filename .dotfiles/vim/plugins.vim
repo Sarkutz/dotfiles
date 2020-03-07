@@ -30,6 +30,9 @@ let g:gruvbox_hls_cursor='red'  " Not getting reflected?
 colorscheme gruvbox
 set background=light    " Setting dark mode
 
+" Update highlighting for matched parenthesis to make it easier to see
+hi MatchParen cterm=bold ctermbg=none ctermfg=124 gui=bold guibg=#bdae93
+
 
 " Ultisnips Snippet Engine
 " ========================
