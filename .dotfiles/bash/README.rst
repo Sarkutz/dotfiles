@@ -133,9 +133,17 @@ Jump
      - Location
      - Description
 
-   * -
-     -
-     -
+   * - ``jgtd``
+     - ``home.sh``
+     - Jump to GTD directory.
+       Usage:: 
+       
+         jgtd [command]
+
+       where ``command`` can be-
+
+       - "t" or "ticker": Jump to todays ticker directory.'
+
 
 Tool/Kit
 --------

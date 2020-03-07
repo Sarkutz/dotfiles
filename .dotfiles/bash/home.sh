@@ -46,6 +46,27 @@ alias agtd='$FREEPLANE_PATH $DOTFILES_GTD/clarify.mm $DOTFILES_GTD/gtd-dash.mm &
 # Jump (j)
 # ========
 
+function jgtd() {
+    usage='jgtd: Jump to GTD directory.
+USAGE: jgtd [command]
+where ``command`` can be-
+- "t" or "ticker": Jump to todays ticker directory.'
+    if [[ $# -gt 1 ]]; then
+        echo "$usage"
+        return 1
+    fi
+    command="$1"
+
+    cd ~/private/gtd
+    if [[ $command == 't' ]] || [[ $command == 'ticker' ]]
+    then
+        cd ticker/$( date +%Y )/$( date +%m )
+        cd $( date +%d )
+    fi
+
+    ls
+}
+
 
 # Tools/Kit (k)
 # =============
