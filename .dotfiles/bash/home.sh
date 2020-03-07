@@ -40,7 +40,7 @@ else
     fi
 fi
 export FREEPLANE_PATH="$freeplane_path"
-alias gtd='$FREEPLANE_PATH $DOTFILES_GTD/clarify.mm $DOTFILES_GTD/gtd-dash.mm &> /dev/null & vim $DOTFILES_GTD/scratch.rst'
+alias agtd='$FREEPLANE_PATH $DOTFILES_GTD/clarify.mm $DOTFILES_GTD/gtd-dash.mm &> /dev/null & vim $DOTFILES_GTD/scratch.rst'
 
 
 # Jump (j)

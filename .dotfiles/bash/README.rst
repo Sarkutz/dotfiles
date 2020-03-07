@@ -28,6 +28,19 @@ and their prefixes are as follows:
 Misc/All
 --------
 
+.. list-table:: Misc/All Commands
+   :widths: auto
+   :header-rows: 1
+   :stub-columns: 1
+
+   * - Command
+     - Location
+     - Description
+
+   * - ``agtd``
+     - ``home.sh``
+     - Start GTD resources.
+
 System
 ------
 
@@ -40,6 +53,10 @@ System
      - Location
      - Description
 
+   * - ``sj``
+     - ``base.sh``
+     - ``jobs``
+
    * - ``sps``
      - ``base.sh``
      - Process Search.
@@ -49,9 +66,19 @@ System
 
        List all processes whose name matches ``process-name-substring``.
 
-   * - ``sj``
+   * - ``scc``
      - ``base.sh``
-     - ``jobs``
+     - Copy to Clipboard.
+       Usage::
+
+         echo 'copy this' | scc
+
+   * - ``spc``
+     - ``base.sh``
+     - Paste from Clipboard.
+       Usage::
+
+         spc
 
 Development
 -----------
@@ -76,13 +103,6 @@ Development
      - ``base.sh``
      - Check open VI.
 
-   * - ``dtag``
-     - ``base.sh``
-     - Create tags for code navigation.
-       Usage::
-
-         dtag
-
    * - ``dgd``
      - ``base.sh``
      - Perform grep on a directory.
@@ -90,9 +110,12 @@ Development
 
          dgd <dirname>
 
-   * - ``gtd``
-     - ``home.sh``
-     - Start GTD resources.
+   * - ``dtag``
+     - ``base.sh``
+     - Create tags for code navigation.
+       Usage::
+
+         dtag
 
 fg (f)
 ------
@@ -110,23 +133,9 @@ Jump
      - Location
      - Description
 
-   * - ``kdfgit``
+   * -
      -
      -
-
-   * - ``scc``
-     - ``base.sh``
-     - Copy to Clipboard.
-       Usage::
-
-         echo 'copy this' | scc
-
-   * - ``spc``
-     - ``base.sh``
-     - Paste from Clipboard.
-       Usage::
-
-         spc
 
 Tool/Kit
 --------
@@ -160,6 +169,11 @@ Tool/Kit
      - ``obsoleted.sh (from ``home.sh``)
      - Obsoleted.  ``run_offlineimap``, ``syncmail``
 
+   * - ``kdfgit``
+     - ``base.sh``
+     - Manipulate the Git bare repo containing all dotfiles.
+
+
 ls Related
 ----------
 
@@ -175,6 +189,7 @@ ls Related
    * - ``l``
      - ``base.sh``
      - Shortcut for ls
+
    * - ``ll``
      - ``base.sh``
      - List Less.  Lists ten most recent files.
@@ -183,11 +198,34 @@ ls Related
 Overrides
 =========
 
-base.sh
+.. list-table:: Overridden Commands
+   :widths: auto
+   :header-rows: 1
+   :stub-columns: 1
 
-rm -> trashit.sh
-cp, mv -> check for overwrite
-diff -> diff -u (unified diff)
+   * - Overridden Command
+     - Location
+     - Description
+
+   * - ``rm``
+     - ``base.sh``
+     - Move file to ~/.Trash instead of deleting it.
+
+       Alias to ``./trashit.sh``.
+
+   * - ``cp``
+     - ``base.sh``
+     - If the copy would overrite a file in the destination, 
+       print an error and return without copying.
+
+   * - ``mv``
+     - ``base.sh``
+     - If the move would overrite a file in the destination, 
+       print an error and return without moving.
+
+   * - ``diff``
+     - ``base.sh``
+     - Always using unified diff (``-u`` flag).
 
 
 **************
@@ -291,7 +329,7 @@ Commands
 
 - Add $DOTFILES_SOFTWARE_STANDALONE/spark-2.4.0-bin-hadoop2.7/bin to PATH
 
-.. list-table:: Python Alias Space Commands
+.. list-table:: Scala Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -320,7 +358,7 @@ Commands
 - Adds ``${DOTFILES_REPOS}/go/bin/`` to PATH.
 - Exports GOPATH
 
-.. list-table:: Python Alias Space Commands
+.. list-table:: Go Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -357,7 +395,7 @@ Dependencies
 Commands
 --------
 
-.. list-table:: Python Alias Space Commands
+.. list-table:: JavaScript Alias Space Commands
    :widths: auto
    :header-rows: 1
    :stub-columns: 1
@@ -366,9 +404,9 @@ Commands
      - Location
      - Description
 
-   * - ``kjsb``
+   * - ``jspp``
      - ``dev.sh`` (JavaScript Alias Space)
-     - JS Beautifier.  Alias to jsbeautify.py.
+     - JS Pretty Print (JS Beautifier).  Alias to jsbeautify.py.
 
    * - ``jsplay``
      - ``home.sh``
@@ -471,7 +509,9 @@ Git Dotfiles
 ############
 
 TODO
-- Painless mereg
+
+- Painless merge
+
 
 *********************
 Configure Git Dotfile

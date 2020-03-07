@@ -228,8 +228,8 @@ function act_r_alias_space() {
 function act_js_alias_space() {
   prefix_to_alias_spaces_variable js
 
-  # kjsb: JS Beautifier
-  alias kjsb='python $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin/jsbeautify.py'
+  # jspp: JS Pretty Print (JS Beautifier)
+  alias jspp='python $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin/jsbeautify.py'
 
   # jsplay: Open JS in Docker for quick experiments.
   function jsplay()
@@ -248,9 +248,10 @@ function act_js_alias_space() {
   function deact_js_alias_space() {
     remove_from_alias_space_variable js
 
-    unalias kjsb
+    unalias jspp
     unset -f jsplay
 
     unset -f deact_js_alias_space
   }
 }
+
