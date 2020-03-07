@@ -69,7 +69,7 @@ script.  The following can be configured by editing the script.
 Install Dependencies
 ====================
 
-Install `Dependencies`_.
+Please see the `Dependencies`_ section below.
 
 
 Setup Python
@@ -326,8 +326,8 @@ Finally, get the source and install it as follows::
   export PATH=$DOTFILES_REPOS/github.com/golang/go/bin:$PATH
 
 
-Install BASH
-============
+Install BASH Dotfiles
+=====================
 
 Add the following to :file:`~/.profile`::
 
@@ -360,8 +360,9 @@ Add the following to :file:`~/.bashrc`::
 Dependencies
 ============
 
-Different part of the dotfiles use the following dependencies.  It's
-recommended to install these dependencies before installing the dotfiles.
+Different part of the dotfiles use the following dependencies (see links
+in the following table).  It's recommended to install these dependencies
+before installing the dotfiles.
 
 .. list-table:: Dependencies
    :widths: auto
@@ -443,11 +444,6 @@ recommended to install these dependencies before installing the dotfiles.
      - `Dropbox website <https://www.dropbox.com/>`__
      - .
 
-   * -
-     -
-     -
-     -
-
 
 Dotfiles
 ========
@@ -466,7 +462,7 @@ Please find the details of the dotfiles provided by this repository.
 
    * - BASH
      - Files in :file:`.dotfiles/bash/` from this repo.  See
-       `Install BASH`_.  See :file:`.dotfiles/bash/README.rst`.
+       `Install BASH Dotfiles`_.  See :file:`.dotfiles/bash/README.rst`.
 
    * - Git
      - :file:`$HOME/.gitconfig` from this repo.
@@ -491,9 +487,6 @@ Please find the details of the dotfiles provided by this repository.
    * - Nginx localhost configuration
      - Single file :file:`.dotfiles/knowl/nginx-localhost.conf`.
 
-   * -
-     -
-
 
 Utilities
 =========
@@ -515,9 +508,6 @@ Please find the details of the utilities provided in this repository as follows.
 
    * - jsbeautify.py
      - Used in JavaScript Alias Space.
-
-   * -
-     -
 
 
 (Neo)Vim Plugins
@@ -693,4 +683,5 @@ TODO: List out conventions
 - TODO: Create SSH keys (any other keys?)
 - Should we deprecate building Python and Vim from sources.  This was only
   required for distros that didn't ship with Python 3 enabled in Vim?
+- TODO: Document .gitconfig
 
