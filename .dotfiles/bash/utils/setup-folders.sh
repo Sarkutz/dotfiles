@@ -113,10 +113,10 @@ function setup_home() {
     $MKDIR private pub
   
   cd "$PREFIX/private/" &&
-    $MKDIR knowl gtd anki family me
+    $MKDIR anki backups diary family gtd knowl me
   
   cd "$PREFIX/pub/" &&
-    $MKDIR www website/online/kbase website/online/blog
+    $MKDIR website www
   
   # MacOS Only
   [[ $(uname) == 'Darwin' ]] &&
@@ -134,3 +134,4 @@ function setup_home() {
 
 
 setup_home
+
