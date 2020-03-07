@@ -72,6 +72,9 @@ function! Recover()
 	diffsplit %.rec
 endfunction
 
+" Pretty print visually selected JSON
+vmap <leader>djpp :!jq '.'<CR>  
+
 
 " NeoVim
 " ======
