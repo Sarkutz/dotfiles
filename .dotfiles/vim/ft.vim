@@ -188,5 +188,15 @@ endfunction
 autocmd Filetype go call ConfigGo()
 
 
+" File type: crontab
+" ==================
+
+function! ConfigCrontab()
+	" Fix error 'crontab: temp file must be edited in place'
+	setlocal nobackup nowritebackup
+endfunction
+autocmd Filetype crontab call ConfigCrontab()
+
+
 augroup end
 
