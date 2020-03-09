@@ -28,14 +28,12 @@ source "${DOTFILES}/dev.sh"
 # gtd: Start GTD resources
 freeplane_path=
 which 'freeplane'
-if [[ $? -eq 0 ]]
-then
+if [[ $? -eq 0 ]]; then
     freeplane_path='freeplane'
 else
     # mac_freeplane_path='/Applications/Freeplane.app/Contents/MacOS/JavaAppLauncher'
     mac_freeplane_path='/Applications/Freeplane.app'
-    if [[ -e "$mac_freeplane_path" ]]
-    then
+    if [[ -e "$mac_freeplane_path" ]]; then
         freeplane_path="open $mac_freeplane_path"
     fi
 fi
@@ -50,66 +48,69 @@ function jgtd() {
     usage='jgtd: Jump to GTD directory.
 USAGE: jgtd [command]
 where ``command`` can be-
-- "t" or "ticker": Jump to todays ticker directory.'
-    if [[ $# -gt 1 ]]; then
-        echo "$usage"
-        return 1
-    fi
-    command="$1"
+- "t" or "ticker": Jump to todays ticker directory.
+- "f" or "find": Find for search_pattern in future/ and jump to matching dir
+  jgtd f spark'
 
     cd ~/private/gtd
-    if [[ $command == 't' ]] || [[ $command == 'ticker' ]]
-    then
+    [[ $# -eq 0 ]] && return 0
+
+    command="$1"
+
+    if [[ $command == 't' ]] || [[ $command == 'ticker' ]]; then
         cd ticker/$( date +%Y )/$( date +%m )
         cd $( date +%d )
+
+    elif [[ $command == 'f' ]] || [[ $command == 'find' ]]; then
+        if [[ $# -ne 2 ]]; then
+            echo "Insufficient parameters" >&2
+            echo "$usage" >&2
+            return 1
+        fi
+        command="$1"
+        search_term="$2"
+        find_and_jump 'future/' "$search_term"
+
+    else
+        echo 'Invalid command' >&2
+        echo "$usage" >&2
+        return 1
+
     fi
 
     ls -GCF
 }
 
+
 function jkno() {
     usage='jkno: Jump to knowl directory.
 USAGE: jkno [searchterm]
 If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
-    if [[ $# -gt 1 ]]; then
-        echo "$usage"
-        return 1
-    fi
     [[ $# -eq 1 ]] && search_term="$1"
 
     cd ~/private/knowl/source/
-    if [[ $# -eq 1 ]]
-    then
-        find_output="$( find . -type d -name '*'"$search_term"'*' )"
-        n_lines_find_output="$( echo "$find_output" | wc -l )"
-        echo "$find_output"
-        [[ $n_lines_find_output -eq 1 ]] && cd "$find_output" && ls -GCF
+    if [[ $# -eq 1 ]]; then
+        find_and_jump ./ "$search_term"
     else
         cd comp
         ls -GCF
     fi
 }
 
+
 # Jump to diary
 alias jdia="cd ~/private/diary/source/$( date +%Y )/$( date +%m ) && ls -GCF"
+
 
 function jme() {
     usage='jme: Jump to me workspace directory.
 USAGE: jme [searchterm]
 If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
-    if [[ $# -gt 1 ]]; then
-        echo "$usage"
-        return 1
-    fi
-    search_term="$1"
+    [[ $# -eq 1 ]] && search_term="$1"
 
     cd ~/me/
-    if [[ $# -eq 1 ]]
-    then
-        find_output="$( find knowl/ proj*  -type d -name '*'"$search_term"'*' )"
-        n_lines_find_output="$( echo "$find_output" | wc -l )"
-        echo "$find_output"
-        [[ $n_lines_find_output -eq 1 ]] && cd "$find_output" && ls -GCF
+    if [[ $# -eq 1 ]]; then
+        find_and_jump "knowl/ proj*" "$search_term"
     fi
 }
 

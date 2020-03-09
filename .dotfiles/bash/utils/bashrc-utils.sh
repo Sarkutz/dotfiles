@@ -203,3 +203,24 @@ EXAMPLE: rest es GET /_cat/indices?v'
         echo "$response"
     fi
 }
+
+
+function find_and_jump() {
+    usage='find_and_jump: Find for path matching search_term under find_root,
+and jump to it if single matching path is found.
+USAGE: find_and_jump <find_root> <searchterm>
+If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+    if [[ $# -ne 2 ]]; then
+        echo "Insufficient parameters" >&2
+        echo "$usage" >&2
+        return 1
+    fi
+    find_root="$1"
+    search_term="$2"
+
+    find_output="$( find $find_root -type d -name '*'"$search_term"'*' )"
+    n_lines_find_output="$( echo "$find_output" | wc -l )"
+    echo "$find_output"
+    [[ $n_lines_find_output -eq 1 ]] && cd "$find_output" && ls -GCF
+}
+
