@@ -93,9 +93,8 @@ function setup_base() {
     $MKDIR resources
   
   cd "$PREFIX/resources/" &&
-    $MKDIR software/installed/bin software/standalone software/pyenvs software/archive/vm \
-        books/articles books/papers books/non-fiction books/fiction books/comp books/misc \
-        repos me
+    $MKDIR data me repos \
+        software/archive/vm software/installed/bin software/pyenvs software/standalone
 
   cp $DOTFILES/../resources/trashit.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/jsbeautify.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
