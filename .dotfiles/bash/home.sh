@@ -64,7 +64,7 @@ where ``command`` can be-
         cd $( date +%d )
     fi
 
-    ls
+    ls -GCF
 }
 
 function jkno() {
@@ -80,15 +80,18 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     cd ~/private/knowl/source/
     if [[ $# -eq 1 ]]
     then
-        find . -type d -name '*'"$search_term"'*'
+        find_output="$( find . -type d -name '*'"$search_term"'*' )"
+        n_lines_find_output="$( echo "$find_output" | wc -l )"
+        echo "$find_output"
+        [[ $n_lines_find_output -eq 1 ]] && cd "$find_output" && ls -GCF
     else
         cd comp
-        ls
+        ls -GCF
     fi
 }
 
 # Jump to diary
-alias jdia="cd ~/private/diary/source/$( date +%Y )/$( date +%m ) && ls"
+alias jdia="cd ~/private/diary/source/$( date +%Y )/$( date +%m ) && ls -GCF"
 
 function jme() {
     usage='jme: Jump to me workspace directory.
@@ -103,7 +106,10 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     cd ~/me/
     if [[ $# -eq 1 ]]
     then
-        find knowl/ proj*  -type d -name '*'"$search_term"'*'
+        find_output="$( find knowl/ proj*  -type d -name '*'"$search_term"'*' )"
+        n_lines_find_output="$( echo "$find_output" | wc -l )"
+        echo "$find_output"
+        [[ $n_lines_find_output -eq 1 ]] && cd "$find_output" && ls -GCF
     fi
 }
 
