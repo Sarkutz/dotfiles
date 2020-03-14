@@ -10,3 +10,19 @@ This repository is taken from `Sarkutz/tmux-config
 `samoshkin/tmux-config <https://github.com/samoshkin/tmux-config>`__.
 Install it as per instructions :file:`./tmux-config/README.rst`.
 
+.. list-table:: Common Utilities
+   :widths: auto
+   :header-rows: 1
+
+   * - Utility
+     - Installation Source
+     - Notes
+
+   * - ``initmux``
+     - Install from Git repo as mentioned on
+       `iasj/IniTmux <https://github.com/iasj/IniTmux>`__.
+     - Notes-
+
+       + Might need to alter the first line to #!/usr/bin/env python3.
+       + inittmux's config files are provided by this repo in ``.config/initmux/*.yaml``.
+

@@ -5,27 +5,57 @@
 
 .. |git-repo-url| replace:: https://github.com/Sarkutz/dotfiles.git
 
+.. contents:: Contents
 
 **************
  Introduction
 **************
 
-The motivation of this repository is to allow moving my configurations from
-one machines to another in a simple and reproducable manner.
+The motivation of this repository is to enable setting up a new system and to
+share configuration changes between systems in a simple and reproducible
+manner.
+
+To this end, this repository bundles all my dotfiles into a single repository.
+Dotfiles for individual software are stored in separate sub-folders (under the
+``.dotfiles/`` directory) inside this repository.
+
+This document describes the entire system setup (how to install this
+repository on a new system; what common software to install; etc.) .  It
+also lists the various dotfiles provided by this repository and points to the
+appropriate sub-folder for details.
 
 
-**************
- Installation
-**************
+***********************
+Repository Dependencies
+***********************
 
-Install these dotfiles by performing the following steps in order.
+The following dependencies need to be installed to fetch this repository to
+the system.
 
-.. contents:: Installation Steps
-   :local:
-   
+.. list-table:: Repository Dependencies
+   :widths: auto
+   :header-rows: 1
+   :stub-columns: 1
 
-Install Dotfiles
-================
+   * - Dependency
+     - Used by
+     - Installation Source
+     - Notes
+
+   * - Git
+     - Required to clone this repository.
+     - System's package manager.
+     -
+
+Using individual dotfiles (after they have been copied to the system) requires
+installing additional dependencies.  As these are different for different
+dotfiles, they are documented in the corresponding sub-folder.  Please see the
+`Dotfiles Provided`_ section in this document for links to further details.
+
+
+********************
+Install All Dotfiles
+********************
 
 Clone and install as follows (`source
 <https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/>`__)::
@@ -46,39 +76,202 @@ Clone and install as follows (`source
   kdfgit config status.showUntrackedFiles no
   kdfgit config status.submodulesummary 1
 
-Setup Folders
--------------
 
-Optionally, run :file:`utils/setup-folders.sh` to create the folder hierarchy. ::
+*******************
+Activating Dotfiles
+*******************
+
+Using individual dotfiles (after they have been copied to the system) requires
+installing additional dependencies.  Please see the `Dotfiles Provided`_
+section in this document for links to further details.
+
+Setup Folders
+=============
+
+Optionally, run :file:`.dotfiles/bash/utils/setup-folders.sh` to create the
+folder hierarchy. ::
 
   export DOTFILES=$HOME/.dotfiles/bash/
   bash $DOTFILES/utils/setup-folders.sh
 
-If required, configure :file:`utils/setup-folders.sh` before running the
+If required, configure :file:`setup-folders.sh` before running the
 script.  The following can be configured by editing the script.
 
 - Call appropriate ``setup_*`` function at the end of the file.  Default:
   :code:`setup_home`.
 - Set :code:`ONLY_EXPORT_PATHS` variable to 1, if we want to export the
-  env. vars.  without creating the paths.
-- Set PREFIX variable, if required.  Default: :code:`$HOME` env. var.
+  environment variables without creating the paths.
+- Set PREFIX variable, if required.  Default: :code:`$HOME` environment
+  variables.
 - Set DRY_RUN to 1 to check what changes the script would make.  (No changes
   are made during dry run.)
 
 
-Install Dependencies
-====================
+************
+System Setup
+************
 
-Please see the `Dependencies`_ section below.
+I use the following software on all systems.  
+
+Some of these software are dependencies of different dotfiles (in which case
+the dependency is listed in the "Used by" column).
+
+.. list-table:: System Softwares (All Systems)
+   :widths: auto
+   :header-rows: 1
+   :stub-columns: 1
+
+   * - Software
+     - Used by
+     - Installation Source
+     - Notes
+
+   * - ``tmux``
+     - 
+     - System's package manager.
+     - ``tmux`` dotfiles provided by this repository.  Please see 
+       `Dotfiles Provided`_.
+
+   * - (Neo)Vim
+     - ``e`` alias
+     - Systems's package manager.
+     - See `Install NeoVim`_.  ``vim`` dotfiles provided by this repository.
+       Please see `Dotfiles Provided`_.
+
+   * - Anaconda/Miniconda Python Distribution
+     - Python Alias Space
+     - `Anaconda <https://docs.anaconda.com/anaconda/install/>`__/
+       `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`__.
+
+       For example, download the Miniconda installation script and execute as
+       follows::
+
+          bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $DOTFILES_SOFTWARE_STANDALONE/miniconda3
+
+     - No need to initialise Miniconda.  This can be done by calling
+       ``act_conda`` (Defined in the Python Alias Space).  I prefer
+       Miniconda.
+
+   * - Python
+     - Python Alias Space
+     - Systems's package manager.  Alternatively install from sources as
+       mentioned in `Install Python (from sources)`_.
+     -
+
+   * - Java Development Kit
+     - System and several utilities (like Freeplane)
+     - System's package manager.
+     -
+
+   * - Golang
+     - Go Alias Space
+     - From sources.  See `Install Go (from sources)`_.
+     -
+
+   * - Sphinx Document Generator
+     -
+     - PyPI
+     - Install into a python venv (perhaps the doc venv) using pip.
+
+   * - Freeplane
+     - ``gtd`` alias in home.sh; GTD workflow
+     - System's package manager.
+     -
+
+       + Copy gtd-dash.mm and revisit.mm to $DOTFILES_GTD
+       + Copy template-dreams-topic.mm to appropriate directory
+       + Setup Freeplane keyboard shortcuts.
+
+   * - Dropbox
+     - GTD workflow (required to sync GTD)
+     - `Dropbox website <https://www.dropbox.com/>`__
+     -
+
+   * - Anki
+     -
+     - System's package manager
+     - https://apps.ankiweb.net
+
+       Import your old Anki decks, if required.
+
+   * - ``tree``
+     -
+     - System's package manager
+     -
+
+   * - ``curl`` and ``wget``
+     -
+     - System's package manager
+     -
+
+   * - ``jq``
+     - Various utilities (base.sh)
+     - Systems's package manager.  `Website
+       <https://stedolan.github.io/jq/>`__.
+     - .
 
 
-Setup Python
-============
+.. list-table:: System Softwares (Linux-only)
+   :widths: auto
+   :header-rows: 1
+   :stub-columns: 1
 
-- Ensure Anaconda/Miniconda is installed as per `Install Dependencies`_.
+   * - Software
+     - Used by
+     - Installation Source
+     - Notes
+
+   * - ``xclip``
+     - ``scc`` and ``spc`` aliases in base.sh
+     - Systems's package manager.  Repo: `astrand/xclip
+       <https://github.com/astrand/xclip>`__
+     - Not required on Mac OS X, we use ``pbcopy`` and ``pbpaste`` commands
+       instead of ``xclip``.
+
+   * - redshift
+     -
+     - System's package manager
+     - Linux only.  Not required on Mac.
+
+
+.. list-table:: System Softwares (Mac-only)
+   :widths: auto
+   :header-rows: 1
+   :stub-columns: 1
+
+   * - Utility
+     - Used by
+     - Installation Source
+     - Notes
+
+   * - ``brew``
+     - Various BASH dotfiles.
+     - `Homebrew website <https://brew.sh/>`__
+     - Occurances of "system package manager" means Homebrew on Mac.
+
+   * - Karabiner Elements
+     -
+     - `Karabiner-Elements GitHub page
+       <https://github.com/pqrs-org/Karabiner-Elements>`__
+     -
+
+   * - Jumpcut
+     -
+     - System's package manager
+     - For Mac OS only::
+
+         brew cask install jumpcut
+
+
+************
+Python Setup
+************
+
+- Ensure Anaconda/Miniconda is installed as per `System Setup`_.
+
 
 Install Python Utilities
-------------------------
+========================
 
 Ensure that the following are also installed
 
@@ -96,8 +289,9 @@ Ensure that the following are also installed
 
       pip install virtualenv
 
+
 Install Python (from sources)
------------------------------
+=============================
 
 .. TODO: Deprectate this???
 
@@ -118,7 +312,7 @@ Install using the `usual process to build from sources
 
 
 Install Python Virtual Environments
------------------------------------
+===================================
 
 Setup Python virtual enviroments (for ``dve``)::
 
@@ -131,102 +325,14 @@ Setup Python virtual enviroments (for ``dve``)::
     xargs -I '{}' bash -c "python3 -m venv '{}' && cd '{}' && source bin/activate && mv '../{}.requirements.txt' requirements.txt && pip install -r requirements.txt"
 
 .. note::
-
    If you get "Could not find a version that satisfies the requirement" error,
    try changing the version of the problematic package in the problematic
-   :file:`$DOTFILES_PYENVS/*.requirements.txt` file.
+   :file:`DOTFILES_PYENVS/*.requirements.txt` file.
 
 
-Install Crontab
-===============
-
-Add the following to the current user's crontab::
-
-   # Sync GTD using Dropbox (hourly)
-   0 * * * * rsync -ru --exclude '*.sw?' ~/private/gtd/ ~/Dropbox/gtd/ && rsync -ru --exclude '*.sw?' ~/Dropbox/gtd/ticker/ ~/private/gtd/ticker/
-
-
-Install Utilities (Optional)
-============================
-
-You might also want to install the following useful utilities-
-
-.. list-table:: Common Utilities
-   :widths: auto
-   :header-rows: 1
-
-   * - Utility
-     - Installation Source
-     - Notes
-
-   * - ``tmux``
-     - Distro's package manager.
-     - ``tmux`` Dotfiles are provided by this repository under
-       :file:`.dotfiles/tmux`.  (This requires some setup.  Please see
-       :file:`.dotfiles/tmux/README.rst`.)
-
-   * - ``initmux``
-     - Install from Git repo as mentioned on
-       `iasj/IniTmux <https://github.com/iasj/IniTmux>`__.
-     - Notes-
-
-       + Might need to alter the first line to #!/usr/bin/env python3.
-       + inittmux's config files are provided by this repo in ``.config/initmux/*.yaml``.
-
-   * - ``tree``
-     - System's package manager
-     -
-
-   * - ``curl`` and ``wget``
-     - System's package manager
-     -
-
-   * - Sphinx Document Generator
-     - PyPI
-     - Install into a python venv (perhaps the doc venv) using pip.
-
-   * - Anki
-     - System's package manager
-     - https://apps.ankiweb.net
-
-       Import your old Anki decks, if required.
-
-   * -
-     -
-     -
-
-.. list-table:: Linux-only Utilities
-   :widths: auto
-   :header-rows: 1
-
-   * - Utility
-     - Installation Source
-     - Notes
-
-   * - redshift
-     - System's package manager
-     - Linux only.  Not required on Mac.
-
-
-.. list-table:: Mac-only Utilities
-   :widths: auto
-   :header-rows: 1
-
-   * - Utility
-     - Installation Source
-     - Notes
-
-   * - Karabiner Elements
-     - `Karabiner-Elements GitHub page
-       <https://github.com/pqrs-org/Karabiner-Elements>`__
-     -
-
-   * - Jumpcut
-     - System's package manager
-     - For Mac OS only::
-
-         brew cask install jumpcut
-
+**************
+(Neo)Vim Setup
+**************
 
 Install Vim (from sources)
 ==========================
@@ -257,6 +363,7 @@ Install using the `usual process to build from sources
 Note that "config-dir" option should point to the folder containing
 ``config.c``.
 
+
 Install NeoVim
 ==============
 
@@ -278,12 +385,9 @@ follows (there are already done when you checkout this repo and run
     let g:python3_host_prog="$DOTFILES_PYENVS/nvim/bin/python3"
 
 
-Install (Neo)Vim Dependencies/Plugins
-=====================================
-
-See :file:`.dotfiles/vim/README.rst` for instructions on installing vim
-dependencies.
-
+********
+Go Setup
+********
 
 Install Go (from sources)
 =========================
@@ -311,184 +415,87 @@ Finally, get the source and install it as follows::
   export PATH=$DOTFILES_REPOS/github.com/golang/go/bin:$PATH
 
 
-Install BASH Dotfiles
-=====================
+*************
+Crontab Setup
+*************
 
-Add the following to :file:`~/.profile`::
+Add the following to the current user's crontab::
 
-  # ~/.profile is called for interactive login shells.
-
-  # if running bash
-  if [ -n "$BASH_VERSION" ]; then
-      # include .bashrc if it exists
-      if [ -f "$HOME/.bashrc" ]; then
-          . "$HOME/.bashrc"
-      fi
-  fi
-
-Add the following to :file:`~/.bashrc`::
-
-  # ~/.bashrc is called for interactive non-login shells.
-
-  export DOTFILES=$HOME/.dotfiles/bash/
-  source ${DOTFILES}/home.sh
-
-::
-
-  source ~/.profile
+   # Sync GTD using Dropbox (hourly)
+   0 * * * * rsync -ru --exclude '*.sw?' ~/private/gtd/ ~/Dropbox/gtd/ && rsync -ru --exclude '*.sw?' ~/Dropbox/gtd/ticker/ ~/private/gtd/ticker/
 
 
-****************
- Setup Overview
-****************
+*******************
+Repository Overview
+*******************
 
-Dependencies
-============
-
-Different part of the dotfiles use the following dependencies (see links
-in the following table).  It's recommended to install these dependencies
-before installing the dotfiles.
-
-.. list-table:: Dependencies
-   :widths: auto
-   :header-rows: 1
-
-   * - Dependency
-     - Used by
-     - Installation Source
-     - Notes
-
-   * - Git
-     - Needed to clone dotfiles.
-     - Distro's package manager.
-     -
-
-   * - (Neo)Vim
-     - ``e`` alias
-     - Distro's package manager.
-     - See `Install NeoVim`_.
-
-   * - Anaconda/Miniconda Python Distribution
-     - Python Alias Space
-     - `Anaconda <https://docs.anaconda.com/anaconda/install/>`__/
-       `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`__.
-
-       For example, download the Miniconda installation script and execute as
-       follows::
-
-          bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $DOTFILES_SOFTWARE_STANDALONE/miniconda3
-
-     - No need to initialise Miniconda.  This can be done by calling
-       ``act_conda`` (Defined in the Python Alias Space).  Prefer Miniconda?
-
-   * - Python
-     - Python Alias Space
-     - Distro's package manager.  Alternatively install from sources as
-       mentioned in `Install Python (from sources)`_.
-     -
-
-   * - Java Development Kit
-     - System and utilities like Freeplane.
-     - System's package manager.
-     -
-
-   * - Freeplane
-     - ``gtd`` alias in home.sh; GTD workflow
-     - System's package manager.
-     -
-
-       + Copy gtd-dash.mm and revisit.mm to $DOTFILES_GTD
-       + Copy template-dreams-topic.mm to appropriate directory
-       + Setup Freeplane keyboard shortcuts.
-
-   * - Golang
-     - Go Alias Space
-     - From sources.  See `Install Go (from sources)`_.
-     -
-
-   * - ``xclip``
-     - ``scc`` and ``spc`` aliases in base.sh
-     - Distro's package manager.  Repo: `astrand/xclip
-       <https://github.com/astrand/xclip>`__
-     - Required for Linux.  On Mac OS X, we use ``pbcopy`` and ``pbpaste``
-       commands instead of ``xclip``.  Hence, ``xclip`` is not required.
-
-   * - ``jq``
-     - Various utilities (base.sh)
-     - Distro's package manager.  `Website
-       <https://stedolan.github.io/jq/>`__.
-     - .
-
-   * - ``brew``
-     - Various BASH dotfiles.
-     - `Homebrew website <https://brew.sh/>`__
-     - Occurances of "system package manager" means Homebrew on Mac.
-
-   * - Dropbox
-     - Required to sync GTD.
-     - `Dropbox website <https://www.dropbox.com/>`__
-     - .
-
-
-Dotfiles
-========
+Dotfiles Provided
+=================
 
 Please find the details of the dotfiles provided by this repository.
 
-.. list-table:: Configuration Files (dotfiles)
+.. list-table:: Dotfiles Provided
    :widths: auto
    :header-rows: 1
+   :stub-columns: 1
 
-   * - Dependency
+   * - Dotfiles
+     - Documentation
      - Notes
 
    * - BASH
-     - Files in :file:`.dotfiles/bash/` from this repo.  See
-       `Install BASH Dotfiles`_.  See :file:`.dotfiles/bash/README.rst`.
+     - :file:`.dotfiles/bash/`
+     - 
 
-   * - Git
-     - :file:`$HOME/.gitconfig` from this repo.
-
-   * - Vim
-     - :file:`.vimrc` (which sources files in :file:`.dotfiles/vim/`), files in
-       :file:`.vim/` (including plugins as subrepositories in
-       :file:`.vim/bundle/`).
-
-   * - NeoVim
-     - :file:`$HOME/.config/nvim/init.vim` from this repo.
-
-   * - ``tmux``
-     - ``tmux`` dotfiles are provided by the :file:`.dotfiles/tmux/tmux-config`
-       sub-repository.  Please set it up as per instructions in
-       :file:`.dotfiles/tmux/README.rst`.
+   * - tmux
+     - :file:`.dotfiles/tmux/`
+     -
 
    * - initmux
-     - Files in :file:`.config/initmux/` from this repo.
+     - :file:`.config/initmux/`
+     -
 
-   * - Golang
-     - Workspace directory structure.  Anything else?
+   * - Git
+     - :file:`.dotfiles/git/`
+     -
 
-   * - Node.js ???
-     - TODO: Single file :file:`.npmrc`???
+   * - Ctags
+     - :file:`.dotfiles/ctags/`
+     -
+
+   * - Vim
+     - :file:`.dotfiles/vim/`
+     - 
+
+   * - NeoVim
+     - :file:`.dotfiles/vim/`, :file:`$HOME/.config/nvim/init.vim`
+     -
 
    * - Nginx localhost configuration
      - Single file :file:`.dotfiles/knowl/nginx-localhost.conf`.
+     -
+
+   * - Window Manager
+     - :file:`.dotfiles/wm/`
+     - 
 
 
-Utilities
-=========
+Utilities Provided
+==================
 
 Please find the details of the utilities provided in this repository as follows.
 
-.. list-table:: Utilities in this repo
+.. list-table:: System Utilities Provided
    :widths: auto
    :header-rows: 1
+   :stub-columns: 1
 
    * - Utility
      - Notes
 
    * - trashit.sh
-     -
+     - ``rm`` is aliased to trashit.sh to ensure that we move files to the
+       trash instead of deleting it.
 
    * - painlessmerge.sh
      - Required by :file:`$HOME/.gitconfig`.
@@ -496,10 +503,13 @@ Please find the details of the utilities provided in this repository as follows.
    * - jsbeautify.py
      - Used in JavaScript Alias Space.
 
+   * - Python Virtual Environments
+     - Python Virtual Environments are stored in
+       :file:`.dotfiles/resources/pyenvs/`.
 
 
-Repository Creation Details
-===========================
+Repository Creation
+===================
 
 This repository was created as follows::
 
@@ -518,20 +528,20 @@ This repository was created as follows::
       fatal: GIT_WORK_TREE (or --work-tree=<directory>) not allowed without specifying GIT_DIR (or --git-dir=<directory>)
 
 
-Conventions
-===========
+Repository Conventions
+======================
 
-- All Dotfiles are documented in a ``README.rst`` in the same folder as the Dotfile.
+- All Dotfiles are documented in a ``README.rst`` in the same folder as the
+  dotfile.
 
-  - TODO: Document .gitconfig
   - See :file:`.dotfiles/bash/README.rst`.
 
-- Key paths are stored in enviroment variables having the form $DOTFILES_*.
+- Key paths are stored in environment variables having the form $DOTFILES_*.
   For example, install software from source in the prefix
   $DOTFILES_SOFTWARE_INSTALL_PREFIX.  These variables are exported in
   path-info.sh.  (path-info.sh is generated by setup-folders.sh).
 
-TODO: List out conventions
+.. TODO: List out all conventions
 
 
 *************
@@ -548,8 +558,11 @@ TODO: List out conventions
 - Can we use rg instead of grep?
 - mutt setup???
 - TODO: Golang: org. and add util dir
+- Add go workspace dir hierarchy?
+- Add ~/.npmrc?
 - TODO: Create SSH keys (any other keys?)
 - Should we deprecate building Python and Vim from sources.  This was only
   required for distros that didn't ship with Python 3 enabled in Vim?
-- TODO: Document .gitconfig
+- Document vim dotfiles in .dotfiles/vim/README.rst
+- Get venvs working on linux and mac
 

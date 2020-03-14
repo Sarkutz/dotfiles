@@ -19,6 +19,15 @@ Please see the `Dependencies`_ section below.
 Setup Overview
 **************
 
+Files-
+
+- :file:`.vimrc` (which sources files in :file:`.dotfiles/vim/`)
+- Files in :file:`.vim/` (including plugins as subrepositories in
+  :file:`.vim/bundle/`).
+
+NeoVim: :file:`$HOME/.config/nvim/init.vim` from this repo.
+
+
 Classification
 ==============
 
