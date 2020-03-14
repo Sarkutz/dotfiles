@@ -28,10 +28,9 @@ function! ConfigRst()
 	setlocal tabstop=3 softtabstop=3 shiftwidth=3 expandtab
 	
 	" Double Title: `` :Dtitle [=-] ``
-	command! -nargs=1 Dtitle normal! yyPpI <ESC>k:s/./<args>/g<CR>A<args><args><ESC>jj:s/./<args>/g<CR>A<args><args><ESC>:nohlsearch<CR>
-	
+	" command! -nargs=1 Dtitle normal! yyPpI <ESC>k:s/./<args>/g<CR>A<args><args><ESC>jj:s/./<args>/g<CR>A<args><args><ESC>:nohlsearch<CR>
 	" Single Title: `` :Stitle [=-~] ``
-	command! -nargs=1 Stitle normal yyp:s/./<args>/g<CR>:nohlsearch<CR>
+	" command! -nargs=1 Stitle normal yyp:s/./<args>/g<CR>:nohlsearch<CR>
 
 	" rst2conflu then copy to clipboard: `` :ToConflu ``
 	command! ToConflu !bash $DOTFILES/../vim/utils/rst2conflu.sh %
