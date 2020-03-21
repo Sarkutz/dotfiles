@@ -52,7 +52,7 @@ where ``command`` can be-
 - "f" or "find": Find for search_pattern in future/ and jump to matching dir
   jgtd f spark'
 
-    cd ~/private/gtd
+    cd $DOTFILES_GTD
     [[ $# -eq 0 ]] && return 0
 
     command="$1"
@@ -88,7 +88,7 @@ USAGE: jkno [searchterm]
 If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     [[ $# -eq 1 ]] && search_term="$1"
 
-    cd ~/private/knowl/source/
+    cd ${DOTFILES_KNOWL}/source/
     if [[ $# -eq 1 ]]; then
         find_and_jump ./ "$search_term"
     else
@@ -99,7 +99,7 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
 
 
 # Jump to diary
-alias jdia="cd ~/private/diary/source/$( date +%Y )/$( date +%m ) && ls -GCF"
+alias jdia="cd ${DOTFILES_DIARY}/source/$( date +%Y )/$( date +%m ) && ls -GCF"
 
 
 function jme() {
@@ -108,7 +108,7 @@ USAGE: jme [searchterm]
 If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     [[ $# -eq 1 ]] && search_term="$1"
 
-    cd ~/me/
+    cd $DOTFILES_PERSONAL_WORKSPACE
     if [[ $# -eq 1 ]]; then
         find_and_jump "knowl/ proj*" "$search_term"
     fi
