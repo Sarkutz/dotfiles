@@ -118,6 +118,15 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
         ls -GCF
     fi
 }
+function _complete_jkno() {
+    local prev cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    dirs="$( find $DOTFILES_KNOWL/source/ -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
+    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+}
+complete -F _complete_jkno jkno
 
 
 # Jump to diary
@@ -135,6 +144,16 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
         find_and_jump "knowl/ proj*" "$search_term"
     fi
 }
+function _complete_jme() {
+    local prev cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    dirs="$( find $DOTFILES_PERSONAL_WORKSPACE/knowl/ $DOTFILES_PERSONAL_WORKSPACE/proj* \
+        -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
+    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+}
+complete -F _complete_jme jme
 
 # Tools/Kit (k)
 # =============

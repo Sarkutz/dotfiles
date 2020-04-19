@@ -212,6 +212,8 @@ Jump
          If ``searchterm`` is provided, ``find`` for path that matches
          ``*searchterm*``.'
 
+       Completion supported.
+
    * - ``jdia``
      - ``home.sh``
      - Jump to diary
@@ -222,12 +224,14 @@ Jump
    * - ``jme``
      - ``home.sh``
      - Jump to me workspace directory.
-      Usage::
-      
-         jme [searchterm]
+       Usage::
+       
+          jme [searchterm]
 
-         If ``searchterm`` is provided, ``find`` for path that matches
-         ``*searchterm*``.'
+          If ``searchterm`` is provided, ``find`` for path that matches
+          ``*searchterm*``.'
+
+       Completion supported.
 
 Tool/Kit
 --------
