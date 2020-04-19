@@ -247,12 +247,14 @@ function act_js_alias_space() {
   # jspp: JS Pretty Print (JS Beautifier)
   alias jspp='python $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin/jsbeautify.py'
 
-  # jsplay: Open JS in Docker for quick experiments.
-  function jsplay()
-  {
+  function jsplay() {
+      usage='jsplay: Open JS in Docker for quick experiments.
+USAGE: jsplay'
+
       port=${1:-8090}
       path='$DOTFILES_WWW/try'
       dest_path='/usr/share/nginx/html'
+
       cd "$path"
       echo "Mounted $path to $dest_path in container"
       docker container run -d -p ${port}:80 -v "${path}:${dest_path}" nginx

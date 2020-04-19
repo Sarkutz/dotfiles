@@ -489,7 +489,7 @@ Commands
      - JS Pretty Print (JS Beautifier).  Alias to jsbeautify.py.
 
    * - ``jsplay``
-     - ``home.sh``
+     - ``dev.sh``
      - Function to open a test website in Docker for quick experiments on
        basic web development.
 
