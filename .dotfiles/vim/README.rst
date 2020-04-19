@@ -225,6 +225,16 @@ The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
      - Searching
      - Clear search; redraw screen.
 
+   * - ``<C-Q>``
+     - ``base.vim``
+     - Shortcuts
+     - Close window (:command:`:q`)
+
+   * - ``<leader>tn``
+     - ``base.vim``
+     - Shortcuts
+     - Tab New: Open new (empty) tab.
+
    * - ``<leader>c``
      - ``base.vim``
      - Shortcuts
@@ -269,6 +279,16 @@ The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
      - ``plugins.vim``
      - Shortcuts
      - LeaderF: Search using ripgrep and fuzzy search over it's output.
+
+   * - ``<leader>gs``
+     - ``plugins.vim``
+     - Shortcuts
+     - vim-fugitive: Shortcut for :code:`:Gstatus`.
+
+   * - ``<leader>go``
+     - ``plugins.vim``
+     - Shortcuts
+     - vim-fugitive: Shortcut for :code:`:Git ok`.
 
    * - ``<leader>si``
      - ``plugins.vim``
