@@ -168,7 +168,7 @@ where-
 - `api-id`: Identifies the REST endpoint.  Values-
   - es: ElasticSearch on localhost
   - kib: Kibana on localhost
-- `post_data`: ASSUME: Post data is in JSON format.
+- `post_data` (optional): ASSUME: Post data is in JSON format.
 EXAMPLE: rest es GET /_cat/indices?v'
     if [[ $# -ne 3 ]] && [[ $# -ne 4 ]]; then
         echo "$usage"
@@ -181,7 +181,7 @@ EXAMPLE: rest es GET /_cat/indices?v'
     elif [[ $api_id == 'kib' ]]; then
         endpoint='http://localhost:5601'
     else
-        endpoint=
+        endpoint="$api_id"
     fi
     if [[ -z $endpoint ]]; then
         echo "Invalid endpoint: api_id=$api_id" >&2
@@ -203,6 +203,7 @@ EXAMPLE: rest es GET /_cat/indices?v'
         echo "$response"
     fi
 }
+complete -W "es kib" rest
 
 
 function find_and_jump() {

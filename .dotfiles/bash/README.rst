@@ -548,6 +548,7 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 
          - es: ElasticSearch on localhost
          - kib: Kibana on localhost
+         - Any valid HTTP endpoint
 
        - `post_data`: ASSUME: Post data is in JSON format.
 
