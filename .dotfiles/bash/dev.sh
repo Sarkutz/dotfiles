@@ -109,10 +109,14 @@ function act_python_alias_space() {
 
   function python_venv_activate() {
       env_name="$1"
-      env_path="$DOTFILES_PYENVS"
+      env_path="${2:-DOTFILES_PYENVS}"
   
-      usage='python_venv_activate: Activate `env_name` Python Virtual Environment.
-  USAGE: python_venv_activate <env-name>'
+      usage='python_venv_activate: Activate `env_name` Python Virtual
+Environment.
+USAGE: python_venv_activate <env_name> [env_dir]
+- env_name: Name of venv folder
+- env_dir (optional): Path to the directory containing the venv (default: 
+  $DOTFILES_PYENVS)'
       if [[ $# -eq 0 ]]
       then
           echo "$usage"
@@ -123,8 +127,13 @@ function act_python_alias_space() {
       source "${env_path}/${env_name}/bin/activate"
   }
 
-  # dve (Virtual Env): Activate Python Virtual Env.
-  alias dve=python_venv_activate
+  function _complete_python_venv_activate() {
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    venv_list="$( ls $DOTFILES_PYENVS )"
+    COMPREPLY=( $( compgen -W "$venv_list" -- $cur ) )
+  }
+  complete -F _complete_python_venv_activate python_venv_activate
 
 
   function deact_python_alias_space() {
@@ -134,7 +143,8 @@ function act_python_alias_space() {
     unset -f act_conda
 
     unset -f python_venv_activate
-    unalias dve
+    complete -r python_venv_activate
+    unset -f _complete_python_venv_activate
 
     unset -f deact_python_alias_space
   }

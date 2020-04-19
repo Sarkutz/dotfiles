@@ -356,22 +356,15 @@ Commands
 
    * - ``python_venv_activate``
      - ``dev.sh`` (Python Alias Space)
-     - Activate `env_name` Python Virtual Environment.  Usage::
+     - Activate ``env_name`` Python Virtual Environment.  Usage::
 
-         python_venv_activate <env-name>'
+         python_venv_activate <env-name> [env_dir]
 
-       Virtual Envs are searched at ``$DOTFILES_PYENVS``.
+       - ``env_name``: Name of venv folder
+       - ``env_dir`` (optional): Path to the directory containing the virtual
+         environment (default: ``$DOTFILES_PYENVS``)
 
-   * - ``dve``
-     - ``base.sh``
-     - Activate Python Virtual Environment.
-       Usage::
-
-         dve <venv-name>
-
-       See ``python_venv_activate``. ::
-
-         alias dve=python_venv_activate
+       Completions for environment name in ``$DOTFILES_PYENVS`` supported.
 
 
 Java Alias Space
