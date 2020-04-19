@@ -556,6 +556,7 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 
          rest es GET /_cat/indices?v'
 
+       Supports completions for ``api-id``.
 
 .. list-table:: Utility Function (Python)
    :widths: auto
