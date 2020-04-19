@@ -41,6 +41,33 @@ alias sps='ps aux | grep -v grep - | grep'
 # sj (Jobs)
 alias sj='jobs'
 
+# scc (Copy Clipboard) and spc (Paste Clipboard)
+if [[ $(uname) == 'Darwin' ]]; then
+    alias scc=pbcopy
+    alias spc=pbpaste
+else
+    alias scc='xclip -i -selection clipboard'
+    alias spc='xclip -o -selection clipboard'
+fi
+
+# slackm
+function slackm() {
+    usage='slackm: Send message as a Slack notification
+USAGE: slackm <message>
+Example:
+  export "SECRET_SLACK_INCOMMING_WEBHOOK_URL=..."
+  slackm "notify me about this"
+Note: message is sent as a JSON string.'
+    if [[ $# -ne 1 ]]; then
+        echo "$usage"
+        return 1
+    fi
+    message="$1"
+
+    curl -X POST -H 'Content-type: application/json' \
+        --data "{\"text\": \"$message\"}" "$SECRET_SLACK_INCOMMING_WEBHOOK_URL"
+}
+
 # BASH
 # ----
 
@@ -180,18 +207,6 @@ alias f='fg'
 
 # dfgit: dotfiles git: Manipulate the Git bare repo containing all dotfiles
 alias kdfgit='git --git-dir=${HOME}/.dotfiles.git/ --work-tree=${HOME}'
-
-if [[ $(uname) == 'Darwin' ]]; then
-    # scc (Copy Clipboard)
-    alias scc=pbcopy
-    # spc (Paste Clipboard)
-    alias spc=pbpaste
-else
-    # scc (Copy Clipboard)
-    alias scc='xclip -i -selection clipboard'
-    # spc (Paste Clipboard)
-    alias spc='xclip -o -selection clipboard'
-fi
 
 
 # kd (Docker)

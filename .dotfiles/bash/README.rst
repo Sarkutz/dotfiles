@@ -118,6 +118,22 @@ System
 
          spc
 
+   * - ``slackm``
+     - ``base.sh``
+     - Send ``message`` as a Slack notification.  It sends the notification
+       to the  Slack incomming webhook URL in
+       ``$SECRET_SLACK_INCOMMING_WEBHOOK_URL``.
+       Usage::
+
+          slackm <message>
+
+       Example::
+
+          # export "SECRET_SLACK_INCOMMING_WEBHOOK_URL=..."
+          slackm "notify me about this"
+
+        Note: message is sent as a JSON string.
+
 Development
 -----------
 
