@@ -60,6 +60,7 @@ where ``command`` can be-
     if [[ $command == 't' ]] || [[ $command == 'ticker' ]]; then
         cd ticker/$( date +%Y )/$( date +%m )
         cd $( date +%d )
+        ls -GCF
 
     elif [[ $command == 'f' ]] || [[ $command == 'find' ]]; then
         if [[ $# -ne 2 ]]; then
@@ -77,8 +78,6 @@ where ``command`` can be-
         return 1
 
     fi
-
-    ls -GCF
 }
 
 
