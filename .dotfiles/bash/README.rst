@@ -4,7 +4,6 @@ BASH Dotfiles
 #############
 
 .. contents::
-   :local:
 
 ************
 Dependencies
@@ -36,6 +35,9 @@ Add the following to :file:`~/.bashrc`::
 
   export DOTFILES=$HOME/.dotfiles/bash/
   source ${DOTFILES}/home.sh
+
+Note update the ``source`` command to source appropriate file as per
+target enviroment.
 
 ::
 
