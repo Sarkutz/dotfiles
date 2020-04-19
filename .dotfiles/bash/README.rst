@@ -417,9 +417,10 @@ Commands
      - Location
      - Description
 
-   * -
-     -
-     -
+   * - ``dnew_spark_proj``
+     - ``dev.sh``
+     - Alias to create a new Spark Scala project using Giter8 template from
+       https://github.com/Sarkutz/spark-scala.g8 .
 
 
 Go Alias Space
