@@ -448,7 +448,7 @@ Commands
      - Description
 
    * - ``goplay``
-     - ``home.sh``
+     - ``dev.sh``
      - Function to open Go runtime in Docker for quick experiments in Golang.
 
 

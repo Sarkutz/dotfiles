@@ -199,11 +199,13 @@ function act_go_alias_space() {
   # No need to set GOROOT as it is already set to the root used during the
   # Go build.
 
-  # goplay: Open Go in Docker for quick experiments.
-  function goplay()
-  {
+  function goplay() {
+      usage='goplay: Open Go in Docker for quick experiments
+USAGE: goplay'
+
       path='$DOTFILES_PERSONAL_WORKSPACE/sandbox/prog-lang/golang/codes/docker-volume'
       dest_path='/go/src'
+
       cd "$path"
       echo "Mounted $path to $dest_path in container"
       docker container run -it -v "${path}:${dest_path}" golang:alpine
