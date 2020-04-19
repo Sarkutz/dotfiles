@@ -48,21 +48,21 @@ function jgtd() {
     usage='jgtd: Jump to GTD directory.
 USAGE: jgtd [command]
 where ``command`` can be-
-- "t" or "ticker": Jump to todays ticker directory.
-- "f" or "find": Find for search_pattern in future/ and jump to matching dir
-  jgtd f spark'
+- "tickler": Jump to todays tickler directory.
+- "future": Find for search_pattern in future/ and jump to matching dir
+Example: jgtd f spark'
 
     cd $DOTFILES_GTD
     [[ $# -eq 0 ]] && return 0
 
     command="$1"
 
-    if [[ $command == 't' ]] || [[ $command == 'ticker' ]]; then
-        cd ticker/$( date +%Y )/$( date +%m )
+    if [[ $command == 'tickler' ]]; then
+        cd tickler/$( date +%Y )/$( date +%m )
         cd $( date +%d )
         ls -GCF
 
-    elif [[ $command == 'f' ]] || [[ $command == 'find' ]]; then
+    elif [[ $command == 'future' ]]; then
         if [[ $# -ne 2 ]]; then
             echo "Insufficient parameters" >&2
             echo "$usage" >&2
@@ -79,6 +79,29 @@ where ``command`` can be-
 
     fi
 }
+function _complete_jgtd() {
+    commands="tickler future"
+
+    local prev cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    case "$prev" in
+        tickler)
+            return 0
+            ;;
+        future)
+            dirs="$( find $DOTFILES_GTD/future/ -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
+            COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+            return 0
+            ;;
+        *)
+            ;;
+    esac
+
+    COMPREPLY=( $(compgen -W "$commands" -- "$cur" ) )
+}
+complete -F _complete_jgtd jgtd
 
 
 function jkno() {

@@ -196,7 +196,8 @@ Jump
 
        where ``command`` can be-
 
-       - "t" or "ticker": Jump to todays ticker directory.'
+       - "tickler": Jump to todays tickler directory.'
+       - "future": Find for search_pattern in future/ and jump to matching dir
 
    * - ``jkno``
      - ``home.sh``
