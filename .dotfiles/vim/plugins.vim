@@ -85,6 +85,10 @@ endfunction
 " Fugitive Git Integration
 " ========================
 
+" Shortcuts-
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>go :Git ok<CR>
+
 " Delete buffers created by Fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
