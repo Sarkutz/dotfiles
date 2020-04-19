@@ -364,7 +364,8 @@ Commands
        - ``env_dir`` (optional): Path to the directory containing the virtual
          environment (default: ``$DOTFILES_PYENVS``)
 
-       Completions for environment name in ``$DOTFILES_PYENVS`` supported.
+       Supports completions for virtual environment name (only for virtual
+       environments in ``$DOTFILES_PYENVS``).
 
 
 Java Alias Space
