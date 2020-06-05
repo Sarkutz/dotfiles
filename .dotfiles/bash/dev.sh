@@ -109,7 +109,7 @@ function act_python_alias_space() {
 
   function python_venv_activate() {
       env_name="$1"
-      env_path="${2:-DOTFILES_PYENVS}"
+      env_path="${2:-$DOTFILES_PYENVS}"
   
       usage='python_venv_activate: Activate `env_name` Python Virtual
 Environment.
