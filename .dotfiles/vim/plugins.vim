@@ -25,10 +25,11 @@ let g:gruvbox_bold='1'
 let g:gruvbox_underline='1'
 let g:gruvbox_undercurl='1'
 let g:gruvbox_italic='1'
-let g:gruvbox_hls_cursor='red'  " Not getting reflected?
+" let g:gruvbox_hls_cursor='red'  " Not getting reflected?
 " let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
 set background=light    " Setting dark mode
+nnoremap <C-L> :call gruvbox#hls_toggle()<CR><C-L>
 
 " Update highlighting for matched parenthesis to make it easier to see
 hi MatchParen cterm=bold ctermbg=none ctermfg=124 gui=bold guibg=#bdae93

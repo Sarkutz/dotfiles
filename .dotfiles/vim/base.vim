@@ -52,7 +52,6 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-nnoremap <C-L> :nohlsearch<CR><C-L>
 
 
 " Shortcuts
