@@ -209,8 +209,10 @@ complete -W "es kib" rest
 function find_and_jump() {
     usage='find_and_jump: Find for path matching search_term under find_root,
 and jump to it if single matching path is found.
-USAGE: find_and_jump <find_root> <searchterm>
-If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+USAGE: find_and_jump <find_root> <search_term>
+If ``search_term`` is provided, ``find`` for path that matches ``*search_term*``.
+However, if a single exact match (``search_term``) is found then, jump to it
+directly (instead of looking for other superstring matches).'
     if [[ $# -ne 2 ]]; then
         echo "Insufficient parameters" >&2
         echo "$usage" >&2
@@ -219,9 +221,20 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     find_root="$1"
     search_term="$2"
 
+    find_exact_output="$( find $find_root -type d -name "$search_term" )"
+    n_lines_find_output="$( echo "$find_exact_output" | wc -l )"
+    [[ $n_lines_find_output -eq 1 ]] && cd "$find_exact_output" && ls -GCF && return 0
+
     find_output="$( find $find_root -type d -name '*'"$search_term"'*' )"
-    n_lines_find_output="$( echo "$find_output" | wc -l )"
     echo "$find_output"
-    [[ $n_lines_find_output -eq 1 ]] && cd "$find_output" && ls -GCF
+
+    n_lines_find_output="$( echo "$find_output" | wc -l )"
+    if [[ $n_lines_find_output -eq 1 ]]; then
+        cd "$find_output" &&
+            ls -GCF
+    else
+        echo '==== EXACT MATCHES ===='
+        echo "$find_exact_output"
+    fi
 }
 

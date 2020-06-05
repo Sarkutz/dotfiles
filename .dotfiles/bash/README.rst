@@ -583,6 +583,18 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 
        Supports completions for ``api-id``.
 
+   * - :code:`find_and_jump`
+     - Find paths matching :code:`search_term` under :code:`find_root`,
+       and jump to it if single matching path is found.  Syntax::
+
+         find_and_jump <find_root> <search_term>
+
+       If :code:`search_term` is provided, :code:`find` for path that matches
+       :code:`*search_term*`.  However, if a single exact match
+       (:code:`search_term`) is found then, jump to it directly (instead of
+       looking for other superstring matches).
+
+
 .. list-table:: Utility Function (Python)
    :widths: auto
    :header-rows: 1
