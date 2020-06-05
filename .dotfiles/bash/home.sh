@@ -130,7 +130,7 @@ complete -F _complete_jkno jkno
 
 
 # Jump to diary
-alias jdia="cd ${DOTFILES_DIARY}/source/$( date +%Y )/$( date +%m ) && ls -GCF"
+alias 'jdia=cd ${DOTFILES_DIARY}/source/$( date +%Y )/$( date +%m ) && ls -GCF'
 
 
 function jme() {
