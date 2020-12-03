@@ -73,6 +73,19 @@ Dependencies
      - `BurntSushi/ripgrep <https://github.com/BurntSushi/ripgrep>`__
      -
 
+   * - Setup Locale
+     - .
+     - .
+     - If we get the following error::
+
+          ValueError: unknown locale: UTF-8
+
+       Ensure that the following are enabled in BASH dotfiles::
+
+          export LC_ALL=en_US.UTF-8
+          export LANG=en_US.UTF-8
+          # export LC_CTYPE=en_US.UTF-8  # if required
+
 Plugin Dependencies
 -------------------
 

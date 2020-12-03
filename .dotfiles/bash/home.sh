@@ -133,9 +133,9 @@ complete -F _complete_jkno jkno
 alias 'jdia=cd ${DOTFILES_DIARY}/source/$( date +%Y )/$( date +%m ) && ls -GCF'
 
 
-function jme() {
-    usage='jme: Jump to me workspace directory.
-USAGE: jme [searchterm]
+function jash() {
+    usage='jash: Jump to ashim workspace directory.
+USAGE: jash [searchterm]
 If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
     [[ $# -eq 1 ]] && search_term="$1"
 
@@ -144,7 +144,7 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
         find_and_jump "knowl/ proj*" "$search_term"
     fi
 }
-function _complete_jme() {
+function _complete_jash() {
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
@@ -153,7 +153,31 @@ function _complete_jme() {
         -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
     COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
 }
-complete -F _complete_jme jme
+complete -F _complete_jash jash
+
+
+function jcli() {
+    usage='jcli: Jump to clinic workspace directory.
+USAGE: jcli [searchterm]
+If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+    [[ $# -eq 1 ]] && search_term="$1"
+
+    cd $DOTFILES_CLINIC_WORKSPACE
+    if [[ $# -eq 1 ]]; then
+        find_and_jump "knowl/ proj*" "$search_term"
+    fi
+}
+function _complete_jcli() {
+    local prev cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    dirs="$( find $DOTFILES_PERSONAL_WORKSPACE/knowl/ $DOTFILES_PERSONAL_WORKSPACE/proj* \
+        -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
+    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+}
+complete -F _complete_jcli jcli
+
 
 # Tools/Kit (k)
 # =============

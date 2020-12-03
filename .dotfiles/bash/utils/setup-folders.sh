@@ -56,8 +56,9 @@ export DOTFILES_GTD="$PREFIX/private/gtd/"
 export DOTFILES_KNOWL="$PREFIX/private/knowl/"
 export DOTFILES_DIARY="$PREFIX/private/diary/"
 export DOTFILES_PYENVS="$PREFIX/resources/software/pyenvs/"
-export DOTFILES_WWW="$PREFIX/pub/www/"
-export DOTFILES_PERSONAL_WORKSPACE="$PREFIX/me"
+export DOTFILES_WWW="$PREFIX/public/www/"
+export DOTFILES_PERSONAL_WORKSPACE="$PREFIX/ashim"
+export DOTFILES_CLINIC_WORKSPACE="$PREFIX/clinic"
 # Note: FREEPLANE_PATH exported by home.sh
 EOF
 source $PATH_INFO
@@ -95,7 +96,7 @@ function setup_base() {
     $MKDIR resources
   
   cd "$PREFIX/resources/" &&
-    $MKDIR data me repos \
+    $MKDIR data ashim repos \
         software/archive/vm software/installed/bin software/pyenvs software/standalone
 
   cp $DOTFILES/../resources/trashit.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
@@ -111,26 +112,28 @@ function setup_home() {
     mkdir_if_not_exists downloads
   
   cd "$PREFIX" &&
-    $MKDIR private pub
+    $MKDIR private public
   
   cd "$PREFIX/private/" &&
-    $MKDIR anki backups diary family gtd knowl me
+    $MKDIR gtd knowl anki diary zotero ghosh/ashim
   
-  cd "$PREFIX/pub/" &&
+  cd "$PREFIX/public/" &&
     $MKDIR website www
   
   # MacOS Only
   [[ $(uname) == 'Darwin' ]] &&
-    cd "$PREFIX/pub/" &&
+    cd "$PREFIX/public/" &&
     $LN "$PREFIX/Public/" share
   
-  cd "$PREFIX/pub/website/" &&
+  cd "$PREFIX/public/website/" &&
     $LN "$PREFIX/private/knowl/" &&
     $MKDIR online/blog online/kbase
 
 
   cd "$PREFIX/" &&
-    create_workspace me
+    create_workspace ashim
+  cd "$PREFIX/" &&
+    create_workspace clinic
 }
 
 

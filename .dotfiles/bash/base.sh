@@ -74,6 +74,11 @@ Note: message is sent as a JSON string.'
 # Stop terminal flow control
 stty -ixon -ixoff
 
+# To fix "ValueError: unknown locale: UTF-8" Python error
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+# export LC_CTYPE=en_US.UTF-8  # if required
+
 
 # Set command prompt (PS)
 source "${DOTFILES}/utils/bash-powerline.sh"

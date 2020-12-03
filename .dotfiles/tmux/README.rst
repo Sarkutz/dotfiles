@@ -18,6 +18,20 @@ Install it as per instructions :file:`./tmux-config/README.rst`.
      - Installation Source
      - Notes
 
+   * - Powerline Pached Fonts
+     - `powerline/fonts <https://github.com/powerline/fonts>`__
+     - tmux-config uses Powerline arrow glyphs.  Hence, we need to install
+       "Powerline Pached Fonts".
+
+       Installation::
+
+          git clone https://github.com/powerline/fonts &&
+              cd fonts && ./install.sh
+
+       Once installed, update the Terminal font setting to use any "Powerline"
+       font (say "Roberto Mono for Powerline").  Then check whether
+       ``separator_powerline_left`` is displaying properly in ``~/.tmux.conf``.
+
    * - ``initmux``
      - Install from Git repo as mentioned on
        `iasj/IniTmux <https://github.com/iasj/IniTmux>`__.

@@ -221,12 +221,12 @@ Jump
 
          jdia
 
-   * - ``jme``
+   * - ``jash``
      - ``home.sh``
-     - Jump to me workspace directory.
+     - Jump to ashim workspace directory.
        Usage::
        
-          jme [searchterm]
+          jash [searchterm]
 
           If ``searchterm`` is provided, ``find`` for path that matches
           ``*searchterm*``.'

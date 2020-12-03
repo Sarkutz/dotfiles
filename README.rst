@@ -158,14 +158,20 @@ the dependency is listed in the "Used by" column).
        mentioned in `Install Python (from sources)`_.
      -
 
-   * - Java Development Kit
+   * - Java Development Kit (JDK)
      - System and several utilities (like Freeplane)
      - System's package manager.
-     -
+     - For Mac OS, please check the post-installation notice from brew for
+       instruction on how to complete the setup.
 
    * - Golang
      - Go Alias Space
      - From sources.  See `Install Go (from sources)`_.
+     -
+
+   * - Node.js and NPM
+     - .
+     - System's package manager.
      -
 
    * - Sphinx Document Generator
@@ -193,6 +199,16 @@ the dependency is listed in the "Used by" column).
      - https://apps.ankiweb.net
 
        Import your old Anki decks, if required.
+
+   * - Zotero
+     -
+     - System's package manager
+     -
+
+   * - FireFox/Web Browser
+     -
+     - System's package manager
+     -
 
    * - ``tree``
      -
@@ -279,15 +295,24 @@ Ensure that the following are also installed
   package manager, activate Conda's Python installation, or `Install Python
   (from sources)`_ as detailed below.
 
+  Mac OS's Python3 has some issues: see `this
+  <https://stackoverflow.com/a/64946518>`__.  Hence, install python3 via brew.
+
 - Python2: Python3 has pip and virtualenv built-in.  However, for Python2,
   these must be installed.
 
   - ``pip``: Install using `get-pip.py
     <https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py>`__
 
+    For Mac OS::
+
+       sudo easy_install pip
+       sudo pip install --ungrade pip
+
   - ``virtualenv``::
 
       pip install virtualenv
+      sudo /usr/bin/easy_install virtualenv  # For Mac OS
 
 
 Install Python (from sources)
@@ -319,6 +344,10 @@ Setup Python virtual enviroments (for ``dve``)::
   export DOTFILES=$HOME/.dotfiles/bash/
   source $DOTFILES/utils/path-info.sh
 
+  # First setup nvimpy2 as it need Python 2.
+  virtualenv nvimpy2 && cd nvimpy2 && source bin/activate && mv '../nvimpy2.requirements.txt' requirements.txt && pip install -r requirements.txt
+
+  # Then setup Python 3 virtual envs.
   cd "$DOTFILES_PYENVS" && \
     ls *.requirements.txt | \
     xargs -I '{}' bash -c "echo '{}' | cut -d. -f1" | \
