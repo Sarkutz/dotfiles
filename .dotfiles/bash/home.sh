@@ -49,7 +49,7 @@ function jgtd() {
 USAGE: jgtd [command]
 where ``command`` can be-
 - "tickler": Jump to todays tickler directory.
-- "future": Find for search_pattern in future/ and jump to matching dir
+- "dreams": Find for search_pattern in dreams/ and jump to matching dir
 Example: jgtd f spark'
 
     cd $DOTFILES_GTD
@@ -62,7 +62,7 @@ Example: jgtd f spark'
         cd $( date +%d )
         ls -GCF
 
-    elif [[ $command == 'future' ]]; then
+    elif [[ $command == 'dreams' ]]; then
         if [[ $# -ne 2 ]]; then
             echo "Insufficient parameters" >&2
             echo "$usage" >&2
@@ -70,7 +70,7 @@ Example: jgtd f spark'
         fi
         command="$1"
         search_term="$2"
-        find_and_jump 'future/' "$search_term"
+        find_and_jump 'dreams/' "$search_term"
 
     else
         echo 'Invalid command' >&2
@@ -80,7 +80,7 @@ Example: jgtd f spark'
     fi
 }
 function _complete_jgtd() {
-    commands="tickler future"
+    commands="tickler dreams"
 
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
@@ -90,8 +90,8 @@ function _complete_jgtd() {
         tickler)
             return 0
             ;;
-        future)
-            dirs="$( find $DOTFILES_GTD/future/ -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
+        dreams)
+            dirs="$( find $DOTFILES_GTD/dreams/ -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
             COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
             return 0
             ;;

@@ -148,6 +148,8 @@ the dependency is listed in the "Used by" column).
 
           bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $DOTFILES_SOFTWARE_STANDALONE/miniconda3
 
+       Create Conda environments and install packages as required.
+
      - No need to initialise Miniconda.  This can be done by calling
        ``act_conda`` (Defined in the Python Alias Space).  I prefer
        Miniconda.
@@ -170,28 +172,52 @@ the dependency is listed in the "Used by" column).
      -
 
    * - Node.js and NPM
-     - .
+     -
      - System's package manager.
      -
 
-   * - Sphinx Document Generator
+   * - `Syncthing <https://syncthing.net/downloads/>`__
+     - File sync/share, sync GTD, backup
+     - System's package manager.
+     - `Web GUI <http://127.0.0.1:8384>`__
+
+   * - `Borg Backups <https://borgbackup.readthedocs.io/>`__
+     - Backups.
+     - System's package manager.
      -
-     - PyPI
-     - Install into a python venv (perhaps the doc venv) using pip.
+
+   * - `KeepassXC <https://keepassxc.org/download/>`__
+     - Password manager.
+     - System's package manager.
+     -
+
+   * - Nginx
+     -
+     - System's package manager.
+     -
 
    * - Freeplane
      - ``gtd`` alias in home.sh; GTD workflow
      - System's package manager.
-     -
+     - If required, configure Freeplane as follows:
 
-       + Copy gtd-dash.mm and revisit.mm to $DOTFILES_GTD
-       + Copy template-dreams-topic.mm to appropriate directory
-       + Setup Freeplane keyboard shortcuts.
+       - Create template
 
-   * - Dropbox
-     - GTD workflow (required to sync GTD)
-     - `Dropbox website <https://www.dropbox.com/>`__
-     -
+       - Config
+
+         - Env
+
+           - "Save folding" "if map is changed"
+
+         - Behaviour
+
+           - Disable "Fold on click inside"
+           - "On key type": "Do nothing"
+           - "Selection method": "By click"
+
+       - Tools > Assign Hotkeys
+
+         - Icons: C for check mark; X for cross mark; Z for questions mark
 
    * - Anki
      -
@@ -203,7 +229,11 @@ the dependency is listed in the "Used by" column).
    * - Zotero
      -
      - System's package manager
-     -
+     - Configure Zotero as follows:
+
+       - Set "Preferences > Advanced > Data Directory Location" to
+         :file:`~/private/zotero/`
+       - If required, turn OFF Syncing in "Preferences > Sync".
 
    * - FireFox/Web Browser
      -
@@ -448,10 +478,7 @@ Finally, get the source and install it as follows::
 Crontab Setup
 *************
 
-Add the following to the current user's crontab::
-
-   # Sync GTD using Dropbox (hourly)
-   0 * * * * rsync -ru --exclude '*.sw?' ~/private/gtd/ ~/Dropbox/gtd/ && rsync -ru --exclude '*.sw?' ~/Dropbox/gtd/ticker/ ~/private/gtd/ticker/
+None.
 
 
 *******************
@@ -500,9 +527,15 @@ Please find the details of the dotfiles provided by this repository.
      - :file:`.dotfiles/vim/`, :file:`$HOME/.config/nvim/init.vim`
      -
 
-   * - Nginx localhost configuration
-     - Single file :file:`.dotfiles/knowl/nginx-localhost.conf`.
-     -
+   * - Knowledge bases
+     - :file:`.dotfiles/knowl/`
+     - + Nginx localhost configuration:
+         :file:`.dotfiles/knowl/nginx-localhost.conf` (update paths as per need)
+       + :file:`.dotfiles/knowl/index.html`
+       + :file:`.dotfiles/knowl/phpinfo.php`
+
+       :file:`index.html` and :file:`phpinfo.php` are copied to path in
+       :code:`$DOTFILES_WWW` env var.
 
    * - Window Manager
      - :file:`.dotfiles/wm/`

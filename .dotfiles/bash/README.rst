@@ -197,10 +197,10 @@ Jump
        where ``command`` can be-
 
        - "tickler": Jump to todays tickler directory.'
-       - "future": Find for search_pattern in future/ and jump to matching dir
+       - "dreams": Find for search_pattern in dreams/ and jump to matching dir
 
        Supports completions for ``command`` and ``search_pattern`` (in
-       ``future``).
+       ``dreams``).
 
    * - ``jkno``
      - ``home.sh``

@@ -108,7 +108,17 @@ nmap <leader>sc <Plug>SlimeConfig
 
 " NeoVim
 " ------
-let g:slime_target = "neovim"
+" let g:slime_target = "neovim"
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+" ":"       means current window, current pane (a reasonable default)
+" ":i"      means the ith window, current pane
+" ":i.j"    means the ith window, jth pane
+" "h:i.j"   means the tmux session where h is the session identifier
+"           (either session name or number), the ith window and the jth pane
+" "%i"      means i refers the pane's unique id
+" "{token}" one of tmux's supported special tokens, like "{last}"
+
 nmap <leader>si :echo b:terminal_job_id<CR>
 
 

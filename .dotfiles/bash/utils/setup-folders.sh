@@ -103,6 +103,8 @@ function setup_base() {
   cp $DOTFILES/../resources/jsbeautify.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/painlessmerge.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
+  cp $DOTFILES/../knowl/index.html $DOTFILES_WWW
+  cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
 }
 
 function setup_home() {
@@ -118,12 +120,11 @@ function setup_home() {
     $MKDIR gtd knowl anki diary zotero ghosh/ashim
   
   cd "$PREFIX/public/" &&
-    $MKDIR website www
+    $MKDIR website www file-share
   
   # MacOS Only
   [[ $(uname) == 'Darwin' ]] &&
-    cd "$PREFIX/public/" &&
-    $LN "$PREFIX/Public/" share
+    sudo /bin/mv Public/ public
   
   cd "$PREFIX/public/website/" &&
     $LN "$PREFIX/private/knowl/" &&
