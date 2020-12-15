@@ -61,13 +61,6 @@ Dependencies
      - Installation Source
      - Notes
 
-   * - ``rst2confluence.py``
-     - ``:ToConflu`` command in ``ft.vim`` (which uses
-       ``utils/rst2conflu.sh``)
-     - Github: `kenichiro22/rst2confluence
-       <https://github.com/kenichiro22/rst2confluence>`__
-     - ``pip install`` did not work properly.
-
    * - ``rg``
      - ``<leader>rg`` LeaderF command in ``plugins.vim``.
      - `BurntSushi/ripgrep <https://github.com/BurntSushi/ripgrep>`__
@@ -330,12 +323,10 @@ The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
      - Class
      - Description
 
-   * - ``:ToConflu``
-     - ``ft.vim``
-     - Dev.
-     - Compile reST file in current buffer and copy the output to the
-       clipboard.
-
+   * -
+     -
+     -
+     -
 
 .. list-table:: Shortcuts Provided (Go)
    :widths: auto

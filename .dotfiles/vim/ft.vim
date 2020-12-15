@@ -3,7 +3,6 @@
 " Usage: Source this file.  source base.vim in ~/.vimrc
 " Dependencies:
 " - vim-go Plugin (already checked into this repo)
-" - rst2confluence (already checked into this repo)
 
 
 augroup Vimrc
@@ -32,8 +31,6 @@ function! ConfigRst()
 	" Single Title: `` :Stitle [=-~] ``
 	" command! -nargs=1 Stitle normal yyp:s/./<args>/g<CR>:nohlsearch<CR>
 
-	" rst2conflu then copy to clipboard: `` :ToConflu ``
-	command! ToConflu !bash $DOTFILES/../vim/utils/rst2conflu.sh %
 endfunction
 autocmd Filetype rst call ConfigRst()
 

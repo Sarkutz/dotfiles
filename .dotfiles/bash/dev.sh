@@ -127,6 +127,24 @@ USAGE: python_venv_activate <env_name> [env_dir]
       source "${env_path}/${env_name}/bin/activate"
   }
 
+    function toconflu() {
+        usage='toconflu: Convert specified Sphinx path to Confluence storage
+format and copy it to the clipboard.  This must be executed from the directory
+containing Sphinxs Makefile.
+USAGE: toconflu sphinx/path/to/file/wo/ext
+Example: toconflu projfg/foo/doc/conflu/proj-dash'
+
+        if [[ $# -ne 1 ]]
+        then
+            echo "$usage"
+            return 1
+        fi
+        file_path="$1"
+
+        sphinx-build -b confluence source/ build/confluence source/${file_path}.rst \
+            && cat build/confluence/${file_path}.conf | scc
+    }
+
   function _complete_python_venv_activate() {
     local cur
     cur="${COMP_WORDS[COMP_CWORD]}"
@@ -145,6 +163,8 @@ USAGE: python_venv_activate <env_name> [env_dir]
     unset -f python_venv_activate
     complete -r python_venv_activate
     unset -f _complete_python_venv_activate
+
+    unset -f toconflu
 
     unset -f deact_python_alias_space
   }

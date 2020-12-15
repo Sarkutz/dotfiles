@@ -365,6 +365,9 @@ Dependencies
 - Ensure Python 3 is installed and the binary is available in the $PATH.
 - Ensure Virtual Environments are installed at ``$DOTFILES_PYENVS``.
 - ``jsbeautifier`` module (required for ``kjsb``): pip install jsbeautifier
+- Before using ``toconflu`` function, ensure that ``sphinx_build`` is in the
+  path.  The Sphinx project must have ``sphinxcontrib.confluencebuilder``
+  Sphinx extension installed and configured.
 
 Commands
 --------
@@ -390,6 +393,18 @@ Commands
 
        Supports completions for virtual environment name (only for virtual
        environments in ``$DOTFILES_PYENVS``).
+
+   * - ``toconflu``
+     - ``dev.sh`` (Python Alias Space)
+     - Convert specified Sphinx path to Confluence storage format and copy it
+       to the clipboard.  This must be executed from the directory containing
+       Sphinx's Makefile.  Usage::
+
+          toconflu sphinx/path/to/file/wo/ext
+
+       Example::
+
+          toconflu projfg/foo/doc/conflu/proj-dash
 
 
 Java Alias Space
