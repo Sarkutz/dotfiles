@@ -61,6 +61,12 @@ Files provided-
    * - Hotkey
      - Description
 
+   * - :kbd:`<C-cmd-enter>`
+     - (Space) Move focus to next space.
+
+   * - :kbd:`<C-cmd-shift-enter>`
+     - (Space) Move focus to previous space.
+
    * - :kbd:`<C-cmd-n>`
      - (Space) Switch layout to "float".
 

@@ -109,10 +109,22 @@
 # Yabai: Space
 # ============
 
+# Focus
+ctrl + cmd - space: yabai -m space --focus next
+ctrl + cmd + shift - space: yabai -m space --focus prev
+
 # Select layout mode
 ctrl + cmd - n: yabai -m space --layout float
 ctrl + cmd - m: yabai -m space --layout bsp
 # yabai -m space --layout stack
+
+# Mirror
+ctrl + cmd - x : yabai -m space --mirror x-axis
+ctrl + cmd - y : yabai -m space --mirror y-axis
+# Rotate windows (anti-clockwise)
+ctrl + cmd - r : yabai -m space --rotate 90
+# Rotate split (Window)
+ctrl + cmd + shift - r : yabai -m window --toggle split
 
 # Create/Destroy space
 # ctrl + cmd - u : yabai -m space --create && yabai -m space --focus last
@@ -150,14 +162,6 @@ ctrl + cmd + shift - d : yabai -m window --warp east
 # Zoom
 ctrl + cmd - o : yabai -m window --toggle zoom-fullscreen
 ctrl + cmd - i : yabai -m window --toggle zoom-parent
-
-# Mirror
-ctrl + cmd - x : yabai -m space --mirror x-axis
-ctrl + cmd - y : yabai -m space --mirror y-axis
-# Rotate windows (anti-clockwise)
-ctrl + cmd - r : yabai -m space --rotate 90
-# Rotate split
-ctrl + cmd + shift - r : yabai -m window --toggle split
 
 # Move active window to space
 ctrl + cmd - 1 : yabai -m window --space 1
