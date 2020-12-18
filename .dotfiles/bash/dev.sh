@@ -142,7 +142,9 @@ Example: toconflu projfg/foo/doc/conflu/proj-dash'
         file_path="$1"
 
         sphinx-build -b confluence source/ build/confluence source/${file_path}.rst \
-            && cat build/confluence/${file_path}.conf | scc
+            && cat build/confluence/${file_path}.conf \
+            | python $DOTFILES/utils/conflu-user-name-to-link.py \
+            | scc
     }
 
   function _complete_python_venv_activate() {
