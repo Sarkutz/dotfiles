@@ -33,12 +33,20 @@ endsnippet
 # Directives
 # ==========
 
-snippet toc "Table of Contents" b
+snippet toc: "Table of Contents" b
 .. toctree::
    :caption: Contents
    :maxdepth: 1
 
    $0
+endsnippet
+
+snippet lis: "list-table (custom)" b
+.. list-table:: ${1:Caption}
+   :widths: auto
+   :header-rows: 1
+
+   * - $0
 endsnippet
 
 snippet `m "Generic math Interpreted Text Role" w
