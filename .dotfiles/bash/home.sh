@@ -27,7 +27,7 @@ source "${DOTFILES}/dev.sh"
 
 # gtd: Start GTD resources
 freeplane_path=
-which 'freeplane'
+which 'freeplane' &> /dev/null
 if [[ $? -eq 0 ]]; then
     freeplane_path='freeplane'
 else
@@ -38,7 +38,7 @@ else
     fi
 fi
 export FREEPLANE_PATH="$freeplane_path"
-alias agtd='$FREEPLANE_PATH $DOTFILES_GTD/clarify.mm $DOTFILES_GTD/gtd-dash.mm &> /dev/null & vim $DOTFILES_GTD/scratch.rst'
+alias afreeplane='$FREEPLANE_PATH $DOTFILES_GTD/gtd-dash.mm &> /dev/null &'
 
 
 # Jump (j)

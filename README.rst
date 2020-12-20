@@ -132,6 +132,23 @@ the dependency is listed in the "Used by" column).
      - ``tmux`` dotfiles provided by this repository.  Please see 
        `Dotfiles Provided`_.
 
+   * - `Syncthing <https://syncthing.net/downloads/>`__
+     - File sync/share, sync GTD, backup
+     - System's package manager.
+     - Setup Syncthing using the `Web GUI <http://127.0.0.1:8384>`__-
+
+       - Set "Settings > General > Device Name"
+       - Set "Settings > General > Default Folder Path" to
+         :file:`~/public/file-share/`
+       - Disable "Settings > Connections > Enable Relaying"
+       - Add required devices using the correct device ID.
+       - Add required folders using the correct folder ID.  Usually, i add-
+
+         - :file:`~/private`
+         - :file:`~/public` (:file:`.stignore` is checked-in)
+         - :file:`~/resources` (:file:`.stignore` is checked-in)
+         - One for each workspace
+
    * - (Neo)Vim
      - ``e`` alias
      - Systems's package manager.
@@ -146,6 +163,8 @@ the dependency is listed in the "Used by" column).
        For example, download the Miniconda installation script and execute as
        follows::
 
+          # Replace the ".sh" file with the one for you OS
+          # https://docs.conda.io/en/latest/miniconda.html
           bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $DOTFILES_SOFTWARE_STANDALONE/miniconda3
 
        Create Conda environments and install packages as required.
@@ -176,11 +195,6 @@ the dependency is listed in the "Used by" column).
      - System's package manager.
      -
 
-   * - `Syncthing <https://syncthing.net/downloads/>`__
-     - File sync/share, sync GTD, backup
-     - System's package manager.
-     - `Web GUI <http://127.0.0.1:8384>`__
-
    * - `Borg Backups <https://borgbackup.readthedocs.io/>`__
      - Backups.
      - System's package manager.
@@ -196,7 +210,7 @@ the dependency is listed in the "Used by" column).
      - System's package manager.
      -
 
-   * - Freeplane
+   * - `Freeplane <https://sourceforge.net/projects/freeplane/>`__
      - ``gtd`` alias in home.sh; GTD workflow
      - System's package manager.
      - If required, configure Freeplane as follows:
@@ -217,7 +231,13 @@ the dependency is listed in the "Used by" column).
 
        - Tools > Assign Hotkeys
 
+         - <Tab> to "Create new child node"
          - Icons: C for check mark; X for cross mark; Z for questions mark
+
+       If the version of Freeplane provided by the system's package manager is
+       old, then please install the latest version of Freeplane using the
+       binary package provided at the `Freeplane SourceForge page
+       <https://sourceforge.net/projects/freeplane/>`__.
 
    * - Anki
      -
@@ -271,13 +291,13 @@ the dependency is listed in the "Used by" column).
      - ``scc`` and ``spc`` aliases in base.sh
      - Systems's package manager.  Repo: `astrand/xclip
        <https://github.com/astrand/xclip>`__
-     - Not required on Mac OS X, we use ``pbcopy`` and ``pbpaste`` commands
+     - Not required on Mac OS X as we use ``pbcopy`` and ``pbpaste`` commands
        instead of ``xclip``.
 
    * - redshift
      -
      - System's package manager
-     - Linux only.  Not required on Mac.
+     -
 
 
 .. list-table:: System Softwares (Mac-only)
@@ -374,8 +394,8 @@ Setup Python virtual enviroments (for ``dve``)::
   export DOTFILES=$HOME/.dotfiles/bash/
   source $DOTFILES/utils/path-info.sh
 
-  # First setup nvimpy2 as it need Python 2.
-  virtualenv nvimpy2 && cd nvimpy2 && source bin/activate && mv '../nvimpy2.requirements.txt' requirements.txt && pip install -r requirements.txt
+  # First setup nvimpy2.  It needs Python 2.  So use -p to point to a Python 2
+  virtualenv -p /usr/bin/python nvimpy2 && cd nvimpy2 && source bin/activate && mv '../nvimpy2.requirements.txt' requirements.txt && pip install -r requirements.txt
 
   # Then setup Python 3 virtual envs.
   cd "$DOTFILES_PYENVS" && \
