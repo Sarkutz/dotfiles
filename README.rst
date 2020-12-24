@@ -591,6 +591,32 @@ Please find the details of the utilities provided in this repository as follows.
      - ``rm`` is aliased to trashit.sh to ensure that we move files to the
        trash instead of deleting it.
 
+   * - sqlout2csv.py
+     - A python executable to convert output text of SQL queries to CSV.  It
+       is copied into the path by setup-folders.sh.
+
+       Reads text of SQL queries from stdin.  Prints CSV to stdout.
+
+       USAGE::
+
+          $ cat sqlout.txt
+          +-------+--------+
+          |cmpg_id|BucketId|
+          +-------+--------+
+          |22918  |0       |
+          |22918  |1       |
+          |22918  |2       |
+          |22987  |12      |
+          +-------+--------+
+          only showing top 4 rows
+
+          $ cat sqlout.txt | sqlout2csv.py
+          cmpg_id,BucketId
+          22918,0
+          22918,1
+          22918,2
+          22987,12
+
    * - painlessmerge.sh
      - Required by :file:`$HOME/.gitconfig`.
 

@@ -100,6 +100,7 @@ function setup_base() {
         software/archive/vm software/installed/bin software/pyenvs software/standalone
 
   cp $DOTFILES/../resources/trashit.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+  cp $DOTFILES/../resources/sqlout2csv.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/jsbeautify.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/painlessmerge.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
