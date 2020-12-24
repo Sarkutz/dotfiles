@@ -251,6 +251,11 @@ The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
      - Shortcuts
      - Copy visually selected text to system's clipboard.
 
+   * - ``<leader>d``
+     - ``base.vim``
+     - Shortcuts
+     - Print PWD (``:pwd``)
+
    * - ``:call Recover``
      - ``base.vim``
      - Shortcuts

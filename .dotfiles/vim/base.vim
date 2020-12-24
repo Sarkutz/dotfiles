@@ -67,6 +67,8 @@ nnoremap <leader>tn :tabnew<CR>
 noremap <Leader>c :ccl <bar> lcl<CR>
 " Copy visually selected text to clipboard selection using <C-c>
 map <C-c> "+y<CR>
+" Get :pwd
+nmap <leader>d :pwd<CR>
 
 
 " Handling swap files???

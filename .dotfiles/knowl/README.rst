@@ -18,7 +18,7 @@ the main knowl is stored in :code:`$DOTFILES_KNOWL` (env var).  Similarly,
 there is a knowledge base in each workspace.
 
 Each knowledge base (aka :dfn:`knowl`) is managed using `Sphinx
-<http://www.sphinx-doc.org/>`__.  And hosted on localhost using Nginx.
+<http://www.sphinx-doc.org/>`__, and hosted on localhost using Nginx.
 
 
 ************
