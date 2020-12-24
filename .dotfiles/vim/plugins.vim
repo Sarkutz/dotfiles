@@ -176,6 +176,11 @@ function! s:build_go_files()
 endfunction
 
 
+" Nvim-R
+" ======
+let r_indent_align_args = 0
+
+
 " ==== OBSOLETED ====
 
 " ctrlp.vim
