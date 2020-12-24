@@ -188,17 +188,37 @@ function act_scala_alias_space() {
   act_java_alias_space
   prefix_to_alias_spaces_variable scala
 
-  spark_bin_dir="$DOTFILES_SOFTWARE_STANDALONE/spark-2.4.0-bin-hadoop2.7/bin"
-  prefix_to_path "$spark_bin_dir"
+  export HADOOP_HOME="$DOTFILES_SOFTWARE_STANDALONE/hadoop-3.3.0/"
+  export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop/"
+  prefix_to_path "$HADOOP_HOME/bin"
 
   alias 'dnew_spark_proj=sbt new sarkutz/spark-scala.g8'
+
+  function start_cluster() {
+      sbin="$DOTFILES_SOFTWARE_STANDALONE/hadoop-3.3.0/sbin"
+      $sbin/start-dfs.sh
+      $sbin/start-yarn.sh
+
+      echo 'NameNode: http://localhost:9870/'
+      echo 'ResourceManager: http://localhost:8088/'
+  }
+  function stop_cluster() {
+      sbin="$DOTFILES_SOFTWARE_STANDALONE/hadoop-3.3.0/sbin"
+      $sbin/stop-yarn.sh
+      $sbin/stop-dfs.sh
+  }
 
   function deact_scala_alias_space() {
     remove_from_alias_space_variable scala
 
-    remove_from_path "$spark_bin_dir"
+    remove_from_path "$HADOOP_HOME/bin"
+    export HADOOP_HOME=
+    export HADOOP_CONF_DIR=
 
     unalias dnew_spark_proj
+
+    unset -f start_cluster
+    unset -f stop_cluster
 
     [[ $( type -t deact_java_alias_space ) == 'function' ]] && deact_java_alias_space
     unset -f deact_scala_alias_space

@@ -440,10 +440,19 @@ TODO
 Dependencies
 ------------
 
-- $DOTFILES_SOFTWARE_STANDALONE/spark-2.4.0-bin-hadoop2.7/bin should be installed
+- Hadoop should be installed at
+  :file:`$DOTFILES_SOFTWARE_STANDALONE/hadoop-3.3.0/bin`.
+  See `Hadoop: Setting up a Single Node Cluster
+  <https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html>`__
+  for setting up Hadoop and YARN in Pseudo-Distributed Mode.
+
+- Spark should be installed and in PATH.  Install using SDKMAN:
+  :code:`sdk install spark`.
 
 Commands
 --------
+
+- Activate `Java Alias Space`_
 
 - Add $DOTFILES_SOFTWARE_STANDALONE/spark-2.4.0-bin-hadoop2.7/bin to PATH
 
@@ -455,6 +464,26 @@ Commands
    * - Command
      - Location
      - Description
+
+   * - ``$HADOOP_HOME``
+     - ``dev.sh``
+     - :file:`$DOTFILES_SOFTWARE_STANDALONE/hadoop-3.3.0/`.
+       :file:`$HADOOP_HOME/bin` is added to PATH.
+
+   * - ``$HADOOP_CONF_DIR``
+     - ``dev.sh``
+     - :file:`$HADOOP_HOME/etc/hadoop/`.
+
+   * - ``start_cluster``
+     - ``dev.sh``
+     - Start Spark (and Hadoop) cluster.  Source:
+
+       - NameNode: http://localhost:9870/
+       - ResourceManager: http://localhost:8088/
+
+   * - ``stop_cluster``
+     - ``dev.sh``
+     - Stop Spark (and Hadoop) cluster.
 
    * - ``dnew_spark_proj``
      - ``dev.sh``

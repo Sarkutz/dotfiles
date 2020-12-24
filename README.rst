@@ -132,6 +132,11 @@ the dependency is listed in the "Used by" column).
      - ``tmux`` dotfiles provided by this repository.  Please see 
        `Dotfiles Provided`_.
 
+   * - ``curl`` and ``wget``
+     -
+     - System's package manager
+     -
+
    * - `Syncthing <https://syncthing.net/downloads/>`__
      - File sync/share, sync GTD, backup
      - System's package manager.
@@ -178,6 +183,18 @@ the dependency is listed in the "Used by" column).
      - Systems's package manager.  Alternatively install from sources as
        mentioned in `Install Python (from sources)`_.
      -
+
+   * - `SDKMAN <https://sdkman.io/>`__
+     - BASH JVM related alias spaces
+     - curl -s "https://get.sdkman.io" | bash
+     - Add the following to :file:`~/.profile`::
+
+          export SDKMAN_DIR="/Users/ashim/.sdkman"
+          [[ -s "/Users/ashim/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ashim/.sdkman/bin/sdkman-init.sh"
+
+       SDKMAN adds these to :file:`~/.bash_profile`.  However, when
+       :file:`.bash_profile` file is present, it prevents execution of
+       :file:`.profile`.  Hence, remove the :file:`.bash_profile` file.
 
    * - Java Development Kit (JDK)
      - System and several utilities (like Freeplane)
@@ -261,11 +278,6 @@ the dependency is listed in the "Used by" column).
      -
 
    * - ``tree``
-     -
-     - System's package manager
-     -
-
-   * - ``curl`` and ``wget``
      -
      - System's package manager
      -
