@@ -160,6 +160,11 @@ the dependency is listed in the "Used by" column).
      - See `Install NeoVim`_.  ``vim`` dotfiles provided by this repository.
        Please see `Dotfiles Provided`_.
 
+   * - Docker
+     - .
+     - Systems's package manager.
+     - .
+
    * - Anaconda/Miniconda Python Distribution
      - Python Alias Space
      - `Anaconda <https://docs.anaconda.com/anaconda/install/>`__/

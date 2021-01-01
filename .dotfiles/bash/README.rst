@@ -12,6 +12,25 @@ Dependencies
 - Ensure that :file:`${DOTFILES}/utils/path-info.sh` is setup (this file is
   created by :file:`${DOTFILES}/utils/setup-folders.sh`).
 
+.. list-table:: Dependencies
+   :widths: auto
+   :header-rows: 1
+
+   * - Dependency
+     - Used by
+     - Installation Source
+     - Notes
+
+   * - ctags
+     - ``dtag`` alias
+     - System's package manager
+     - On Mac OS install using brew as the version provided by default does
+       not support required arguments::
+
+          brew install ctags
+
+- Also install dependencies for each, required alias space (see below).
+
 
 *********************
 Install BASH Dotfiles
