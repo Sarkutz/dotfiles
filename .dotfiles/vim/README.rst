@@ -22,10 +22,16 @@ Setup Overview
 Files-
 
 - :file:`.vimrc` (which sources files in :file:`.dotfiles/vim/`)
+
+- :file:`.config/nvim/init.vim`: contains NeoVim specific
+  configurations.  Sources :file:`.vimrc` for configurations common to Vim and
+  NeoVim.
+
+- :file:`.config/nvim/coc-settings.json`: contains coc.nvim's (plugin)
+  configurations.
+
 - Files in :file:`.vim/` (including plugins as subrepositories in
   :file:`.vim/bundle/`).
-
-NeoVim: :file:`$HOME/.config/nvim/init.vim` from this repo.
 
 
 Classification
@@ -61,11 +67,6 @@ Dependencies
      - Installation Source
      - Notes
 
-   * - ``rg``
-     - ``<leader>rg`` LeaderF command in ``plugins.vim``.
-     - `BurntSushi/ripgrep <https://github.com/BurntSushi/ripgrep>`__
-     -
-
    * - Setup Locale
      - .
      - .
@@ -79,8 +80,46 @@ Dependencies
           export LANG=en_US.UTF-8
           # export LC_CTYPE=en_US.UTF-8  # if required
 
-Plugin Dependencies
--------------------
+   * - ``rg``
+     - ``<leader>rg`` LeaderF command in ``plugins.vim``.
+     - `BurntSushi/ripgrep <https://github.com/BurntSushi/ripgrep>`__
+     - .
+
+Dependencies: Language Server
+-----------------------------
+
+These dependencies are required by the coc.nvim language server protocol
+client.  They can be installed after (Neo)Vim is setup.
+
+.. list-table:: (Neo)Vim Language Server Dependencies
+   :widths: auto
+   :header-rows: 1
+
+   * - Dependency
+     - Installation Source
+     - Notes
+
+   * - bash-language-server
+     - See `bash-lsp/bash-language-server
+       <https://github.com/bash-lsp/bash-language-server>`__
+     - bash-language-server must be available on the PATH.
+
+   * - `coc-ultisnips <https://github.com/neoclide/coc-sources>`__
+     - :code:`:CocInstall coc-ultisnips`
+     - Include Ultisnip snippets in auto-complete.  It is a part of
+       `coc-sources <https://github.com/neoclide/coc-sources>`__
+
+   * - `coc-json <https://github.com/neoclide/coc-json>`__
+     - :code:`:CocInstall coc-json`
+     - LSP wrapper for coc.nvim's :file:`coc-settings.json` file.  Essentially,
+       it is JSON with comments.
+
+   * - `coc-jedi <https://github.com/pappasam/coc-jedi>`__
+     - :code:`:CocInstall coc-jedi`
+     - LSP wrapper for jedi-language-server for Python.
+
+Dependencies: Plugins
+---------------------
 
 Please find the details of the (Neo)Vim plugins provided by this repository in
 this section.
@@ -100,7 +139,7 @@ the plugin subrepositories, using the following commands, to install them::
      - Class
      - Description
 
-   * - ``vim-pathogen``
+   * - vim-pathogen
      - Plugin Manager
      - The original Plugin Manager.  Installation (as per `tpope/vim-pathogen
        <https://github.com/tpope/vim-pathogen>`__)::
@@ -201,11 +240,19 @@ the plugin subrepositories, using the following commands, to install them::
      - Git commands from vim.  Installation: Clone `tpope/vim-fugitive
        <https://github.com/tpope/vim-fugitive.git>`__.
 
+   * - coc.nvim
+     - Dev.
+     - Language server client for (Neo)vim.  Installation: Clone
+       `neoclide/coc.nvim/ <https://github.com/neoclide/coc.nvim/>`__.
+
 
 Shortcuts Provided
 ==================
 
 The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
+
+Note: ``<tab>`` is used for UltiSnip snippet completion; ``<C-space>`` is used
+to manually trigger coc.nvim's auto-complete.
 
 .. list-table:: Shortcuts Provided (Common)
    :widths: auto
@@ -266,6 +313,11 @@ The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
      - Shortcuts
      - Pretty print visually selected JSON (using ``jq``).
 
+   * - ``prefix<tab>``
+     - UltiSnips default
+     - Shortcuts
+     - UltiSnips: Trigger completion of snippet that starts with ``prefix``.
+
    * - ``prefix<S-tab>``
      - ``plugins.vim``
      - Shortcuts
@@ -318,6 +370,92 @@ The ``mapleader`` is set to `` `` (``<space>``) in ``base.vim``.
      - vim-slime: Send the current line or visually selected region to the
        configured target.
 
+   * - ``<c-space>``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Trigger completion using the language server.
+
+   * - ``[g``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Jump to line containing the previous diagnostic message
+       provided by the language server.
+
+   * - ``]g``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Jump to line containing the next diagnostic message provided
+       by the language server.
+
+   * - ``gd``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Goto definition of symbol under the cursor using the language
+       server.
+
+   * - ``gy``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Goto definition of the type of the symbol under the cursor
+       using the language server.
+
+   * - ``gi``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Goto implementation of the function name under the cursor
+       using the language server.
+
+   * - ``gr``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Show references of the symbol under the cursor using the
+       language server.
+
+   * - ``K``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Show documentation of the word under the cursor (in a preview
+       window) using the language server.
+
+   * - ``rn``
+     - ``coc.vim``
+     - Editing
+     - coc.nvim: Rename symbol under the cursor using the language server.
+
+   * - ``cvf``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Format selected code using the language server.
+
+   * - ``<leader>a``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Run diagnositics using the language server.
+
+   * - ``<leader>e``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: List coc.nvim's extensions.
+
+   * - ``<leader>cvc``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: List language servers's commands.
+
+   * - ``<leader>o``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: List outline of current file using the language server.
+
+   * - ``<leader>s``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: List symbols in the current file using the language server.
+
+   * - ``<leader>p``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: Resume latest coc list.
 
 .. list-table:: Shortcuts Provided (reST)
    :widths: auto
@@ -381,6 +519,7 @@ Folder Organisation
 - base.vim
 - ft.vim
 - plugin.vim
+- coc.vim
 
 ``base.vim``
 ------------
@@ -406,8 +545,18 @@ Folder Organisation
 ``plugin.vim``
 --------------
 
+``coc.vim``
+-----------
+
+Contains configurations for coc.nvim plugin (language server client).
+
+Sourced from ``plugin.vim``.
+
 
 ***********
 Future Work
 ***********
+
+- Try `coc-metals <https://github.com/ckipp01/coc-metals>`__ language server
+  client.
 

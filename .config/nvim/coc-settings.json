@@ -1,0 +1,21 @@
+{
+	"coc.preferences.hoverTarget":  "preview",
+
+	"suggest.autoTrigger": "trigger",
+	// "suggest.noselect": false,
+	"signature.target": "echo",
+	"diagnostic.messageTarget": "echo",
+	"diagnostic.virtualText": true,
+
+	"jedi.diagnostics.didChange": false,
+	"jedi.startupMessage": false,
+
+	"languageserver": {
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
+		}
+	}
+}

@@ -38,6 +38,9 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=124 gui=bold guibg=#bdae93
 " Ultisnips Snippet Engine
 " ========================
 
+" Set the trigger key (g:UltiSnipsExpandTrigger)
+" Options: <nop>, <c-space>, ...
+" let g:UltiSnipsExpandTrigger = "<c-space>"
 let g:UltiSnipsListSnippets="<S-tab>"
 let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsSnippetsDir="~/.vim/custom-snippets"
@@ -63,7 +66,7 @@ let g:lightline = {
 			\ 'colorscheme': 'gruvbox',
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'gitbranch', 'readonly', 'filename' ] ],
+			\             [ 'readonly', 'filename', 'gitbranch', 'cocstatus' ] ],
 			\   'right': [ [ 'lineinfo' ],
 			\              [ 'percent' ] ]
 			\ },
@@ -72,7 +75,8 @@ let g:lightline = {
 			\ },
 			\ 'component_function': {
 			\   'filename': 'LightlineFilename',
-			\   'gitbranch': 'fugitive#head'
+			\   'gitbranch': 'fugitive#head',
+			\   'cocstatus': 'coc#status'
 			\ },
 			\ }
 
@@ -81,6 +85,13 @@ function! LightlineFilename()
 	let modified = &modified ? ' +' : ''
 	return filename . modified
 endfunction
+
+" autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+
+" coc.vim
+" =======
+source ~/.dotfiles/vim/coc.vim
 
 
 " Fugitive Git Integration
