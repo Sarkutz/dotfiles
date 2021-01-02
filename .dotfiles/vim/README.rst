@@ -245,6 +245,11 @@ the plugin subrepositories, using the following commands, to install them::
      - Language server client for (Neo)vim.  Installation: Clone
        `neoclide/coc.nvim/ <https://github.com/neoclide/coc.nvim/>`__.
 
+   * - Gundo.vim
+     - Dev.
+     - Plugin to visualise and work with Gundo.vim  Installation: Clone
+       `sjl/gundo.vim <https://github.com/sjl/gundo.vim>`__.
+
 
 Shortcuts Provided
 ==================
@@ -369,6 +374,12 @@ to manually trigger coc.nvim's auto-complete.
      - Shortcuts
      - vim-slime: Send the current line or visually selected region to the
        configured target.
+
+   * - ``<leader>u``
+     - ``plugins.vim``
+     - Shortcuts
+     - Gundo.vim: Open Gundo's windows: one containing the undo tree, the
+       other to preview the diff of the selected undo.
 
    * - ``<c-space>``
      - ``coc.vim``

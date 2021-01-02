@@ -192,6 +192,16 @@ endfunction
 let r_indent_align_args = 0
 
 
+" Gundo.vim
+" =========
+" Whether to place the preview window at the bottom of file.
+" let g:gundo_preview_bottom = 1
+let g:gundo_width = 60            " Set width of window used by Gundo.vim
+
+" Open :Gundo windows
+nnoremap <leader>u :GundoToggle<CR>
+
+
 " ==== OBSOLETED ====
 
 " ctrlp.vim
