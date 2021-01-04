@@ -219,11 +219,6 @@ the dependency is listed in the "Used by" column).
      - System's package manager.
      -
 
-   * - `Borg Backups <https://borgbackup.readthedocs.io/>`__
-     - Backups.
-     - System's package manager.
-     -
-
    * - `KeepassXC <https://keepassxc.org/download/>`__
      - Password manager.
      - System's package manager.
@@ -580,6 +575,9 @@ Please find the details of the dotfiles provided by this repository.
      - :file:`.dotfiles/wm/`
      - 
 
+   * - Data Backups
+     - :file:`.dotfiles/backups/`
+     - Design and resources for data sync and backup (including to cloud).
 
 Utilities Provided
 ==================
