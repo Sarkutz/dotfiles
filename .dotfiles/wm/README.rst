@@ -5,6 +5,9 @@ Window Manager
 
 *Setup for tiling window managers*.
 
+.. contents:: Contents
+   :depth: 1
+   :local:
 
 ******
 Mac OS
