@@ -75,6 +75,8 @@ Clone and install as follows (`source
   kdfgit submodule update --recursive
   kdfgit config status.showUntrackedFiles no
   kdfgit config status.submodulesummary 1
+  kdfgit config push.recurseSubmodules check
+  kdfgit config submodule.recurse true
 
 
 *******************
