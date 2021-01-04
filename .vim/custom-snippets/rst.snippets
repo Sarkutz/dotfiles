@@ -35,11 +35,20 @@ endsnippet
 
 snippet toc: "Table of Contents" b
 .. toctree::
-   :caption: Contents
+   :caption: ${1:Contents}
    :maxdepth: 1
 
    $0
 endsnippet
+
+snippet con: "Contents" b
+.. contents:: ${1:Contents}
+   :depth: 1
+   :local:
+
+$0
+endsnippet
+	
 
 snippet lis: "list-table (custom)" b
 .. list-table:: ${1:Caption}
