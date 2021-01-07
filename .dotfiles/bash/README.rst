@@ -247,8 +247,24 @@ Jump
        
           jash [searchterm]
 
-          If ``searchterm`` is provided, ``find`` for path that matches
-          ``*searchterm*``.'
+       If ``searchterm`` is provided-
+
+       #. Find for a project named ``searchterm`` and jump to it.
+       #. Find for ``searchterm`` using ``find_and_jump`` and jump to it.
+
+       Completion supported.
+
+   * - ``jcli``
+     - ``home.sh``
+     - Jump to clinic workspace directory.
+       Usage::
+       
+          jcli [searchterm]
+
+       If ``searchterm`` is provided-
+
+       #. Find for a project named ``searchterm`` and jump to it.
+       #. Find for ``searchterm`` using ``find_and_jump`` and jump to it.
 
        Completion supported.
 
@@ -615,6 +631,11 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 
          remove_from_path <path-to-remove>'
 
+   * - ``get_num_lines``
+     - Return the number of lines in the provided input.  Syntax::
+
+          get_num_lines <text>
+
    * - ``start_singleton``
      - Start the specified process only if it is not already running.  Syntax::
 
@@ -647,16 +668,17 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
        Supports completions for ``api-id``.
 
    * - :code:`find_and_jump`
-     - Find paths matching :code:`search_term` under :code:`find_root`,
-       and jump to it if single matching path is found.  Syntax::
+     - Find path matching search_term under find_root, and jump to it if
+       single matching path is found.  Syntax::
 
-         find_and_jump <find_root> <search_term>
+          find_and_jump <find_root> <search_term>
 
-       If :code:`search_term` is provided, :code:`find` for path that matches
-       :code:`*search_term*`.  However, if a single exact match
-       (:code:`search_term`) is found then, jump to it directly (instead of
-       looking for other superstring matches).
+       First find for path that matches ``search_term`` exactly.
 
+       - If a single path is found then jump to it.
+       - If multiple paths are found then print all paths and return.
+       - If no path is found then repeat this process with a substring match
+         (``*search_term*``).
 
 .. list-table:: Utility Function (Python)
    :widths: auto

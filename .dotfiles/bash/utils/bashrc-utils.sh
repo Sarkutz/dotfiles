@@ -102,6 +102,26 @@ USAGE: remove_from_path <path-to-remove>'
 }
 
 
+function get_num_lines() {
+    usage='get_num_lines: Return the number of lines in the provided input
+USAGE get_num_lines <text>'
+
+    if [[ $# -ne 1 ]]; then
+        echo "$usage"
+        return 1
+    fi
+    msg="$1"
+
+    if [[ -z "$msg" ]]; then
+        num_lines=0
+    else
+        num_lines=$( echo "$msg" | wc -l )
+    fi
+
+    return $num_lines
+}
+
+
 function start_singleton() {
     proc=$1
     as_su=$2
@@ -207,12 +227,13 @@ complete -W "es kib" rest
 
 
 function find_and_jump() {
-    usage='find_and_jump: Find for path matching search_term under find_root,
+    usage='find_and_jump: Find path matching search_term under find_root,
 and jump to it if single matching path is found.
 USAGE: find_and_jump <find_root> <search_term>
-If ``search_term`` is provided, ``find`` for path that matches ``*search_term*``.
-However, if a single exact match (``search_term``) is found then, jump to it
-directly (instead of looking for other superstring matches).'
+First find for path that matches ``search_term`` exactly.
+- If a single path is found then jump to it.
+- If multiple paths are found then print all paths and return with return value 2.
+- If no path is found then repeat this process with a substring match (``*search_term*``).'
     if [[ $# -ne 2 ]]; then
         echo "Insufficient parameters" >&2
         echo "$usage" >&2
@@ -221,20 +242,19 @@ directly (instead of looking for other superstring matches).'
     find_root="$1"
     search_term="$2"
 
+    # Exact match
     find_exact_output="$( find $find_root -type d -name "$search_term" )"
-    n_lines_find_output="$( echo "$find_exact_output" | wc -l )"
+    echo "$find_exact_output"
+    get_num_lines "$find_exact_output"
+    n_lines_find_output="$?"
     [[ $n_lines_find_output -eq 1 ]] && cd "$find_exact_output" && ls -GCF && return 0
 
-    find_output="$( find $find_root -type d -name '*'"$search_term"'*' )"
-    echo "$find_output"
-
-    n_lines_find_output="$( echo "$find_output" | wc -l )"
-    if [[ $n_lines_find_output -eq 1 ]]; then
-        cd "$find_output" &&
-            ls -GCF
-    else
-        echo '==== EXACT MATCHES ===='
-        echo "$find_exact_output"
+    if [[ $n_lines_find_output -eq 0 ]]; then
+        # Substring match
+        find_output="$( find $find_root -type d -name '*'"$search_term"'*' )"
+        echo "$find_output"
+        get_num_lines "$find_output"
+        [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
     fi
 }
 

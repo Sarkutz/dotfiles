@@ -136,11 +136,19 @@ alias 'jdia=cd ${DOTFILES_DIARY}/source/$( date +%Y )/$( date +%m ) && ls -GCF'
 function jash() {
     usage='jash: Jump to ashim workspace directory.
 USAGE: jash [searchterm]
-If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+If ``searchterm`` is provided-
+1. Find for a project named ``searchterm`` and jump to it.
+2. Find for ``searchterm`` using ``find_and_jump`` and jump to it.'
     [[ $# -eq 1 ]] && search_term="$1"
 
     cd $DOTFILES_PERSONAL_WORKSPACE
+
     if [[ $# -eq 1 ]]; then
+        find_root="proj*"
+        find_output="$( find $find_root -name "$search_term" -depth 1 )"
+        get_num_lines "$find_output"
+        [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
+
         find_and_jump "knowl/ proj*" "$search_term"
     fi
 }
@@ -159,11 +167,18 @@ complete -F _complete_jash jash
 function jcli() {
     usage='jcli: Jump to clinic workspace directory.
 USAGE: jcli [searchterm]
-If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
+If ``searchterm`` is provided-
+1. Find for a project named ``searchterm`` and jump to it.
+2. Find for ``searchterm`` using ``find_and_jump`` and jump to it.'
     [[ $# -eq 1 ]] && search_term="$1"
 
     cd $DOTFILES_CLINIC_WORKSPACE
     if [[ $# -eq 1 ]]; then
+        find_root="proj*"
+        find_output="$( find $find_root -name "$search_term" -depth 1 )"
+        get_num_lines "$find_output"
+        [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
+
         find_and_jump "knowl/ proj*" "$search_term"
     fi
 }
@@ -172,7 +187,7 @@ function _complete_jcli() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    dirs="$( find $DOTFILES_PERSONAL_WORKSPACE/knowl/ $DOTFILES_PERSONAL_WORKSPACE/proj* \
+    dirs="$( find $DOTFILES_CLINIC_WORKSPACE/knowl/ $DOTFILES_CLINIC_WORKSPACE/proj* \
         -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
     COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
 }
