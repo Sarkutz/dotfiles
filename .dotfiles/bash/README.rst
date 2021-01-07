@@ -614,22 +614,22 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
    * - ``prefix_unique``
      - Prefix to `text` only if `prefix` does not already exist in the string.  Syntax::
 
-         prefix_unique <text> <prefix> <delim>'
+         prefix_unique <text> <prefix> <delim>
 
    * - ``suffix_unique``
      - Suffix to `text` only if `suffix` does not already exist in the string.  Syntax::
 
-         suffix_unique <text> <suffix> <delim>'
+         suffix_unique <text> <suffix> <delim>
 
    * - ``prefix_to_path``
      - Add path as the first entry in PATH env. var.  (NOTE: Updates the PATH env. var.)  Syntax::
 
-         prefix_to_path <path-to-prefix>'
+         prefix_to_path <path-to-prefix>
 
    * - ``remove_from_path``
      - Remove a path from PATH env. var.  (NOTE: Updates the PATH env. var.)  Syntax::
 
-         remove_from_path <path-to-remove>'
+         remove_from_path <path-to-remove>
 
    * - ``get_num_lines``
      - Return the number of lines in the provided input.  Syntax::
@@ -639,12 +639,12 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
    * - ``start_singleton``
      - Start the specified process only if it is not already running.  Syntax::
 
-         start_singleton <proc> [as_su]'
+         start_singleton <proc> [as_su]
 
    * - ``will_overwrite``
      - Check if `source_path` might overwrite `dest_path`.  Syntax::
 
-         will_overwrite <source_path> <dest_path>'
+         will_overwrite <source_path> <dest_path>
 
    * - ``rest``
      - Make HTTP calls to REST HTTP endpoints.  Syntax::
@@ -663,7 +663,7 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 
        Example::
 
-         rest es GET /_cat/indices?v'
+         rest es GET /_cat/indices?v
 
        Supports completions for ``api-id``.
 

@@ -98,7 +98,7 @@ Setup Overview
 **************
 
 .. list-table:: Resources Provided
-   :widths: 1
+   :widths: auto
    :header-rows: 1
 
    * - Resource

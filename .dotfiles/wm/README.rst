@@ -58,7 +58,7 @@ Files provided-
 
 
 .. list-table:: Key Binding / Hotkeys
-   :width: auto
+   :widths: auto
    :header-rows: 1
 
    * - Hotkey
