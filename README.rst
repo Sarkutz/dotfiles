@@ -311,7 +311,13 @@ the dependency is listed in the "Used by" column).
    * - redshift
      -
      - System's package manager
+     - Add to Startup Applications.
+
+   * - CopyQ
      -
+     - System's package manager
+     - Clipboard manager.  Add to Startup Applications.  Configure <C-M-v> as
+       trigger/hot key.
 
 
 .. list-table:: System Softwares (Mac-only)
@@ -333,14 +339,12 @@ the dependency is listed in the "Used by" column).
      -
      - `Karabiner-Elements GitHub page
        <https://github.com/pqrs-org/Karabiner-Elements>`__
-     -
+     - Add to Startup Applications.
 
    * - Jumpcut
      -
      - System's package manager
-     - For Mac OS only::
-
-         brew cask install jumpcut
+     - Clipboard Manger.  Add to Startup Applications.
 
 
 ************
