@@ -139,6 +139,12 @@ the dependency is listed in the "Used by" column).
      - System's package manager
      -
 
+   * - ``ranger``
+     - 
+     - System's package manager
+     - ranger is an advanced CLI based file browser with vim-like keybinding
+       and Mac-like interface.
+
    * - `Syncthing <https://syncthing.net/downloads/>`__
      - File sync/share, sync GTD, backup
      - System's package manager.
