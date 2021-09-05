@@ -21,27 +21,34 @@ endsnippet
 # Roles
 # =====
 
-snippet ` "Generic Interpreted Text Role" w
+snippet ` "Generic Interpreted Text Role" i
 :$1:\`$2\`$0
 endsnippet
 
-snippet `c "Add code Role" w
+snippet `c "Add code Role" i
 :code:\`${1:${VISUAL}}\`$0
 endsnippet
 
+snippet `m "Generic math Interpreted Text Role" i
+:math:\`$1\`$0
+endsnippet
+
+snippet `f "Add file Role" i
+:file:\`${1:${VISUAL}}\`$0
+endsnippet
 
 # Directives
 # ==========
 
-snippet toc: "Table of Contents" b
+snippet toc: "toctree (Child pages)" b
 .. toctree::
-   :caption: ${1:Contents}
+   :caption: ${1:Topics}
    :maxdepth: 1
 
    $0
 endsnippet
 
-snippet con: "Contents" b
+snippet con: "Page table of contents" b
 .. contents:: ${1:Contents}
    :depth: 1
    :local:
