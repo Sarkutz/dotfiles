@@ -7,7 +7,7 @@
 " View
 " ====
 
-set number						" line numbers
+set number relativenumber       " line numbers
 set showcmd						" showcmd on bottom line
 set scrolloff=2					" context lines above and below, always
 set ruler                       " show position in file on bottom right
