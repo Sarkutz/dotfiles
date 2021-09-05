@@ -100,3 +100,10 @@
 
 [mergetool "painlessmerge"]
         cmd = painlessmerge.sh vimdiff $BASE $LOCAL $REMOTE $MERGED
+
+[core]
+	excludesfile = /Users/ashim/.config/git/gitignore
+[status]
+	submodulesummary = 1
+[push]
+	recurseSubmodules = check

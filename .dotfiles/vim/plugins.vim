@@ -53,8 +53,22 @@ let g:UltiSnipsSnippetDirectories=['UltiSnips', 'custom-snippets']
 
 " Disable all previews; <C-p> to preview manually
 let g:Lf_PreviewResult = { 'BufTag': 0, 'Function': 0 }
-nmap <Leader>l  :LeaderfSelf<CR>
-nmap <Leader>rg <Plug>LeaderfRgCwordLiteralBoundary
+
+" Use Popup window
+" let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+
+" Disable use of version control to create file index
+" (By default LeaderF uses `git ls-tree` to create file index.  This won't work
+" if we are in a folder that is .gitignored.)
+let g:Lf_UseVersionControlTool = 0
+
+" nmap <Leader>jf  :LeaderfFile<CR>
+" nmap <Leader>jb  :LeaderfBufferAll<CR>
+nmap <Leader>jt  :LeaderfTag<CR>
+nmap <Leader>jl  :LeaderfLine<CR>
+nmap <Leader>jrg <Plug>LeaderfRgCwordLiteralBoundary
+nmap <Leader>hl  :LeaderfSelf<CR>
 
 
 " PowerLine Status Line
