@@ -23,3 +23,8 @@ plt.tight_layout()
 plt.close('all')
 '''
 endsnippet
+
+snippet set2csv "Function to convert a Python set into CSV string" b
+def set2csv(s):
+    return ','.join([str(x) for x in s])
+endsnippet
