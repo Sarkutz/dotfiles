@@ -141,7 +141,10 @@ Example: toconflu projfg/foo/doc/conflu/proj-dash'
         fi
         file_path="$1"
 
-        sphinx-build -b confluence source/ build/confluence source/${file_path}.rst \
+        # Add the extension here: confluencebuilder replaces mathjax with
+        # pngmath, and we would like to use mathjax whenever possible.
+        sphinx-build -b confluence -D extensions=sphinxcontrib.confluencebuilder \
+            source/ build/confluence source/${file_path}.rst \
             && cat build/confluence/${file_path}.conf \
             | python $DOTFILES/utils/conflu-user-name-to-link.py \
             | scc
