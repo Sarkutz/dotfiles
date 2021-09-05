@@ -31,6 +31,7 @@ which 'freeplane' &> /dev/null
 if [[ $? -eq 0 ]]; then
     freeplane_path='freeplane'
 else
+    # TODO: check uname for "is mac os"
     # mac_freeplane_path='/Applications/Freeplane.app/Contents/MacOS/JavaAppLauncher'
     mac_freeplane_path='/Applications/Freeplane.app'
     if [[ -e "$mac_freeplane_path" ]]; then
