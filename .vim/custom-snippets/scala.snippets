@@ -5,3 +5,44 @@ object ${1:Demo} {
   }
 }
 endsnippet
+
+# TODO: Update
+snippet sparkreadcsv "(Spark) Read CSV" b
+def readCsv(spark: SparkSession, filePath: String, schema: StructType): DataFrame = {
+  spark
+    .read
+    .schema(schema)
+    .option("header", "false")
+    .option("inferSchema", "false")
+    .csv(filePath)
+}
+endsnippet
+
+snippet sparkwritecsv "(Spark) Write CSV" b
+def writeCsv(df: DataFrame, filePath: String): Unit = {
+  df
+    .write
+    .mode(SaveMode.Overwrite)
+    .format("com.databricks.spark.csv")
+    .option("header", "false")
+    .save(filePath)
+}
+endsnippet
+
+snippet sparkreadavro "(Spark) Read Avro" b
+def readAvro(spark: SparkSession, filePath: String): DataFrame = {
+  spark.read
+    .format("com.databricks.spark.avro")
+    .load(filePath)
+}
+endsnippet
+
+snippet sparkwriteavro "(Spark) Write Avro" b
+def writeAvro(df: DataFrame, filePath: String): Unit = {
+  df.write
+    .format("com.databricks.spark.avro")
+    .mode(SaveMode.Overwrite)
+    .save(filePath)
+}
+endsnippet
+
