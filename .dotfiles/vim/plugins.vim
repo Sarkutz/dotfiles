@@ -117,9 +117,8 @@ xmap <leader>ss <Plug>SlimeRegionSend
 " change Slime Config
 nmap <leader>sc <Plug>SlimeConfig
 
-" NeoVim
-" ------
-" let g:slime_target = "neovim"
+" tmux
+" ----
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 " ":"       means current window, current pane (a reasonable default)
@@ -130,7 +129,11 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 " "%i"      means i refers the pane's unique id
 " "{token}" one of tmux's supported special tokens, like "{last}"
 
-nmap <leader>si :echo b:terminal_job_id<CR>
+" NeoVim
+" ------
+" let g:slime_target = "neovim"
+" nmap <leader>si :echo b:terminal_job_id<CR>
+nmap <leader>si :echo &channel<CR>
 
 
 " Syntastic

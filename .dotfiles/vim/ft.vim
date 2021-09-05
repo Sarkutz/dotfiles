@@ -87,6 +87,8 @@ function! ConfigPython()
 
 	" Test this out
 	" let python_highlight_all=1
+
+	let g:slime_python_ipython = 1
 endfunction
 autocmd Filetype python call ConfigPython()
 
