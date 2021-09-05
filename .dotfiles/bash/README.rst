@@ -516,6 +516,12 @@ Commands
        - NameNode: http://localhost:9870/
        - ResourceManager: http://localhost:8088/
 
+       Getting :code:`ssh: Could not resolve hostname` is not an issue.
+
+       If NN doesn't start (see logs) try::
+
+          hdfs namenode -format
+
    * - ``stop_cluster``
      - ``dev.sh``
      - Stop Spark (and Hadoop) cluster.
@@ -636,6 +642,11 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 
           get_num_lines <text>
 
+   * - ``get_num_lines``
+     - Return the number of lines in the provided input.  Syntax::
+
+          get_num_lines <text>
+
    * - ``start_singleton``
      - Start the specified process only if it is not already running.  Syntax::
 
@@ -697,6 +708,54 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
 *********************
  Directory Hierarchy
 *********************
+
+I organise my folders as follows::
+
+   ~
+   ├── Downloads
+   ├── README.rst
+   ├── private
+   │   ├── all.kdbx
+   │   ├── gtd
+   │   ├── orgzly
+   │   ├── diary
+   │   ├── knowl
+   │   ├── anki
+   │   ├── zotero
+   │   └── ghosh-family
+   ├── public
+   │   ├── website
+   │   │   ├── knowl -> /home/ashim/private/knowl/
+   │   │   └── online
+   │   │       ├── blog
+   │   │       └── kbase
+   │   └── www
+   ├── resources
+   │   ├── ashim
+   │   ├── data
+   │   ├── repos
+   │   └── software
+   │       ├── archive
+   │       ├── installed
+   │       ├── pyenvs
+   │       └── standalone
+   ├── archives
+   │   └── media (family photos etc.)
+   ├── storage
+   │   ├── movies
+   │   └── songs
+   │       └── active
+   ├── ashim
+   ├── clinic
+   └── family
+
+We can create this folder hierarch using
+:file:`${DOTFILES}/utils/setup-folders.sh`.  :file:`setup-folder.sh` also
+sets-up :file:`${DOTFILES}/utils/path-info.sh` so that dotfiles can refer to
+these paths using environment variables.
+
+
+Directories in this folder-
 
 - ``utils``: Contains utilities useful to manage this project.
 
