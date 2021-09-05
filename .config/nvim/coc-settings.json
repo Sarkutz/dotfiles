@@ -2,10 +2,11 @@
 	"coc.preferences.hoverTarget":  "preview",
 
 	"suggest.autoTrigger": "trigger",
-	// "suggest.noselect": false,
+	// "suggest.noselect": true,
 	"signature.target": "echo",
 	"diagnostic.messageTarget": "echo",
 	"diagnostic.virtualText": true,
+	"codeLens.enable": true,
 
 	"jedi.diagnostics.didChange": false,
 	"jedi.startupMessage": false,
