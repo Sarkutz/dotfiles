@@ -114,8 +114,8 @@ ctrl + cmd - space: yabai -m space --focus next
 ctrl + cmd + shift - space: yabai -m space --focus prev
 
 # Select layout mode
-ctrl + cmd - n: yabai -m space --layout float
-ctrl + cmd - m: yabai -m space --layout bsp
+ctrl + cmd + shift - q: yabai -m space --layout float
+ctrl + cmd - q: yabai -m space --layout bsp
 # yabai -m space --layout stack
 
 # Mirror
@@ -177,11 +177,22 @@ ctrl + cmd - p : yabai -m window --toggle sticky;\
                  yabai -m window --toggle pip
 ctrl + cmd - f : yabai -m window --toggle float
 
-
-
 # float / unfloat window and center on screen
 # alt - t : yabai -m window --toggle float;\
 #           yabai -m window --grid 4:4:1:1:2:2
 
 # yabai -m window --opacity 0.0
+
+
+# Yabai: Display
+# ==============
+
+# Focus
+ctrl + cmd - n: yabai -m display --focus 1
+ctrl + cmd - m: yabai -m display --focus 2
+
+ctrl + cmd + shift - n: yabai -m window --display 1; \
+			yabai -m window --focus recent
+ctrl + cmd + shift - m: yabai -m window --display 2; \
+		yabai -m window --focus recent
 
