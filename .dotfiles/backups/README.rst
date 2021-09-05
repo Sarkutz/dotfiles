@@ -71,7 +71,7 @@ Architecture
 
 - All Devices push data to `home server`_ using Syncthing folders.
 
-- Home Server is setup like a `workstation`_.  Hence, it is in sync with other
+- Home Server is setup like a `Workstation`_.  Hence, it is in sync with other
   Workstations (through Syncthing) and can backup their current state.
 
 - Home Server backups data synced with it.
@@ -124,7 +124,7 @@ for details on the backup policy.
 Design: Folder Level
 ====================
 
-*Applies to all devices (`workstation`_ specific folders only apply to
+*Applies to all devices (workstation specific folders only apply to
 workstations)*.
 
 .. list-table:: Design: Folder Level
@@ -143,29 +143,62 @@ workstations)*.
      - No
      -
 
-   * - :file:`private/`
+   * - :file:`private/anki/`
+     - To workstation only
+     - Yes
+     - No
+     - Sync folder and all it's contents.
+
+   * - :file:`private/knowl/`
+     - To workstation only
+     - Yes
+     - No
+     - Sync folder and all it's contents.
+
+   * - :file:`private/diary/`
+     - To workstation only
+     - Yes
+     - No
+     - Sync folder and all it's contents.
+
+   * - :file:`private/gtd/`
      - To all
      - Yes
      - No
-     - Sync private folder and all it's contents.
+     - Sync folder and all it's contents.
+
+   * - :file:`private/orgzly/`
+     - To all
+     - Yes
+     - No
+     - Sync folder and all it's contents.
+
+   * - :file:`private/zotero/`
+     - To all
+     - Yes
+     - No
+     - Sync folder and all it's contents.
+
+   * - :file:`private/active/`
+     - To all
+     - Yes
+     - No
+     - Sync folder and all it's contents.
+
+   * - :file:`private/ghosh-family/`
+     - To all
+     - Yes
+     - No
+     - Sync folder and all it's contents.
 
    * - :file:`public/`
      - To `workstation`_ only
-       :code:`.stignore` :code:`/file-share`, :code:`/www``
+       :code:`.stignore` :code:`/www``
      - Yes
      - Yes
      - Sync/backup :file:`public/website/online/`.  Don't sync/backup
        :file:`public/www` as each workstation might want to host it's own
-       version.  Also, don't sync/backup public share folders (like
-       :code:`/file-share`).  See next point for more details on sync/backup
-       of :code:`/file-share`.
-
-   * - :file:`public/file-share`
-     - No (prevent recursive sync)
-     - For subfolders as per `Design: Syncthing Folders`_
-     - For subfolders as per `Design: Syncthing Folders`_
-     - Don't sync/backup this folder.  Instead sync/backup it's subfolders as
-       per `Design: Syncthing Folders`_.
+       version.  
 
    * - :file:`resources/`
      - To `workstation`_ only.
@@ -197,22 +230,17 @@ subfolders as per below design.
      - Cloud
      - Notes
 
-   * - :file:`public/file-share/ghosh-family`
-     - Yes
-     - No
-     -
-
-   * - :file:`public/file-share/backups/secret/`
+   * - :file:`backups/file-share/secret/`
      - Yes
      - No
      - Contains secret `Syncthing Backup Types`_.  For `home server`_ only.
 
-   * - :file:`public/file-share/backups/private/`
+   * - :file:`backups/file-share/private/`
      - Yes
      - No
      - Contains private `Syncthing Backup Types`_.  For `home server`_ only.
 
-   * - :file:`public/file-share/backups/public/`
+   * - :file:`backups/file-share/public/`
      - Yes
      - Yes
      - Contains public `Syncthing Backup Types`_.  For `home server`_ only.
@@ -232,11 +260,19 @@ Syncthing app setup (for all Syncthing clients)-
 - Let Vim swap files (and similar "lock" files) be shared so that others
   know if this file is being edited on another device.
 
-Syncthing Shares for all Syncthing clients)-
+Syncthing Shares (for all Syncthing clients)-
 
-- Syncthing folders' local path go under :file:`public/file-share/`
+- Syncthing folders' local path could be anywhere.
 - Setup folder sharing as per `Design: Folder Level`_ and
   `Design: Syncthing Folders`_.
+
+Nested Syncthing folders-
+
+- Add the nested subfolders to :code:`.stignore` and share them as a separate
+  Syncthing folder.  Precise control on who to share with.
+- Share the "super" folder.  The destination ignores the subfolder by adding
+  it in :code:`.stignore`.  Destination can ignore unnecessary (perhaps large)
+  folders.
 
 
 Config: Borg Backups
@@ -248,7 +284,7 @@ Config: Borg Backups
 Config: Borg Backups: Backup Resources
 --------------------------------------
 
-*On `home server`_ only*.
+*On home server only*.
 
 .. list-table:: Folder hierarchy of backup resources
    :widths: auto
@@ -263,6 +299,9 @@ Config: Borg Backups: Backup Resources
    * - :file:`backups/borg/`
      - `home server`_'s local Borg repository goes here.
 
+   * - :file:`backups/file-share/{secret,private,public}`
+     - See `Design: Syncthing Folders`_.
+
 Borg exclude patterns (:code:`--exclude`) for all backups::
 
    *.pyc
@@ -275,6 +314,23 @@ Borg exclude patterns (:code:`--exclude`) for all backups::
 
 Config: Borg Backups: Repositories
 ----------------------------------
+
+.. note::
+
+   Before taking bakcups, verify that sync is good.
+
+   - Verify that sync in "Up to Date" (using the Syncthing Web UI).
+
+   - Verify no sync conflicts::
+
+        find /home/ashim/private/ -name '*sync-conflict*'
+        find /home/ashim/public/ -name '*sync-conflict*'
+        find /home/ashim/resources/ -name '*sync-conflict*'
+        find /home/ashim/public/file-share/ -name '*sync-conflict*'
+        find /home/ashim/ashim/ -name '*sync-conflict*'
+        find /home/ashim/clinic/ -name '*sync-conflict*'
+        find /home/ashim/pubmatic/ -name '*sync-conflict*'
+
 
 .. rubric:: Ashim All Daily
 
