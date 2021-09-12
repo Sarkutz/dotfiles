@@ -103,10 +103,10 @@ script.  The following can be configured by editing the script.
   :code:`setup_home`.
 - Set :code:`ONLY_EXPORT_PATHS` variable to 1, if we want to export the
   environment variables without creating the paths.
-- Set PREFIX variable, if required.  Default: :code:`$HOME` environment
-  variables.
-- Set DRY_RUN to 1 to check what changes the script would make.  (No changes
-  are made during dry run.)
+- Set :code:`PREFIX` variable, if required.  Default: :code:`$HOME`
+  (environment variable).
+- Set :code:`DRY_RUN` to 1 to check what changes the script would make.  (No
+  changes are made during dry run.)
 
 
 ************
@@ -129,18 +129,18 @@ the dependency is listed in the "Used by" column).
      - Notes
 
    * - ``tmux``
-     - 
+     - .
      - System's package manager.
      - ``tmux`` dotfiles provided by this repository.  Please see 
        `Dotfiles Provided`_.
 
    * - ``curl`` and ``wget``
-     -
+     - .
      - System's package manager
-     -
+     - .
 
    * - ``ranger``
-     - 
+     - .
      - System's package manager
      - ranger is an advanced CLI based file browser with vim-like keybinding
        and Mac-like interface.
@@ -169,7 +169,7 @@ the dependency is listed in the "Used by" column).
        Please see `Dotfiles Provided`_.
 
    * - Docker
-     - .
+     - BASH dotfiles (several features)
      - Systems's package manager.
      - .
 
@@ -188,14 +188,15 @@ the dependency is listed in the "Used by" column).
        Create Conda environments and install packages as required.
 
      - No need to initialise Miniconda.  This can be done by calling
-       ``act_conda`` (Defined in the Python Alias Space).  I prefer
-       Miniconda.
+       ``act_conda`` (Defined in the Python Alias Space).
+
+       I prefer Miniconda.
 
    * - Python
      - Python Alias Space
      - Systems's package manager.  Alternatively install from sources as
        mentioned in `Install Python (from sources)`_.
-     -
+     - .
 
    * - `SDKMAN <https://sdkman.io/>`__
      - BASH JVM related alias spaces
@@ -210,7 +211,7 @@ the dependency is listed in the "Used by" column).
        :file:`.profile`.  Hence, remove the :file:`.bash_profile` file.
 
    * - Java Development Kit (JDK)
-     - System and several utilities (like Freeplane)
+     - System and several utilities
      - System's package manager.
      - For Mac OS, please check the post-installation notice from brew for
        instruction on how to complete the setup.
@@ -218,24 +219,25 @@ the dependency is listed in the "Used by" column).
    * - Golang
      - Go Alias Space
      - From sources.  See `Install Go (from sources)`_.
-     -
+     - .
 
    * - Node.js and NPM
-     -
+     - .
      - System's package manager.
-     -
+     - .
 
    * - `KeepassXC <https://keepassxc.org/download/>`__
      - Password manager.
      - System's package manager.
-     -
+     - .
 
    * - Nginx
-     -
+     - .
      - System's package manager.
-     -
+     - .
 
    * - `Freeplane <https://sourceforge.net/projects/freeplane/>`__
+       (Deprecated)
      - ``gtd`` alias in home.sh; GTD workflow
      - System's package manager.
      - If required, configure Freeplane as follows:
@@ -265,14 +267,14 @@ the dependency is listed in the "Used by" column).
        <https://sourceforge.net/projects/freeplane/>`__.
 
    * - Anki
-     -
+     - .
      - System's package manager
      - https://apps.ankiweb.net
 
        Import your old Anki decks, if required.
 
    * - Zotero
-     -
+     - .
      - System's package manager
      - Configure Zotero as follows:
 
@@ -281,14 +283,14 @@ the dependency is listed in the "Used by" column).
        - If required, turn OFF Syncing in "Preferences > Sync".
 
    * - FireFox/Web Browser
-     -
+     - .
      - System's package manager
-     -
+     - .
 
    * - ``tree``
-     -
+     - .
      - System's package manager
-     -
+     - .
 
    * - ``jq``
      - Various utilities (base.sh)
@@ -311,16 +313,15 @@ the dependency is listed in the "Used by" column).
      - ``scc`` and ``spc`` aliases in base.sh
      - Systems's package manager.  Repo: `astrand/xclip
        <https://github.com/astrand/xclip>`__
-     - Not required on Mac OS X as we use ``pbcopy`` and ``pbpaste`` commands
-       instead of ``xclip``.
+     - .
 
    * - redshift
-     -
+     - .
      - System's package manager
      - Add to Startup Applications.
 
    * - CopyQ
-     -
+     - .
      - System's package manager
      - Clipboard manager.  Add to Startup Applications.  Configure <C-M-v> as
        trigger/hot key.
@@ -339,16 +340,17 @@ the dependency is listed in the "Used by" column).
    * - ``brew``
      - Various BASH dotfiles.
      - `Homebrew website <https://brew.sh/>`__
-     - Occurances of "system package manager" means Homebrew on Mac.
+     - Occurances of "system package manager" in this repo refers to Homebrew
+       on Mac.
 
    * - Karabiner Elements
-     -
+     - .
      - `Karabiner-Elements GitHub page
        <https://github.com/pqrs-org/Karabiner-Elements>`__
      - Add to Startup Applications.
 
    * - Jumpcut
-     -
+     - .
      - System's package manager
      - Clipboard Manger.  Add to Startup Applications.
 
@@ -478,7 +480,7 @@ Install using System's package manager
 
 
 If there is any problem reported for Python, setup Python2 and Python3, as
-follows (there are already done when you checkout this repo and run
+follows (these are already done when you checkout this repo and run
 :file:`setup-folders.sh`):
 
 - Create a separate virtualenv and install ``pynvim``.
@@ -559,10 +561,6 @@ Please find the details of the dotfiles provided by this repository.
      - :file:`.dotfiles/git/`
      -
 
-   * - Ctags
-     - :file:`.dotfiles/ctags/`
-     -
-
    * - Vim
      - :file:`.dotfiles/vim/`
      - 
@@ -570,6 +568,14 @@ Please find the details of the dotfiles provided by this repository.
    * - NeoVim
      - :file:`.dotfiles/vim/`, :file:`$HOME/.config/nvim/init.vim`
      -
+
+   * - Ctags
+     - :file:`.dotfiles/ctags/`
+     -
+
+   * - Window Manager
+     - :file:`.dotfiles/wm/`
+     - 
 
    * - Knowledge bases
      - :file:`.dotfiles/knowl/`
@@ -580,10 +586,6 @@ Please find the details of the dotfiles provided by this repository.
 
        :file:`index.html` and :file:`phpinfo.php` are copied to path in
        :code:`$DOTFILES_WWW` env var.
-
-   * - Window Manager
-     - :file:`.dotfiles/wm/`
-     - 
 
    * - Data Backups
      - :file:`.dotfiles/backups/`
@@ -700,4 +702,11 @@ Repository Conventions
   required for distros that didn't ship with Python 3 enabled in Vim?
 - Document vim dotfiles in .dotfiles/vim/README.rst
 - Get venvs working on linux and mac
+
+- Check-in
+
+  - [base] Vim plugins (as submodules): vim-signature, black (add to vim/README)
+  - [base] is-repo-dirty (add to README)
+  - [base] make-proj-dirs.sh
+  - [base] sync-proj-todos.sh
 
