@@ -192,8 +192,8 @@ workstations)*.
      - Sync folder and all it's contents.
 
    * - :file:`public/`
-     - To `workstation`_ only
-       :code:`.stignore` :code:`/www``
+     - To workstation only
+       :code:`.stignore` :code:`public/www`.
      - Yes
      - Yes
      - Sync/backup :file:`public/website/online/`.  Don't sync/backup
@@ -201,7 +201,7 @@ workstations)*.
        version.  
 
    * - :file:`resources/`
-     - To `workstation`_ only.
+     - To workstation only.
        :code:`.stignore` :code:`/repos`, :code:`/software`
      - Yes
      - ???
@@ -218,8 +218,13 @@ workstations)*.
 Design: Syncthing Folders
 =========================
 
-Don't sync/backup :file:`public/file-share`.  Instead sync/backup it's
-subfolders as per below design.
+:file:`public/file-share` is deprecated.  Place the folder anywhere you want
+and configure it's path in Syncthing.
+
+.. note::
+
+   Deprecated: Don't sync/backup :file:`public/file-share`.  Instead
+   sync/backup it's subfolders as per below design.
 
 .. list-table:: Design: Syncthing Folders
    :widths: auto
@@ -306,11 +311,15 @@ Borg exclude patterns (:code:`--exclude`) for all backups::
 
    *.pyc
    *.sw?
-   .stfolder  # Is it required (Syncthing)?
    .stversions  # Syncthing
    !.stignore
    */knowl/build
    */wiki/build
+
+Deprecated::
+
+   .stfolder  # Required to tell Synthing to manage this folder.
+              # (It's an empty folder.)
 
 Config: Borg Backups: Repositories
 ----------------------------------
