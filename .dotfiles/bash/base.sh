@@ -50,6 +50,11 @@ else
     alias spc='xclip -o -selection clipboard'
 fi
 
+# scm (Copy from Mobile) and scp (Paste to Mobile)
+# Copy and paste to all synced devices.
+alias 'scm=cat $DOTFILES_GTD/../active/transfer.txt | scc'
+alias 'spm=spc > $DOTFILES_GTD/../active/transfer.txt'
+
 # slackm
 function slackm() {
     usage='slackm: Send message as a Slack notification
