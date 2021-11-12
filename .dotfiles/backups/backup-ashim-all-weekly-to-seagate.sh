@@ -26,23 +26,22 @@ $BORG create                        \
     --exclude-caches                \
     --exclude '*.pyc'               \
     --exclude '*.sw?'               \
-    --exclude '.stfolder'           \
     --exclude '.stversions'         \
     --exclude '!.stignore'          \
     --exclude '*/knowl/build'       \
     --exclude '*/wiki/build'        \
                                     \
     ::'ashim_all_weekly_{now:%Y-%m-%d}' \
-    ~/public/                       \
-    ~/public/www/                   \
-    ~/public/website/online/        \
-    ~/resources/ashim/              \
-    ~/resources/data/               \
-    ~/public/file-share/            \
-   ~/private/                       \
-   ~/ashim/                         \
-   ~/clinic/                        \
-   ~/pubmatic/                      \
+     ~/private/                      \
+     ~/public/                       \
+     ~/archives/                     \
+     ~/storage/                      \
+     ~/resources/ashim/              \
+     ~/resources/data/               \
+     ~/ashim/                        \
+     ~/clinic/                       \
+     ~/pubmatic/                     \
+     ~/family/                       \
 
 backup_exit=$?
 

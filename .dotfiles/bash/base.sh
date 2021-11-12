@@ -52,8 +52,8 @@ fi
 
 # scm (Copy from Mobile) and scp (Paste to Mobile)
 # Copy and paste to all synced devices.
-alias 'scm=cat $DOTFILES_GTD/../active/transfer.txt | scc'
-alias 'spm=spc > $DOTFILES_GTD/../active/transfer.txt'
+alias 'scg=cat $DOTFILES_GTD/../active/clipboard.txt | scc'
+alias 'spg=spc > $DOTFILES_GTD/../active/clipboard.txt'
 
 # slackm
 function slackm() {

@@ -132,10 +132,24 @@ System
 
    * - ``spc``
      - ``base.sh``
-     - Paste from Clipboard.
+     - Paste to Clipboard.
        Usage::
 
          spc
+
+   * - ``scg``
+     - ``base.sh``
+     - Copy to Global Clipboard.
+       Usage::
+
+         echo 'copy this' | scg
+
+   * - ``spg``
+     - ``base.sh``
+     - Paste to Global Clipboard.
+       Usage::
+
+         spg
 
    * - ``slackm``
      - ``base.sh``
@@ -715,7 +729,8 @@ I organise my folders as follows::
    ├── Downloads
    ├── README.rst
    ├── private
-   │   ├── all.kdbx
+   │   ├── active
+   │   │   └── all.kdbx
    │   ├── gtd
    │   ├── orgzly
    │   ├── diary
@@ -739,12 +754,12 @@ I organise my folders as follows::
    │       ├── installed
    │       ├── pyenvs
    │       └── standalone
-   ├── archives
+   ├── archives    # Only active archives; inactives stored on ext HD
+   │   ├──         # TODO: figure out hierarchy
    │   └── media (family photos etc.)
-   ├── storage
+   ├── storage     # Only active storage; inactives stored on ext HD
    │   ├── movies
    │   └── songs
-   │       └── active
    ├── ashim
    ├── clinic
    └── family

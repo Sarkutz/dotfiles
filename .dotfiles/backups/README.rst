@@ -208,11 +208,24 @@ workstations)*.
      - Sync/backup :file:`resources/data` and :file:`resources/ashim`.  Don't
        sync/backup :file:`resources/repos` or :file:`resources/software`.
 
+   * - :file:`archives/`
+     - All
+     - No
+     - No
+     - Archives should be organised and moved to Ext HDD as soon as possible.
+
+   * - :file:`storage/`
+     - All
+     - No
+     - Doesn't matter.
+     - Should contain only active content that i want to be able to access
+       everywhere.  Get other, inactive content from the home server on-demand.
+
    * - :file:`downloads/`
      - No
      - No
      - No
-     -
+     - .
 
 
 Design: Syncthing Folders

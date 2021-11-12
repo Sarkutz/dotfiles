@@ -115,17 +115,17 @@ function setup_home() {
     mkdir_if_not_exists downloads
   
   cd "$PREFIX" &&
-    $MKDIR private public
-  
-  cd "$PREFIX/private/" &&
-    $MKDIR gtd knowl anki diary zotero ghosh/ashim
-  
-  cd "$PREFIX/public/" &&
-    $MKDIR website www file-share
+    $MKDIR private public archives storage
   
   # MacOS Only
   [[ $(uname) == 'Darwin' ]] &&
     sudo /bin/mv Public/ public
+  
+  cd "$PREFIX/private/" &&
+    $MKDIR active gtd knowl anki orgzly diary zotero ghosh-family/ashim
+  
+  cd "$PREFIX/public/" &&
+    $MKDIR website www file-share
   
   cd "$PREFIX/public/website/" &&
     $LN "$PREFIX/private/knowl/" &&
@@ -140,4 +140,3 @@ function setup_home() {
 
 
 setup_home
-
