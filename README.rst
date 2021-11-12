@@ -203,8 +203,8 @@ the dependency is listed in the "Used by" column).
      - curl -s "https://get.sdkman.io" | bash
      - Add the following to :file:`~/.profile`::
 
-          export SDKMAN_DIR="/Users/ashim/.sdkman"
-          [[ -s "/Users/ashim/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ashim/.sdkman/bin/sdkman-init.sh"
+          export SDKMAN_DIR="~/.sdkman"
+          [[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
 
        SDKMAN adds these to :file:`~/.bash_profile`.  However, when
        :file:`.bash_profile` file is present, it prevents execution of
@@ -426,9 +426,16 @@ Setup Python virtual enviroments (for ``dve``)::
   source $DOTFILES/utils/path-info.sh
 
   # First setup nvimpy2.  It needs Python 2.  So use -p to point to a Python 2
-  virtualenv -p /usr/bin/python nvimpy2 && cd nvimpy2 && source bin/activate && mv '../nvimpy2.requirements.txt' requirements.txt && pip install -r requirements.txt
+  cd "$DOTFILES_PYENVS" && \
+    virtualenv -p /usr/bin/python nvimpy2 && \
+    cd nvimpy2 && \
+    source bin/activate && \
+    mv '../nvimpy2.requirements.txt' requirements.txt && \
+    pip install -r requirements.txt
 
   # Then setup Python 3 virtual envs.
+  # (On Ubuntu, ensure that python3-venv is installed-
+  # sudo apt install python3-venv)
   cd "$DOTFILES_PYENVS" && \
     ls *.requirements.txt | \
     xargs -I '{}' bash -c "echo '{}' | cut -d. -f1" | \

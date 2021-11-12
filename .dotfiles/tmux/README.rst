@@ -8,7 +8,7 @@
 This repository is taken from `Sarkutz/tmux-config
 <https://github.com/Sarkutz/tmux-config>`__, which is a fork of
 `samoshkin/tmux-config <https://github.com/samoshkin/tmux-config>`__.
-Install it as per instructions :file:`./tmux-config/README.rst`.
+Install it as per instructions :file:`./tmux-config/readme.md`.
 
 .. list-table:: Common Utilities
    :widths: auto
