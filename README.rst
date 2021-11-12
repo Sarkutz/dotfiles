@@ -298,6 +298,11 @@ the dependency is listed in the "Used by" column).
        <https://stedolan.github.io/jq/>`__.
      - .
 
+   * - ``vlc``
+     - .
+     - System's package manager
+     - .
+
 
 .. list-table:: System Softwares (Linux-only)
    :widths: auto
