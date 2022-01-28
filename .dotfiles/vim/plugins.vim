@@ -28,7 +28,15 @@ let g:gruvbox_italic='1'
 " let g:gruvbox_hls_cursor='red'  " Not getting reflected?
 " let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
-set background=light    " Setting dark mode
+" Set Background
+" Following system command returns without error only if the current mode is
+" Dark mode.  This detect Light/Dark mode in Auto mode as well.
+let s:sys = system("if [[ $(uname) == 'Darwin' ]]; then defaults read -g AppleInterfaceStyle 2&>/dev/null; else exit 1; fi")
+if v:shell_error
+	set background=light
+else
+	set background=dark
+endif
 nnoremap <C-L> :call gruvbox#hls_toggle()<CR><C-L>
 
 " Update highlighting for matched parenthesis to make it easier to see
