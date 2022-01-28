@@ -94,6 +94,26 @@ Misc/All
      - Location
      - Description
 
+   * - ``amxs``
+     - ``base.sh``
+     - Send message as a Matrix notification.  Usage::
+
+          export "SECRET_MATRIX_PASSWORD=..."
+          amxs "message"
+
+       Pre-condition: Env var SECRET_MATRIX_PASSWORD must be set to a valid
+       matrix user password.
+
+   * - anoti
+     - ``base.sh``
+     - Send notification based on return value of previous command to Matrix
+       room.  Usage::
+
+          cat foo
+          anoti "Success message" "Fail message"
+
+       Pre-condition: pre-conditions for amxs are met.
+
    * - ``agtd``
      - ``home.sh``
      - Start GTD resources.

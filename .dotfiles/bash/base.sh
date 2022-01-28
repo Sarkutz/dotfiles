@@ -64,6 +64,7 @@ Example:
   slackm "notify me about this"
 Note: message is sent as a JSON string.'
     if [[ $# -ne 1 ]]; then
+        echo 'Please provide correct number of arguments'
         echo "$usage"
         return 1
     fi
@@ -72,6 +73,51 @@ Note: message is sent as a JSON string.'
     curl -X POST -H 'Content-type: application/json' \
         --data "{\"text\": \"$message\"}" "$SECRET_SLACK_INCOMMING_WEBHOOK_URL"
 }
+
+# amxs
+function amxs() {
+    usage='amxs: Send message as a Matrix notification.
+PRECONDITION: Env var SECRET_MATRIX_PASSWORD must be set to a valid matrix user
+password that has access to the room.
+USAGE: amxs "message"
+Example:
+  export "SECRET_MATRIX_PASSWORD=..."
+  amxs "Hello, world!"'
+    if [[ $# -ne 1 ]] || [[ -z $SECRET_MATRIX_PASSWORD ]]; then
+        echo 'Please provide correct number of arguments'
+        echo "$usage"
+        return 1
+    fi
+    message="$1"
+
+    cd $DOTFILES/utils && $DOTFILES_PYENVS/system/bin/python3 -c \
+        "import bashrcutils; bashrcutils.matrix_send('${SECRET_MATRIX_PASSWORD}', '${message}')"
+}
+
+# anoti
+function anoti() {
+	rv=$?
+
+    usage='anoti: Send notification based on return value of previous command to
+Matrix room.
+PRECONDITION: Preconditions of amxs are met.
+USAGE: anoti "Message on success" "Message on failure"
+Example:
+  cat foo
+  anoti "Success" "Fail"'
+    if [[ $# -ne 2 ]]; then
+        echo 'Please provide correct number of arguments'
+        echo "$usage"
+        return 1
+    fi
+	msg_success=$1
+	msg_fail=$2
+
+	if [[ $rv -eq 0 ]]; then msg="$msg_success"; else msg="$msg_fail"; fi
+	ts=$( date +%Y-%m-%d-%H-%M-%S )
+	amxs "($ts): $msg"
+}
+
 
 # BASH
 # ----
