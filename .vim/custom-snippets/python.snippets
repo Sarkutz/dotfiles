@@ -15,7 +15,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 endsnippet
 
-snippet ipython_s "Boilerplate for IPython" b
+snippet ipython_s "Skeleton IPython" b
 '''
 %autoindent off
 plt.ion()
@@ -27,4 +27,86 @@ endsnippet
 snippet set2csv "Function to convert a Python set into CSV string" b
 def set2csv(s):
     return ','.join([str(x) for x in s])
+endsnippet
+
+snippet ml_s "Skeleton: ML" b
+#!/usr/bin/env python
+
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+import config
+
+
+def agg_data(df, agg_levels, metrics=config.data_metric_cols):
+    metric_aggs = zip(metrics, ['sum'] * len(metrics))
+    df = (df
+            .groupby(agg_levels, as_index=False)
+            .agg(dict(metric_aggs))
+            )
+    return df
+
+
+def get_data_single(path):
+    cols = config.data_key_cols + config.data_metric_cols
+    df = pd.read_csv(path, header=0, names=cols)
+    return df
+
+
+def get_data():
+    paths = [os.path.join(config.data_path_prefix,
+        f'{config.exp_name}-{hour:02}.csv') for hour in range(24)]
+    dfs = [get_data_single(path) for path in paths]
+    df = pd.concat(dfs)
+    df = agg_data(df, config.data_key_cols)
+    return df
+
+
+
+def clean(df):
+    return df
+
+
+def feat(df):
+    return df
+
+
+def write_report(df):
+    # Add agg_levels?
+    path = os.path.join(config.report_path_prefix, f'{config.exp_name}.csv')
+    df.to_csv(path, index=False)
+
+
+def main():
+    data_df = get_data()
+    clean_df = clean(data_df)
+    feat_df = feat(clean_df)
+
+    # TODO create report_df
+    report_df = feat_df
+
+    print(report_df)
+    write_report(report_df)
+    print('Done.')
+
+
+if __name__ == '__main__':
+    main()
+$0
+
+'''config.py
+#!/usr/bin/env python
+
+
+exp_name = '2022-10-27'
+
+data_path_prefix = '/Users/ashim/pubmatic/projfg/fra-reduce/analysis/reduce-fra-benefit/data/interim/risk-profile/debug/'
+
+data_key_cols = ['pub_id', 'publisher', 'channel']
+data_metric_cols = ['spend']
+
+report_path_prefix = data_path_prefix
+'''
 endsnippet
