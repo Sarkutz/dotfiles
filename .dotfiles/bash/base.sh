@@ -50,10 +50,10 @@ else
     alias spc='xclip -o -selection clipboard'
 fi
 
-# scm (Copy from Mobile) and scp (Paste to Mobile)
-# Copy and paste to all synced devices.
-alias 'scg=cat $DOTFILES_GTD/../active/clipboard.txt | scc'
-alias 'spg=spc > $DOTFILES_GTD/../active/clipboard.txt'
+# scg (Copy to Global) and spg (Paste from Global)
+# Copy and paste to all synced devices (Global).
+alias 'scg=spc > $DOTFILES_GTD/../secret/clipboard.txt'
+alias 'spg=cat $DOTFILES_GTD/../secret/clipboard.txt | scc'
 
 # slackm
 function slackm() {

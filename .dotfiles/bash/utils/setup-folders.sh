@@ -107,6 +107,7 @@ function setup_base() {
   cp $DOTFILES/../resources/is-repo-dirty.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/tsv2csv.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
+  # TODO Check if $DOTFILES_WWW exists
   cp $DOTFILES/../knowl/index.html $DOTFILES_WWW
   cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
 }
@@ -125,7 +126,7 @@ function setup_home() {
     sudo /bin/mv Public/ public
   
   cd "$PREFIX/private/" &&
-    $MKDIR active gtd knowl anki orgzly diary zotero ghosh-family/ashim
+    $MKDIR active secret gtd knowl anki orgzly diary zotero ghosh-family/ashim
   
   cd "$PREFIX/public/" &&
     $MKDIR website www file-share
