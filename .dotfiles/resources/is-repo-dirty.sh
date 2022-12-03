@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# USAGE
+# List all dirty Git repo under specified paths.
+# Update paths variable in code.
+# Example-
+# $ is-repo-dirty.sh
+# /Users/ashim/ashim//projbg/kaizen/.git
+# /Users/ashim/private/gtd//.git
+# /Users/ashim/.dotfiles.git/
+
+
 paths=( \
     ~/ashim/  \
     ~/pubmatic/  \
