@@ -105,6 +105,7 @@ function setup_base() {
   cp $DOTFILES/../resources/painlessmerge.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/make-proj-dirs.sh  $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/is-repo-dirty.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+  cp $DOTFILES/../resources/tsv2csv.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
   cp $DOTFILES/../knowl/index.html $DOTFILES_WWW
   cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
