@@ -43,6 +43,12 @@ nnoremap <C-L> :call gruvbox#hls_toggle()<CR><C-L>
 hi MatchParen cterm=bold ctermbg=none ctermfg=124 gui=bold guibg=#bdae93
 
 
+" golden-ratio.vim
+" ================
+let g:golden_ratio_exclude_nonmodifiable = 1
+nmap <Leader>tg :GoldenRatioToggle<CR>
+
+
 " Ultisnips Snippet Engine
 " ========================
 
@@ -150,6 +156,7 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 "           (either session name or number), the ith window and the jth pane
 " "%i"      means i refers the pane's unique id
 " "{token}" one of tmux's supported special tokens, like "{last}"
+
 
 " NeoVim
 " ------
