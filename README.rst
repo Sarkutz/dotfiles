@@ -303,6 +303,21 @@ the dependency is listed in the "Used by" column).
      - System's package manager
      - .
 
+   * - Powerline Pached Fonts
+     - ``tmux``
+     - .
+     - Please see README in tmux dotfiles: `Dotfiles Provided`_.
+
+   * - Font: Source Code Pro
+     - .
+     - System's package manager.
+
+       On Mac OS (using brew)::
+
+          brew tap homebrew/cask-fonts
+          brew install font-source-code-pro
+
+     - This is a great font for the terminal.
 
 .. list-table:: System Softwares (Linux-only)
    :widths: auto
@@ -767,4 +782,7 @@ Repository Conventions
   - [base] is-repo-dirty (add to README)
   - [base] make-proj-dirs.sh
   - [base] sync-proj-todos.sh
+
+- Deprecate Freeplane?
+- Add ~/.emacs.d/private ???
 
