@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-usage='make-proj-dirs.sh: Create project scaffolding
+usage='make-proj-dirs.sh: Create project scaffolding for data science/ML
+projects.
 USAGE: bash make-proj-dirs.sh <artifact-type> <artifact-name>
 where-
 artifact-type: proj, ana, model, deploy, deploy_ana, deploy_model

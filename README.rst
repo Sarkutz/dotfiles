@@ -646,6 +646,52 @@ Please find the details of the utilities provided in this repository as follows.
           22918,2
           22987,12
 
+   * - tsv2csv.sh
+     - Shell script to convert TSV to CSV.  It is copied into the path by
+       setup-folders.sh.
+
+       Reads TSV from stdin.  Prints CSV to stdout.
+
+       USAGE::
+
+          $ cat test.tsv
+          14      Jyoti
+          18      Ashim
+
+          $ cat test.tsv | tsv2csv.sh
+          "14","Jyoti"
+          "18","Ashim"
+
+   * - is-repo-dirty.sh
+     - List all dirty Git repo under specified paths.  It is copied into the
+       path by setup-folders.sh.
+
+       Update paths variable in code.
+
+       USAGE::
+
+          $ is-repo-dirty.sh
+          /Users/ashim/ashim//projbg/kaizen/.git
+          /Users/ashim/private/gtd//.git
+          /Users/ashim/.dotfiles.git/
+
+   * - make-proj-dirs.sh
+     - Create project scaffolding for data science/ML projects.
+
+       USAGE::
+
+          bash make-proj-dirs.sh <artifact-type> <artifact-name>
+
+       where-
+
+       - artifact-type is one of: proj, ana, model, deploy, deploy_ana,
+         deploy_model
+       - artifact-name: Name of artifact
+       
+       EXAMPLE::
+
+          bash make-proj-dirs.sh ana lift-ana
+
    * - painlessmerge.sh
      - Required by :file:`$HOME/.gitconfig`.
 
