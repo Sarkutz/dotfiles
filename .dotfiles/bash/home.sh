@@ -21,6 +21,14 @@ source "${DOTFILES}/dev.sh"
 # System (s)
 # ==========
 
+# so: Open file/directory using open command (Mac OS only)
+if [[ $(get_os) == 'mac_os' ]]; then
+    alias so='open'
+fi
+
+# sr: Open ranger (file browser)
+alias sr='ranger'
+
 
 # Development (d)
 # ===============

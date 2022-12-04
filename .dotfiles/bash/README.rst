@@ -187,6 +187,19 @@ System
 
          spg
 
+   * - ``sr``
+     - ``home.sh``
+     - Start ranger (file browser).  Usage::
+
+          sr
+
+   * - ``so``
+     - ``home.sh``
+     - Open file/directory using ``open`` (which detects the appropriate
+       software).  Only for Mac OS.  Usage::
+
+          so <file/dir>
+
 Development
 -----------
 

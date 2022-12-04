@@ -140,7 +140,7 @@ the dependency is listed in the "Used by" column).
      - .
 
    * - ``ranger``
-     - .
+     - ``sr`` alias
      - System's package manager
      - ranger is an advanced CLI based file browser with vim-like keybinding
        and Mac-like interface.
