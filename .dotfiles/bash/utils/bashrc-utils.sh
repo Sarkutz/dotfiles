@@ -29,6 +29,19 @@ BASH_COLOR_EM1="${BASH_COLOR_CYAN}"
 BASH_COLOR_EM2="${BASH_COLOR_PURPLE}"
 
 
+function get_os() {
+    usage='get_os: Print OS of system.
+USAGE: get_os
+Output values-
+- mac_os: Mac OS'
+    os='unknown'
+    if [[ $(uname) == 'Darwin' ]]; then
+        os='mac_os'
+    fi
+    echo "$os"
+}
+
+
 function prefix_unique() {
     text="$1"
     prefix="$2"

@@ -31,11 +31,12 @@ which 'freeplane' &> /dev/null
 if [[ $? -eq 0 ]]; then
     freeplane_path='freeplane'
 else
-    # TODO: check uname for "is mac os"
-    # mac_freeplane_path='/Applications/Freeplane.app/Contents/MacOS/JavaAppLauncher'
-    mac_freeplane_path='/Applications/Freeplane.app'
-    if [[ -e "$mac_freeplane_path" ]]; then
-        freeplane_path="open $mac_freeplane_path"
+    if [[ $(get_os) == 'mac_os' ]]; then
+        # mac_freeplane_path='/Applications/Freeplane.app/Contents/MacOS/JavaAppLauncher'
+        mac_freeplane_path='/Applications/Freeplane.app'
+        if [[ -e "$mac_freeplane_path" ]]; then
+            freeplane_path="open $mac_freeplane_path"
+        fi
     fi
 fi
 export FREEPLANE_PATH="$freeplane_path"

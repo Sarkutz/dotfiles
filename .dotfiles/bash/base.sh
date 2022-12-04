@@ -42,7 +42,7 @@ alias sps='ps aux | grep -v grep - | grep'
 alias sj='jobs'
 
 # scc (Copy Clipboard) and spc (Paste Clipboard)
-if [[ $(uname) == 'Darwin' ]]; then
+if [[ $(get_os) == 'mac_os' ]]; then
     alias scc=pbcopy
     alias spc=pbpaste
 else
@@ -234,7 +234,7 @@ alias dvi="find . -maxdepth 1 -name '*.sw?'; sps -wE 'n?vim'"
 alias diff='/usr/bin/diff -u'
 
 # dtag (Tag): Create tags for code navigation
-if [[ $(uname) == 'Darwin' ]]; then
+if [[ $(get_os) == 'mac_os' ]]; then
     alias dtag="$( brew --prefix )/bin/ctags -R . 2> /dev/null; cscope -Rb"
 else
     alias dtag='ctags -R . 2> /dev/null; cscope -Rb'

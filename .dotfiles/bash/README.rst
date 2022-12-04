@@ -651,6 +651,15 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
    * - Function Name
      - Usage
 
+   * - ``get_os``
+     - Print OS of system.  Output values-
+
+       - ``mac_os``: Mac OS
+
+       Syntax::
+
+          get_os
+
    * - ``prefix_unique``
      - Prefix to `text` only if `prefix` does not already exist in the string.  Syntax::
 

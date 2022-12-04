@@ -122,7 +122,7 @@ function setup_home() {
     $MKDIR private public archives storage
   
   # MacOS Only
-  [[ $(uname) == 'Darwin' ]] &&
+  [[ $(get_os) == 'mac_os' ]] &&
     sudo /bin/mv Public/ public
   
   cd "$PREFIX/private/" &&
