@@ -233,6 +233,18 @@ alias dvi="find . -maxdepth 1 -name '*.sw?'; sps -wE 'n?vim'"
 # Always present diff as unified.
 alias diff='/usr/bin/diff -u'
 
+# dpy: Alias for opening Python bin.
+function get_python_bin() {
+    which 'ipython' &> /dev/null
+    if [[ $? -eq 0 ]]; then
+        echo 'ipython'
+    else
+        # If python not in path, let alias fail.
+        echo 'python'
+    fi
+}
+alias dpy='$(get_python_bin)'
+
 # dtag (Tag): Create tags for code navigation
 if [[ $(get_os) == 'mac_os' ]]; then
     alias dtag="$( brew --prefix )/bin/ctags -R . 2> /dev/null; cscope -Rb"
@@ -240,7 +252,7 @@ else
     alias dtag='ctags -R . 2> /dev/null; cscope -Rb'
 fi
 
-# dgr (Grep Directory)
+# dgd (Grep Directory)
 function dgd() {
     grep -Rn "$1" . | grep -v 'cscope.out' | grep -v tags | grep "$1"
 }

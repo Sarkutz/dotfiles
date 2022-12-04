@@ -223,6 +223,10 @@ Development
      - ``base.sh``
      - Check open VI.
 
+   * - ``dpy``
+     - ``base.sh``
+     - Alias for opening Python bin.
+
    * - ``dgd``
      - ``base.sh``
      - Perform grep on a directory.
