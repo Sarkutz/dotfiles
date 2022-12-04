@@ -5,6 +5,13 @@
 
 .. contents:: Contents
 
+.. attention::
+
+   Plugin: coc.vim: Stay on :code:`48279de173f6b4accd3aba07cffeb297b7f40f65`.
+   If error like "-complete used without -nargs" then change :code:`-nargs=0`
+   to :code:`-nargs=?` on error line.
+
+
 ************
 Installation
 ************
