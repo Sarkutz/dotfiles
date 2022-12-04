@@ -22,14 +22,15 @@
 
 	# ok:
 	# Check state of repo before a push
-        ok = "! f() { git b; echo \"len(git d) = $( git d | wc -l )\"; echo \"len(git dc) = $( git dc | wc -l )\"; git ls -10; }; f"
+        ok = "! f() { git b; echo \"len(git d) = $( git d | wc -l )\"; echo \"len(git dc) = $( git dc | wc -l )\"; git ll -10; }; f"
 
 	# co: CheckOut
         co = checkout
 
 	# Log
-        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ls = log --stat
+	# ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
 	# d: Diff
         d = diff
