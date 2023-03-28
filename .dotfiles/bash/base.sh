@@ -55,6 +55,11 @@ fi
 alias 'scg=spc > $DOTFILES_GTD/../secret/clipboard.txt'
 alias 'spg=cat $DOTFILES_GTD/../secret/clipboard.txt | scc'
 
+# sol (Open Latest): Open file in current directory that was modified latest.
+if [[ $(get_os) == 'mac_os' ]]; then
+    alias 'sol=open $( ls -t | head -n 1 )'
+fi
+
 # tmuxp
 alias 'tmuxpl=$DOTFILES_PYENVS/system/bin/tmuxp load --yes .'
 alias 'tmuxpf=$DOTFILES_PYENVS/system/bin/tmuxp freeze --yes --force -o ./.tmuxp.yaml'
