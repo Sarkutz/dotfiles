@@ -271,3 +271,14 @@ First find for path that matches ``search_term`` exactly.
     fi
 }
 
+
+function is_ranger_shell() {
+    usage='is_ranger_shell: Are we inside a shell created by ranger?
+USAGE: is_ranger_shell
+Return value-
+- 1: Inside shell created by ranger.
+- 0: otherwise'
+
+    ps -fp $PPID | grep -q ranger && return 1 || return 0
+}
+

@@ -765,6 +765,17 @@ Utility functions are implemented in :file:`utils/bashrc-utils.sh` and
        - If no path is found then repeat this process with a substring match
          (``*search_term*``).
 
+   * - :code:`is_ranger_shell`
+     - Are we inside a shell created by ranger?  Syntax::
+
+          is_ranger_shell
+
+       Return value-
+
+       - 1: Inside shell created by ranger.
+       - 0: otherwise'
+
+
 .. list-table:: Utility Function (Python)
    :widths: auto
    :header-rows: 1

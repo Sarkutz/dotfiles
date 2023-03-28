@@ -77,6 +77,11 @@ __powerline() {
         printf " $ref$marks"
     }
 
+    __ranger_info() {
+        # ps -fp $PPID | grep -q ranger && printf "ranger" || printf ""
+        ps -fp $PPID | grep -q ranger && printf "ranger"
+    }
+
     if [[ -z "$PS_SYMBOL" ]]; then
       case "$(uname)" in
           Darwin)   PS_SYMBOL='';;
@@ -123,7 +128,10 @@ __powerline() {
         local vi="$(__vi_swp_info)"
 	[[ -n $vi ]] && vi=" $vi"
 
-        PS1="$alias_spaces$pyconda$pyenvs$system_details$git$vi$symbol"
+        local ranger="$(__ranger_info)"
+        [[ -n $ranger ]] && ranger=" $ranger"
+
+        PS1="$alias_spaces$pyconda$pyenvs$system_details$git$vi$ranger$symbol"
     }
 
     PROMPT_COMMAND="ps1${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
