@@ -55,6 +55,10 @@ fi
 alias 'scg=spc > $DOTFILES_GTD/../secret/clipboard.txt'
 alias 'spg=cat $DOTFILES_GTD/../secret/clipboard.txt | scc'
 
+# tmuxp
+alias 'tmuxpl=$DOTFILES_PYENVS/system/bin/tmuxp load --yes .'
+alias 'tmuxpf=$DOTFILES_PYENVS/system/bin/tmuxp freeze --yes --force -o ./.tmuxp.yaml'
+
 # slackm
 function slackm() {
     usage='slackm: Send message as a Slack notification

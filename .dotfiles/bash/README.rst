@@ -187,6 +187,20 @@ System
 
          spg
 
+   * - ``tmuxpl``
+     - ``base.sh``
+     - tmuxp: Load tmux session from ``.tmuxp.yaml`` in the current folder.
+       Usage::
+
+          tmuxpl
+
+   * - ``tmuxpf``
+     - ``base.sh``
+     - tmuxp: Save (freeze) tmux session to ``.tmuxp.yaml`` (overwrite if
+       existing) in the current folder.  Usage::
+
+          tmuxpf
+
    * - ``sr``
      - ``home.sh``
      - Start ranger (file browser).  Usage::

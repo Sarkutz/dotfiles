@@ -32,11 +32,8 @@ Install it as per instructions :file:`./tmux-config/readme.md`.
        font (say "Roberto Mono for Powerline").  Then check whether
        ``separator_powerline_left`` is displaying properly in ``~/.tmux.conf``.
 
-   * - ``initmux``
-     - Install from Git repo as mentioned on
-       `iasj/IniTmux <https://github.com/iasj/IniTmux>`__.
-     - Notes-
-
-       + Might need to alter the first line to #!/usr/bin/env python3.
-       + inittmux's config files are provided by this repo in ``.config/initmux/*.yaml``.
+   * - ``tmuxp``
+     - pip install tmuxp in system Python venv.
+     - Created aliases tmuxpl (load) and tmuxpf (fetch) to use tmuxp binary
+       fom the systemp Python venv.
 

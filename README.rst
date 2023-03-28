@@ -580,10 +580,6 @@ Please find the details of the dotfiles provided by this repository.
      - :file:`.dotfiles/tmux/`
      -
 
-   * - initmux
-     - :file:`.config/initmux/`
-     -
-
    * - Git
      - :file:`.dotfiles/git/`
      -
