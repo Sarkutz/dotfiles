@@ -23,7 +23,7 @@ __powerline() {
     __python_info() {
         nbr_py_files="$( find . -maxdepth 1 -name '*.py' | wc -l )"
         if [[ $nbr_py_files -ne 0 ]]; then
-            env_name="$( basename $( dirname $(dirname $( which python ) ) ) )"
+            env_name="$( basename $( dirname $(dirname $( which python3 ) ) ) )"
         else
             env_name=
         fi
