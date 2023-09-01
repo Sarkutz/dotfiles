@@ -607,6 +607,7 @@ before packages are loaded."
          ; Agendas
          ("@jyoti")
          ; Type of activity
+         ("think")
          ("clarify")
          ("explore")
          ("study")
@@ -614,9 +615,9 @@ before packages are loaded."
          ("anki")
          ("portfolio")
          ("produce")
-         ("think")
          ("comms")
          ("routine")
+         ("cleanup")
          ))
 
 
@@ -733,6 +734,9 @@ before packages are loaded."
   (setq org-clock-persist t)
   (setq org-clock-out-when-done t)
   (org-clock-persistence-insinuate)
+
+  (setq org-icalendar-include-todo t)
+
   )
 
 
@@ -767,7 +771,7 @@ This function is called at the very end of Spacemacs initialization."
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(org-agenda-files
-   '("/Users/ashim/private/gtd/dreams/art/graphic-design/graphic-design-dreams.org" "/Users/ashim/private/gtd/dreams/comp/ai/ml/ml-sw-engg/tools/notebooks/jupyter/jupyter-dreams.org" "/Users/ashim/private/gtd/dreams/comp/prog-lang/langs/jvm/scala/scala-dreams.org" "/Users/ashim/private/gtd/dreams/comp/prog-lang/langs/python/python-dreams.org" "/Users/ashim/private/gtd/dreams/comp/research-tools/learn/anki/anki-dreams.org" "/Users/ashim/private/gtd/dreams/comp/research-tools/publish/docs/latex/beamer/beamer-dreams.org" "/Users/ashim/private/gtd/dreams/comp/research-tools/publish/docs/latex/latex-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/emacs/org-mode/org-mode-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/emacs/spacemacs/spacemacs-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/emacs/emacs-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/vim/vim-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/messaging/matrix/matrix-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/mobile/automate/mobile-automate-app-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/mobile/mobile-dreams.org" "/Users/ashim/private/gtd/dreams/comp/sw-dev/impl-phase/tools/source-file-tools/giter8/giter8-dreams.org" "/Users/ashim/private/gtd/birthdays.org" "/Users/ashim/private/gtd/culture-dash.org" "/Users/ashim/private/gtd/gtd-actions.org" "/Users/ashim/private/gtd/gtd-agendas.org" "/Users/ashim/private/gtd/gtd-dash.org" "/Users/ashim/private/gtd/gtd-dreams.org" "/Users/ashim/private/gtd/gtd-proj.org" "/Users/ashim/private/gtd/tickler.org" "/Users/ashim/ashim/projbg/fitness/docs/todos.org" "/Users/ashim/ashim/projbg/kaizen/docs/todos.org" "/Users/ashim/ashim/projbg/kaizen/scratch/notes.org" "/Users/ashim/ashim/projbg/kaizen/yearly-review-2021/docs/todos.org" "/Users/ashim/ashim/projfg/ml-learn/docs/todos.org" "/Users/ashim/pubmatic/projbg/ml-competition-moh/docs/todos.org" "/Users/ashim/pubmatic/projbg/ml-team-aware/docs/todos.org" "/Users/ashim/pubmatic/projbg/scrum-master/docs/todos.org" "/Users/ashim/clinic/bunny-whites/admin/todos.org" "/Users/ashim/clinic/bunny-whites/bizdev/new-clinic-nigdi/todos.org" "/Users/ashim/clinic/bunny-whites/bizdev/todos.org" "/Users/ashim/clinic/bunny-whites/brand/marketing/website/todos.org" "/Users/ashim/clinic/bunny-whites/brand/marketing/todos.org" "/Users/ashim/clinic/bunny-whites/clinical/todos.org" "/Users/ashim/clinic/bunny-whites/finance/todos.org"))
+   '("/Users/ashim/private/gtd/dreams/art/graphic-design/graphic-design-dreams.org" "/Users/ashim/private/gtd/dreams/comp/ai/ml/ml-sw-engg/tools/notebooks/jupyter/jupyter-dreams.org" "/Users/ashim/private/gtd/dreams/comp/prog-lang/langs/jvm/scala/scala-dreams.org" "/Users/ashim/private/gtd/dreams/comp/prog-lang/langs/python/python-dreams.org" "/Users/ashim/private/gtd/dreams/comp/research-tools/learn/anki/anki-dreams.org" "/Users/ashim/private/gtd/dreams/comp/research-tools/publish/docs/latex/beamer/beamer-dreams.org" "/Users/ashim/private/gtd/dreams/comp/research-tools/publish/docs/latex/latex-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/emacs/org-mode/org-mode-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/emacs/spacemacs/spacemacs-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/emacs/emacs-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/editors/vim/vim-dreams.org" "/Users/ashim/private/gtd/dreams/comp/software/softwares/messaging/matrix/matrix-dreams.org" "/Users/ashim/private/gtd/dreams/comp/sw-dev/impl-phase/tools/source-file-tools/giter8/giter8-dreams.org" "/Users/ashim/private/gtd/birthdays.org" "/Users/ashim/private/gtd/culture-dash.org" "/Users/ashim/private/gtd/gtd-actions.org" "/Users/ashim/private/gtd/gtd-agendas.org" "/Users/ashim/private/gtd/gtd-dash.org" "/Users/ashim/private/gtd/gtd-dreams.org" "/Users/ashim/private/gtd/gtd-proj.org" "/Users/ashim/private/gtd/tickler.org" "/Users/ashim/ashim/projbg/fitness/docs/todos.org" "/Users/ashim/ashim/projbg/kaizen/docs/todos.org" "/Users/ashim/ashim/projbg/kaizen/scratch/notes.org" "/Users/ashim/ashim/projbg/kaizen/yearly-review-2021/docs/todos.org" "/Users/ashim/ashim/projfg/ml-learn/docs/todos.org" "/Users/ashim/pubmatic/projbg/ml-competition-moh/docs/todos.org" "/Users/ashim/pubmatic/projbg/ml-team-aware/docs/todos.org" "/Users/ashim/pubmatic/projbg/scrum-master/docs/todos.org" "/Users/ashim/clinic/bunny-whites/admin/todos.org" "/Users/ashim/clinic/bunny-whites/bizdev/new-clinic-nigdi/todos.org" "/Users/ashim/clinic/bunny-whites/bizdev/todos.org" "/Users/ashim/clinic/bunny-whites/brand/marketing/website/todos.org" "/Users/ashim/clinic/bunny-whites/brand/marketing/todos.org" "/Users/ashim/clinic/bunny-whites/clinical/todos.org" "/Users/ashim/clinic/bunny-whites/finance/todos.org"))
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(package-selected-packages
