@@ -61,23 +61,6 @@ Dependencies
 
        See `Install Knowl Resources`_.
 
-   * - Sphinx
-     - Required to manage knowl.
-     - PyPI::
-
-          pip install -U sphinx
-
-       This is already included in :file:`sphinx.requirements.txt`.
-
-   * - `Sphinx Book Theme
-       <https://sphinx-book-theme.readthedocs.io/en/latest/index.html>`__
-     - Required for Sphinx.
-     - PyPI::
-
-          pip install sphinx-book-theme
-
-       This is already included in :file:`sphinx.requirements.txt`.
-
 
 ***********************
 Install Knowl Resources
@@ -91,6 +74,13 @@ nginx.
    You might need to update the paths in :file:`nginx-localhost.conf`.
 
 Access website at `http://127.0.0.1:8080 <http://127.0.0.1:8080>`__.
+
+Sphinx and it's dependencies are provided as a Python virtual environment
+(:file:`$DOTFILES_PYENVS/sphinx`).  Activate the environment to use Sphinx in
+the current shell::
+
+   act_python_alias_space
+   python_venv_activate sphinx
 
 
 **************
@@ -111,4 +101,12 @@ Setup Overview
    * - :file:`index.html`, :file:`phpinfo.php`
      - Localhost website files.  These are copied to path in
        :code:`$DOTFILES_WWW` env var by :file:`setup-folders.sh`
+
+   * - :file:`$DOTFILES_PYENVS/sphinx`
+     - Python virtual environment that provides Sphinx and all dependencies to
+       create and build a knowledge base.  It provides-
+
+       - sphinx
+       - `sphinx-book-theme
+         <https://sphinx-book-theme.readthedocs.io/en/latest/index.html>`__
 
