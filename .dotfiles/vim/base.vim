@@ -7,6 +7,7 @@
 " View
 " ====
 
+set mouse=						" disable mouse
 set number relativenumber       " line numbers
 set showcmd						" showcmd on bottom line
 set scrolloff=2					" context lines above and below, always
@@ -84,7 +85,7 @@ vmap <leader>djpp :!jq '.'<CR>
 
 " NeoVim
 " ======
-set nocscopeverbose				" NeoVim waits for user input (before loading)
+" set nocscopeverbose				" NeoVim waits for user input (before loading)
 								" after reading a cscope database
 
 
