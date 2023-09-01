@@ -28,6 +28,7 @@ Dependencies
      - System's package manager::
 
           brew install koekeishiya/formulae/skhd
+          skhd --start-service
 
      - Simple Hotkey Daemon. ::
 
@@ -41,9 +42,9 @@ Dependencies
        - Disable System Integrity Protection (SIP).
        - Configure Mission Control as per https://github.com/koekeishiya/yabai
        - :code:`brew install koekeishiya/formulae/yabai`.
-       - :code:`rew services start yabai`.  Grant permission to use
+       - :code:`yabai --start-service`.  Grant permission to use
          Accessability API.
-       - :code:`sudo yabai --install-sa`
+       - :code:`yabai --load-sa`
 
      - Tiling window manager
 
