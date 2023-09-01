@@ -202,11 +202,12 @@ workstations)*.
 
    * - :file:`resources/`
      - To workstation only.
-       :code:`.stignore` :code:`/repos`, :code:`/software`
+       With :code:`.stignore`.
      - Yes
      - ???
-     - Sync/backup :file:`resources/data` and :file:`resources/ashim`.  Don't
-       sync/backup :file:`resources/repos` or :file:`resources/software`.
+     - Sync/backup :file:`resources/data`, :file:`resources/ashim` and
+       :file:`resources/repos/local`.  Don't sync/backup
+       :file:`resources/repos` or :file:`resources/software`.
 
    * - :file:`archives/`
      - All

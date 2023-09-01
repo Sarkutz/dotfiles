@@ -38,6 +38,7 @@ $BORG create                        \
      ~/storage/                      \
      ~/resources/ashim/              \
      ~/resources/data/               \
+     ~/resources/repos/local/        \
      ~/ashim/                        \
      ~/clinic/                       \
      ~/pubmatic/                     \
