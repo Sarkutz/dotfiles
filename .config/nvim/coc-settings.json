@@ -2,14 +2,42 @@
 	"coc.preferences.hoverTarget":  "preview",
 
 	"suggest.autoTrigger": "trigger",
-	// "suggest.noselect": true,
+	// "suggest.virtualText": true,
 	"signature.target": "echo",
 	"diagnostic.messageTarget": "echo",
+	// "diagnostic.messageTarget": "float",
 	"diagnostic.virtualText": true,
 	"codeLens.enable": true,
 
+	// ltex (English Grammar)
+	// Enable for rst filetype
+	"ltex.enabled": true,
+	// "ltex.enabled": [
+	// 	"bibtex",
+	// 	"context",
+	// 	"context.tex",
+	// 	"html",
+	// 	"latex",
+	// 	"markdown",
+	// 	"org",
+	// 	// "restructuredtext",
+	// 	"rst",
+	// 	"rsweave"
+	// ],
+	"ltex.language": "en-GB",
+	"ltex.completionEnabled": true,
+	// Point to the right Java SDK.
+	"ltex.java.path": "/Users/ashim/.config/coc/extensions/node_modules/coc-ltex/lib/ltex-ls-15.2.0/jdk-11.0.12+7",
+
+	// reStructuredText (rst) Sphinx
+	"esbonio.enable": false,
+
+	// Python
 	"jedi.diagnostics.didChange": false,
 	"jedi.startupMessage": false,
+
+	// Scala
+	"metals.enable": false,
 
 	"languageserver": {
 		"bash": {
@@ -17,6 +45,28 @@
 			"args": ["start"],
 			"filetypes": ["sh"],
 			"ignoredRootPaths": ["~"]
+		},
+
+		"ccls": {
+			"command": "ccls",
+			"args": ["--log-file=/tmp/ccls.log", "-v=1"],
+			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+			"rootPatterns": [".ccls", "compile_commands.json"],
+			"initializationOptions": { 
+				"cache": {
+					"directory": "/tmp/ccls"
+				},
+				"client": {
+					"snippetSupport": true
+				}
+			}
 		}
+	},
+
+	"diagnostic-languageserver.filetypes": {
+		"python": "pylint"
+	},
+	"diagnostic-languageserver.formatFiletypes": {
+		"python": ["black", "autopep8", "isort"]
 	}
 }

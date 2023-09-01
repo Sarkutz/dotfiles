@@ -106,6 +106,11 @@ augroup end
 " Example: `<leader>aap` for current paragraph
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-line)
+nmap <leader>q  <Plug>(coc-fix-current)
+xmap <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <leader>r  <Plug>(coc-codeaction-refactor)
+nmap <silent> <leader>cvx  <Plug>(coc-cursors-position)
 
 " Remap keys for applying codeAction to the current buffer.
 " nmap <leader>ac  <Plug>(coc-codeaction)
@@ -139,7 +144,7 @@ endif
 " xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-" command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
 " command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -154,7 +159,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -170,25 +175,46 @@ nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
 " Resume latest coc list.
 nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 
+nnoremap <leader>l :CocList<CR>
+
+nnoremap <silent><nowait> <space>O  :call ToggleOutline()<CR>
+function! ToggleOutline() abort
+	let winid = coc#window#find('cocViewId', 'OUTLINE')
+	if winid == -1
+		" call CocActionAsync('showOutline', 1)
+		call CocActionAsync('showOutline')
+	else
+		call coc#window#close(winid)
+	endif
+endfunction
+
 
 " My Cusomisations
 " ================
 
+" Python
+" ------
+
+autocmd FileType python let b:coc_root_patterns = [".workspace_root", ".git", ".hg", ".projections.json"]
+
+
 " Scala
 " -----
+
+" autocmd FileType scala call CocAction('toggleExtension', 'coc-metals')
 
 " Help Vim recognize *.sbt and *.sc as Scala files
 au BufRead,BufNewFile *.sbt,*.sc,*.scala set filetype=scala
 
 " Search for workspace in current directory for Scala
-autocmd FileType scala let b:coc_root_patterns = [".ashim",".git",".hg",".projections.json"]
+autocmd FileType scala let b:coc_root_patterns = [".workspace_root", ".git", ".hg", ".projections.json"]
 
 " Trigger for code actions
 " Make sure `"codeLens.enable": true` is set in your coc config
 nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
 
 " Used to expand decorations in worksheets
-nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
+" nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 
 " Toggle panel with Tree Views
 " nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
@@ -199,7 +225,7 @@ nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 " Toggle Tree View 'metalsBuild'
 " nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
 " Reveal current current class (trait or object) in Tree View 'metalsPackages'
-nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
+" nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
 
 " Notify coc.nvim that <enter> has been pressed.
 " Currently used for the formatOnType feature.
