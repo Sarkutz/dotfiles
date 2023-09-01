@@ -81,7 +81,7 @@ let g:Lf_PreviewInPopup = 1
 " if we are in a folder that is .gitignored.)
 let g:Lf_UseVersionControlTool = 0
 
-" nmap <Leader>jf  :LeaderfFile<CR>
+nmap <Leader>ff  :LeaderfFile<CR>
 " nmap <Leader>jb  :LeaderfBufferAll<CR>
 nmap <Leader>jt  :LeaderfTag<CR>
 nmap <Leader>jl  :LeaderfLine<CR>
