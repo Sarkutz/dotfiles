@@ -101,8 +101,19 @@ Dependencies
 Dependencies: Language Server
 -----------------------------
 
-These dependencies are required by the coc.nvim language server protocol
-client.  They can be installed after (Neo)Vim is setup.
+If we get the following error::
+
+   [coc.nvim] build/index.js not found, please install dependencies and compile coc.nvim by: yarn install
+
+then run::
+
+   cd ~/.vim/bundle/coc.nvim
+   yarn install
+   yarn build
+
+
+The dependencies listed below are required by the coc.nvim Language Server
+Protocol (LSP) client.  They can be installed after (Neo)Vim is setup.
 
 .. list-table:: (Neo)Vim Language Server Dependencies
    :widths: auto
