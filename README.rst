@@ -293,7 +293,16 @@ the dependency is listed in the "Used by" column).
    * - FireFox/Web Browser
      - .
      - System's package manager
-     - .
+     - Addons/plugins-
+
+       - Tridactly (vi-like interface to browser): https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/
+       - Dark Reader (dark mode on all websites): https://addons.mozilla.org/en-US/firefox/addon/darkreader/
+       - Tab Session Manager (save and restore tabs and session): https://addons.mozilla.org/en-US/firefox/addon/tab-session-manager/
+       - Enable Bing Chat (to send Edge's User-Agent): https://addons.mozilla.org/en-US/firefox/addon/enable-bing-chat/
+       - ChatGPTBox (integrate AI chatbots into the browser): https://addons.mozilla.org/en-US/firefox/addon/chatgptbox/
+       - stutter (RSVP for browsers): https://github.com/jamestomasino/stutter
+       - Zotero Connector: https://www.zotero.org/
+       - Okta Browser plugin?
 
    * - ``tree``
      - .
