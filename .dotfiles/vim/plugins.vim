@@ -241,6 +241,10 @@ let g:gundo_width = 60            " Set width of window used by Gundo.vim
 " Open :Gundo windows
 nnoremap <leader>u :GundoToggle<CR>
 
+" csv.vim
+" =======
+:let g:csv_delim=','
+
 
 " ==== OBSOLETED ====
 
