@@ -203,6 +203,35 @@ function _complete_jcli() {
 }
 complete -F _complete_jcli jcli
 
+function jfam() {
+    usage='jfam: Jump to family workspace directory.
+USAGE: jfam [searchterm]
+If ``searchterm`` is provided-
+1. Find for a project named ``searchterm`` and jump to it.
+2. Find for ``searchterm`` using ``find_and_jump`` and jump to it.'
+    [[ $# -eq 1 ]] && search_term="$1"
+
+    cd $DOTFILES_FAMILY_WORKSPACE
+
+    if [[ $# -eq 1 ]]; then
+        find_root="proj*"
+        find_output="$( find $find_root -name "$search_term" -depth 1 )"
+        get_num_lines "$find_output"
+        [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
+
+        find_and_jump "knowl/ proj*" "$search_term"
+    fi
+}
+function _complete_jfam() {
+    local prev cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    dirs="$( find $DOTFILES_FAMILY_WORKSPACE/knowl/ $DOTFILES_FAMILY_WORKSPACE/proj* \
+        -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
+    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+}
+complete -F _complete_jfam jfam
 
 # Tools/Kit (k)
 # =============

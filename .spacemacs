@@ -627,7 +627,7 @@ before packages are loaded."
                                 (mapcar
                                  (lambda (directory)
                                    (directory-files-recursively directory org-agenda-file-regexp))
-                                 '("~/private/gtd/" "~/ashim/" "~/pubmatic/" "~/clinic/"))))
+                                 '("~/private/gtd/" "~/ashim/" "~/pubmatic/" "~/clinic/" "~/family/"))))
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-start-on-weekday nil)

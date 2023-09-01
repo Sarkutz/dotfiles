@@ -333,6 +333,20 @@ Jump
 
        Completion supported.
 
+   * - ``jfam``
+     - ``home.sh``
+     - Jump to family workspace directory.
+       Usage::
+       
+          jfam [searchterm]
+
+       If ``searchterm`` is provided-
+
+       #. Find for a project named ``searchterm`` and jump to it.
+       #. Find for ``searchterm`` using ``find_and_jump`` and jump to it.
+
+       Completion supported.
+
 Tool/Kit
 --------
 

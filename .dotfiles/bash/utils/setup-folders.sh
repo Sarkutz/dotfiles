@@ -59,6 +59,7 @@ export DOTFILES_PYENVS="$PREFIX/resources/software/pyenvs/"
 export DOTFILES_WWW="$PREFIX/public/www/"
 export DOTFILES_PERSONAL_WORKSPACE="$PREFIX/ashim"
 export DOTFILES_CLINIC_WORKSPACE="$PREFIX/clinic"
+export DOTFILES_FAMILY_WORKSPACE="$PREFIX/family"
 # Note: FREEPLANE_PATH exported by home.sh
 EOF
 source $PATH_INFO
