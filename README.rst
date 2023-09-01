@@ -466,6 +466,12 @@ Setup Python virtual enviroments (for ``dve``)::
 (Neo)Vim Setup
 **************
 
+We might get the following errors on macOS's default vim::
+
+   LeaderF requires Vim compiled with python and/or a compatible python version.
+   UltiSnips requires py >= 2.7 or py3
+
+
 Install Vim (from sources)
 ==========================
 

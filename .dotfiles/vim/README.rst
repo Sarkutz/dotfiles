@@ -41,6 +41,12 @@ Files-
   :file:`.vim/bundle/`).
 
 
+We might get the following errors on macOS's default vim::
+
+   LeaderF requires Vim compiled with python and/or a compatible python version.
+   UltiSnips requires py >= 2.7 or py3
+
+
 Classification
 ==============
 
