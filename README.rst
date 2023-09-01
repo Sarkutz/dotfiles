@@ -703,6 +703,14 @@ Please find the details of the utilities provided in this repository as follows.
 
           bash make-proj-dirs.sh ana lift-ana
 
+   * - sync-proj-todos.sh
+     - Copy project todos.org files to orgzly folder.  This is required so
+       that these files are available on the mobile Orgzly.
+
+       USAGE::
+
+          sync-proj-todos.sh
+
    * - painlessmerge.sh
      - Required by :file:`$HOME/.gitconfig`.
 

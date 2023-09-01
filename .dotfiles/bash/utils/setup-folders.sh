@@ -117,6 +117,7 @@ function setup_base() {
   cp $DOTFILES/../resources/jsbeautify.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/painlessmerge.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/make-proj-dirs.sh  $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+  cp $DOTFILES/../resources/sync-proj-todos.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/is-repo-dirty.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/tsv2csv.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
   cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
