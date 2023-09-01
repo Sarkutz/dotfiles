@@ -189,6 +189,14 @@ let g:netrw_liststyle=3
 " let g:netrw_winsize=20
 
 
+" ranger.vim
+" ==========
+" Disable default key mappings
+let g:ranger_map_keys = 0
+" Keybinding to open ranger
+nmap <leader>ft :RangerWorkingDirectory<CR>
+
+
 " vim-go
 " ======
 
