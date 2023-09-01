@@ -226,6 +226,14 @@ the dependency is listed in the "Used by" column).
      - System's package manager.
      - .
 
+   * - yarn (Node.js)
+     - Node.js.
+     - ::
+
+          sudo npm install -g yarn
+          yarn —version
+     - .
+
    * - `KeepassXC <https://keepassxc.org/download/>`__
      - Password manager.
      - System's package manager.
