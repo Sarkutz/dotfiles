@@ -76,6 +76,18 @@ fi
 # Utils
 # -----
 
+function get_os() {
+    usage='get_os: Print OS of system.
+USAGE: get_os
+Output values-
+- mac_os: Mac OS'
+    os='unknown'
+    if [[ $(uname) == 'Darwin' ]]; then
+        os='mac_os'
+    fi
+    echo "$os"
+}
+
 function mkdir_if_not_exists() {
   dir="$1"
   [[ $( ls -a | grep -i "$dir" | wc -l ) -eq 0 ]] &&
