@@ -39,6 +39,10 @@ else
 endif
 nnoremap <C-L> :call gruvbox#hls_toggle()<CR><C-L>
 
+" NOTE: If you are having trouble seeing the cursor (say because the cursor
+" color is similar to the search highligh color, try changing the color of the
+" cursor in the terminal setting.
+
 " Update highlighting for matched parenthesis to make it easier to see
 hi MatchParen cterm=bold ctermbg=none ctermfg=124 gui=bold guibg=#bdae93
 
@@ -181,7 +185,7 @@ nmap <leader>si :echo &channel<CR>
 
 
 " netrw
-" -----
+" =====
 
 let g:netrw_liststyle=3
 " let g:netrw_browse_split=4
