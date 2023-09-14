@@ -123,7 +123,8 @@ Protocol (LSP) client.  They can be installed after (Neo)Vim is setup.
      - Installation Source
      - Notes
 
-   * - bash-language-server
+   * - `bash-language-server
+       <https://github.com/bash-lsp/bash-language-server>`__
      - See `bash-lsp/bash-language-server
        <https://github.com/bash-lsp/bash-language-server>`__
      - bash-language-server must be available on the PATH.
@@ -141,6 +142,40 @@ Protocol (LSP) client.  They can be installed after (Neo)Vim is setup.
    * - `coc-jedi <https://github.com/pappasam/coc-jedi>`__
      - :code:`:CocInstall coc-jedi`
      - LSP wrapper for jedi-language-server for Python.
+
+   * - `coc-esbonio <https://github.com/yaegassy/coc-esbonio>`__
+     - :code:`:CocInstall coc-esbonio`
+     - ReStructuredText language server.  
+
+       The required configurations are present in :file:`coc-settings.json`
+       (part of this repo).
+
+   * - `ccls <https://github.com/MaskRay/ccls>`__
+     - System's package manager.  Also install `Bear
+       <https://github.com/rizsotto/Bear>`__ (to generate compilation database
+       for clang) using system's package manager.
+     - The required configurations are present in :file:`coc-settings.json`
+       (part of this repo).
+
+   * - `coc-diagnostic <https://github.com/iamcco/coc-diagnostic>`__
+     - :code:`:CocInstall coc-diagnostic`
+     - coc-diagnostic provides linters and formatters for many languages.
+
+       The required configurations are present in :file:`coc-settings.json`
+       (part of this repo).
+
+   * - `coc-ltex
+       <https://valentjn.github.io/ltex/vscode-ltex/installation-usage-coc-ltex.html>`__
+     - :code:`:CocInstall coc-ltex`
+     - coc-ltex natural language (like English) checks (like spelling, grammar
+       and style checks).  
+
+       The required configurations are present in :file:`coc-settings.json`
+       (part of this repo).
+
+   * - coc-metals
+     - :code:`:CocInstall coc-metals`
+     - Deprecated?
 
 Dependencies: Plugins
 ---------------------
