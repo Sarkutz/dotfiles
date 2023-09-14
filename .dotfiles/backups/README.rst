@@ -213,7 +213,9 @@ workstations)*.
      - All
      - No
      - No
-     - Archives should be organised and moved to Ext HDD as soon as possible.
+     - This get the files synced to the home server so that we can move it
+       from the home server to Ext HDD.  Archives should be organised and
+       moved to Ext HDD as soon as possible.
 
    * - :file:`storage/`
      - All
@@ -346,13 +348,12 @@ Config: Borg Backups: Repositories
 
    - Verify no sync conflicts::
 
-        find /home/ashim/private/ -name '*sync-conflict*'
-        find /home/ashim/public/ -name '*sync-conflict*'
-        find /home/ashim/resources/ -name '*sync-conflict*'
-        find /home/ashim/public/file-share/ -name '*sync-conflict*'
-        find /home/ashim/ashim/ -name '*sync-conflict*'
-        find /home/ashim/clinic/ -name '*sync-conflict*'
-        find /home/ashim/pubmatic/ -name '*sync-conflict*'
+        find ~/private/ -name '*sync-conflict*'
+        find ~/public/ -name '*sync-conflict*'
+        find ~/resources/ -name '*sync-conflict*'
+        find ~/ashim/ -name '*sync-conflict*'
+        find ~/clinic/ -name '*sync-conflict*'
+        find ~/family/ -name '*sync-conflict*'
 
 
 .. rubric:: Ashim All Daily
@@ -405,6 +406,7 @@ Config: Borg Backups: Repositories
 - Repository: :file:`/media/ashim/Seagate Backup Plus Drive/Ashim/backups/borg/all-weekly`
 
 - Script: :file:`backup-ashim-all-weekly-to-seagate.sh`
+  (Deprecated :file:`backup-ashim-all-weekly-to-seagate-till-2022.sh`)
 
 - Run weekly (manually on Sunday)
 
