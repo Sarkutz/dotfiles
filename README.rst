@@ -304,6 +304,42 @@ the dependency is listed in the "Used by" column).
        - Zotero Connector: https://www.zotero.org/
        - Okta Browser plugin?
 
+       Bookmarks: Search (add keyword)-
+       
+       - reddit: :code:`https://www.reddit.com/search/?q=%s`
+       - youtube: :code:`https://www.youtube.com/results?search_query=%s&page={startPage?}&utm_source=opensearch`
+       - sklearn: :code:`https://scikit-learn.org/stable/search.html?q=%s`
+       - pd: :code:`https://pandas.pydata.org/docs/search.html?q=%s`
+       - git: :code:`https://github.com/search?q=%s`
+       - jash: :code:`http://localhost:8080/ashim/search.html?q=%s`
+       - jkno: :code:`http://localhost:8080/knowl/search.html?q=%s`
+       - jcli: :code:`http://localhost:8080/clinic/search.html?q=%s`
+       - jfam: :code:`http://localhost:8080/family/search.html?q=%s`
+
+       Bookmarks: apidocs-
+
+       - `scala <https://www.scala-lang.org/api/2.11.12/#package>`__ (2.11.12)
+       - `spark-scala <https://spark.apache.org/docs/2.3.0/api/scala/index.html#org.apache.spark.package>`__
+       - `pandas <https://pandas.pydata.org/docs/reference/index.html>`__
+       - `sklearn <https://scikit-learn.org/stable/modules/classes.html>`__
+       - `matplotlib <https://matplotlib.org/stable/api/index.html#the-object-oriented-api>`__
+       - `numpy <https://numpy.org/doc/stable/reference/index.html>`__
+       - `pyspark
+         <https://spark.apache.org/docs/2.3.0/api/python/index.html>`__
+       - `tensorflow <https://www.tensorflow.org/api_docs/python/tf/keras>`__
+
+       Bookmarks: misc-
+
+       - `ChatGPT <https://chat.openai.com/>`__
+       - `sql-validator
+         <https://www.eversql.com/sql-syntax-check-validator/>`__
+       - `Optimizilla <https://imagecompressor.com/>`__
+       - `Mathcha <https://www.mathcha.io/editor>`__
+       - `latex-math-ed <https://latexeditor.lagrida.com/>`__
+       - `Syncthing <http://127.0.0.1:8384/>`__
+       - `local-yarn-rm-ui <http://localhost:8088/cluster/scheduler>`__
+       - `local-jupyter <http://localhost:8888/tree>`__
+
    * - ``tree``
      - .
      - System's package manager
