@@ -34,8 +34,6 @@ $BORG create                        \
     ::'ashim_all_daily_{now:%Y-%m-%d-%H}' \
      ~/private/                      \
      ~/public/                       \
-     ~/archives/                     \
-     ~/storage/                      \
      ~/resources/ashim/              \
      ~/resources/data/               \
      ~/resources/repos/local/        \
