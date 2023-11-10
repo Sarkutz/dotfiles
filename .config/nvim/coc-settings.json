@@ -27,7 +27,7 @@
 	"ltex.language": "en-GB",
 	"ltex.completionEnabled": true,
 	// Point to the right Java SDK.
-	"ltex.java.path": "/Users/ashim/.config/coc/extensions/node_modules/coc-ltex/lib/ltex-ls-15.2.0/jdk-11.0.12+7",
+	"ltex.java.path": "~/.config/coc/extensions/node_modules/coc-ltex/lib/ltex-ls-15.2.0/jdk-11.0.12+7",
 
 	// reStructuredText (rst) Sphinx
 	"esbonio.enable": false,
