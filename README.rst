@@ -212,9 +212,8 @@ the dependency is listed in the "Used by" column).
 
    * - Java Development Kit (JDK)
      - System and several utilities
-     - System's package manager.
-     - For Mac OS, please check the post-installation notice from brew for
-       instruction on how to complete the setup.
+     - SDKMAN
+     - .
 
    * - Golang
      - Go Alias Space
