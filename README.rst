@@ -344,7 +344,6 @@ the dependency is listed in the "Used by" column).
 
        Bookmarks: misc-
 
-       - `ChatGPT <https://chat.openai.com/>`__
        - `sql-validator
          <https://www.eversql.com/sql-syntax-check-validator/>`__
        - `Optimizilla <https://imagecompressor.com/>`__
@@ -862,4 +861,6 @@ Repository Conventions
 
 - Deprecate Freeplane?
 - Add ~/.emacs.d/private ???
+- Add instructions on how to install nvim from sources?
 
+--
