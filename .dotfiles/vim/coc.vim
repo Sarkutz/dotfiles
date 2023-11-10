@@ -235,3 +235,9 @@ nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
 " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 "       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+
+" reStructuredText
+" ----------------
+
+let g:coc_filetype_map = { 'rst': 'restructuredtext' }
+
