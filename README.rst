@@ -353,6 +353,12 @@ the dependency is listed in the "Used by" column).
        - `local-yarn-rm-ui <http://localhost:8088/cluster/scheduler>`__
        - `local-jupyter <http://localhost:8888/tree>`__
 
+   * - Metabase
+     - .
+     - System's package manager.
+     - Used to analyse data in DB.  After installation, immediately migrate
+       application database from embedded H2 DB to external DB (like MySQL).
+
    * - ``tree``
      - .
      - System's package manager
