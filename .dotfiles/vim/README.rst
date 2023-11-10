@@ -311,6 +311,11 @@ the plugin subrepositories, using the following commands, to install them::
      - Plugin to visualise and work with Gundo.vim  Installation: Clone
        `sjl/gundo.vim <https://github.com/sjl/gundo.vim>`__.
 
+   * - vim-signature
+     - View
+     - Display and navigate marks.  Installation: Clone `kshenoy/vim-signature
+       <https://github.com/kshenoy/vim-signature>`__.
+
 
 Shortcuts Provided
 ==================
