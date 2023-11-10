@@ -278,6 +278,21 @@ the dependency is listed in the "Used by" column).
      - System's package manager
      - https://apps.ankiweb.net
 
+       Install addons-
+
+       - `Colorful Tags (+ Hierarchical Tags)
+         <https://ankiweb.net/shared/info/594329229>`__: 594329229
+       - `Image Occlusion Enhanced
+         <https://ankiweb.net/shared/info/1374772155>`__: 1374772155
+       - `Review Heatmap <https://ankiweb.net/shared/info/1771074083>`__:
+         1771074083
+       - `Syllabus - Anki Statistics and Export by Tag and Deck
+         <https://ankiweb.net/shared/info/668156440>`__: 668156440
+       - `Syntax Highlighting for Code
+         <https://ankiweb.net/shared/info/1463041493>`__: 1463041493
+       - `True Retention <https://ankiweb.net/shared/info/613684242>`__:
+         613684242
+
        Import your old Anki decks, if required.
 
    * - Zotero
