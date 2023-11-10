@@ -432,7 +432,10 @@ the dependency is listed in the "Used by" column).
    * - ``brew``
      - Various BASH dotfiles.
      - `Homebrew website <https://brew.sh/>`__
-     - Occurances of "system package manager" in this repo refers to Homebrew
+     - Follow instructions provided after the script completes to complete the
+       installation.
+
+       Occurances of "system package manager" in this repo refers to Homebrew
        on Mac.
 
    * - Karabiner Elements
