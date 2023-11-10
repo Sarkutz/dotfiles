@@ -17,7 +17,9 @@ Installation
 ************
 
 Only the `Dependencies`_ need to be installed.  Dotfiles are installed during
-checkout.
+checkout.  After installing the dependencies invoke :code:`:checkhealth`
+inside NeoVim and follow the recommendation to complete the setup, as
+required.
 
 Please see the `Dependencies`_ section below.
 
