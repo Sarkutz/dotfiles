@@ -42,9 +42,10 @@ Dependencies
        - Disable System Integrity Protection (SIP).
        - Configure Mission Control as per https://github.com/koekeishiya/yabai
        - :code:`brew install koekeishiya/formulae/yabai`.
+       - :code:`sudo nvram boot-args=-arm64e_preview_abi`, then reboot system.
        - :code:`yabai --start-service`.  Grant permission to use
          Accessability API.
-       - :code:`yabai --load-sa`
+       - :code:`yabai --load-sa`.
 
      - Tiling window manager
 
