@@ -391,6 +391,12 @@ the dependency is listed in the "Used by" column).
 
      - This is a great font for the terminal.
 
+   * - Graphviz/dot
+     - .
+     - System's package manager.
+     - .
+
+
 .. list-table:: System Softwares (Linux-only)
    :widths: auto
    :header-rows: 1
