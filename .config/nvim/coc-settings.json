@@ -1,13 +1,16 @@
 {
 	"coc.preferences.hoverTarget":  "preview",
 
-	"suggest.autoTrigger": "trigger",
+	"suggest.autoTrigger": "none",
 	// "suggest.virtualText": true,
+
 	"signature.target": "echo",
+
 	"diagnostic.messageTarget": "echo",
 	// "diagnostic.messageTarget": "float",
 	"diagnostic.virtualText": true,
-	"codeLens.enable": true,
+
+	// "codeLens.enable": true,
 
 	// ltex (English Grammar)
 	// Enable for rst filetype
