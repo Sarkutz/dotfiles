@@ -87,11 +87,11 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_UseVersionControlTool = 0
 
 nmap <Leader>ff  :LeaderfFile<CR>
-" nmap <Leader>jb  :LeaderfBufferAll<CR>
+nmap <Leader>bb  :LeaderfBufferAll<CR>
 nmap <Leader>jt  :LeaderfTag<CR>
-nmap <Leader>jl  :LeaderfLine<CR>
+nmap <Leader>ji  :LeaderfLine<CR>
 nmap <Leader>jrg <Plug>LeaderfRgCwordLiteralBoundary
-nmap <Leader>hl  :LeaderfSelf<CR>
+nmap <Leader>hlc  :LeaderfSelf<CR>
 
 
 " PowerLine Status Line
