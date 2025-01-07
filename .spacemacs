@@ -998,38 +998,104 @@ What do I want to achive/focus on today?
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil)
- '(helm-completion-style 'helm)
- '(hl-todo-keyword-faces
-   '(("TODO" . "#dc752f")
-     ("NEXT" . "#dc752f")
-     ("THEM" . "#2d9574")
-     ("PROG" . "#4f97d7")
-     ("OKAY" . "#4f97d7")
-     ("DONT" . "#f2241f")
-     ("FAIL" . "#f2241f")
-     ("DONE" . "#86dc2f")
-     ("NOTE" . "#b1951d")
-     ("KLUDGE" . "#b1951d")
-     ("HACK" . "#b1951d")
-     ("TEMP" . "#b1951d")
-     ("FIXME" . "#dc752f")
-     ("XXX+" . "#dc752f")
-     ("\\?\\?\\?+" . "#dc752f")))
- '(org-fontify-done-headline nil)
- '(org-fontify-todo-headline nil)
- '(package-selected-packages
-   '(web-mode web-beautify tagedit slim-mode scss-mode pug-mode prettier-js simple-httpd helm-css-scss haml-mode emmet-mode web-completion-data add-node-modules-path yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode pydoc py-isort poetry transient pippel pipenv pyvenv pip-requirements nose lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode markdown-mode cython-mode counsel-gtags counsel swiper ivy company-anaconda blacken anaconda-mode pythonic leuven-theme yasnippet-snippets org-rich-yank org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-contrib org-cliplink htmlize helm-org-rifle helm-company helm-c-yasnippet gnuplot fuzzy flyspell-correct-helm flyspell-correct evil-org company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))
- '(pdf-view-midnight-colors '("#fdf4c1" . "#282828")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(evil-want-Y-yank-to-eol nil)
+   '(helm-completion-style 'helm)
+   '(hl-todo-keyword-faces
+     '(("TODO" . "#dc752f")
+       ("NEXT" . "#dc752f")
+       ("THEM" . "#2d9574")
+       ("PROG" . "#4f97d7")
+       ("OKAY" . "#4f97d7")
+       ("DONT" . "#f2241f")
+       ("FAIL" . "#f2241f")
+       ("DONE" . "#86dc2f")
+       ("NOTE" . "#b1951d")
+       ("KLUDGE" . "#b1951d")
+       ("HACK" . "#b1951d")
+       ("TEMP" . "#b1951d")
+       ("FIXME" . "#dc752f")
+       ("XXX+" . "#dc752f")
+       ("\\?\\?\\?+" . "#dc752f")))
+   '(org-agenda-files
+     '("/Users/ashimghosh/pubmatic/projfg/observability/docs/todos.org" "/Users/ashimghosh/private/gtd/dreams/art/computer-games/fps/fps-dreams.org" "/Users/ashimghosh/private/gtd/dreams/art/graphic-design/graphic-design-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/ai/ml/ml-sw-engg/tools/notebooks/jupyter/jupyter-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/ai/ml/traditional-ml/traditional-ml-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/big-data/spark/spark-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/db/relational/databases/mysql/mysql-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/prog-lang/langs/jvm/scala/scala-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/prog-lang/langs/python/python-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/research-tools/learn/anki/anki-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/research-tools/publish/docs/latex/beamer/beamer-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/research-tools/publish/docs/latex/latex-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/security/privacy/privacy-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/libraries/protobuf/protobuf-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/editors/emacs/org-mode/org-mode-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/editors/emacs/spacemacs/spacemacs-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/editors/emacs/emacs-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/editors/vim/vim-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/jq/jq-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/messaging/matrix/matrix-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/smartphone/automate/mobile-automate-app-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/smartphone/mobile-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/spreadsheet-software/excel/microsoft-excel-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/softwares/terminal-multiplexers/tmux/tmux-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/software/theory/lsp/lsp-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/sw-dev/impl-phase/tools/source-file-tools/giter8/giter8-dreams.org" "/Users/ashimghosh/private/gtd/dreams/comp/virtualisation/containerisation/tools/docker/docker-dreams.org" "/Users/ashimghosh/private/gtd/dreams/economics/business/accounting/accounting-dreams.org" "/Users/ashimghosh/private/gtd/dreams/economics/business/finance/investment/investment-dreams.org" "/Users/ashimghosh/private/gtd/dreams/economics/business/finance/finance-dreams.org" "/Users/ashimghosh/private/gtd/dreams/history-geography/travel/travel-dreams.org" "/Users/ashimghosh/private/gtd/dreams/math/probability/probability-dreams.org" "/Users/ashimghosh/private/gtd/dreams/personal-mang/org/personal-finance/personal-finance-dreams.org" "/Users/ashimghosh/private/gtd/dreams/personal-mang/virtues/productivity/time-mang/time-mang-dreams.org" "/Users/ashimghosh/private/gtd/dreams/personal-mang/personal-mang-dreams.org" "/Users/ashimghosh/private/gtd/dreams/philosophy/philosophy-dreams.org" "/Users/ashimghosh/private/gtd/dreams/social-science/psychology/learning/habit/habit-dreams.org" "/Users/ashimghosh/private/gtd/birthdays.org" "/Users/ashimghosh/private/gtd/culture-dash.org" "/Users/ashimghosh/private/gtd/gtd-actions.org" "/Users/ashimghosh/private/gtd/gtd-agendas.org" "/Users/ashimghosh/private/gtd/gtd-dash.org" "/Users/ashimghosh/private/gtd/gtd-dreams.org" "/Users/ashimghosh/private/gtd/gtd-proj.org" "/Users/ashimghosh/private/gtd/tickler.org" "/Users/ashimghosh/ashim/projar/adkdd-2021/docs/todos.org" "/Users/ashimghosh/ashim/projbg/fitness/docs/todos.org" "/Users/ashimghosh/ashim/projbg/kaizen/docs/todos.org" "/Users/ashimghosh/ashim/projbg/kaizen/scratch/notes.org" "/Users/ashimghosh/ashim/projbg/kaizen/yearly-review-2021/docs/todos.org" "/Users/ashimghosh/ashim/projfg/ads-learn/docs/todos.org" "/Users/ashimghosh/ashim/projfg/ml-learn/docs/ml-learn-scratch.org" "/Users/ashimghosh/ashim/projfg/ml-learn/docs/todos.org" "/Users/ashimghosh/ashim/projfg/ml-learn/dunkirk/analysis/electorial-bonds/docs/todos.org" "/Users/ashimghosh/pubmatic/knowl/knowl-hiers.org" "/Users/ashimghosh/pubmatic/projar/weekly-kss/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/ads-team-aware/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/bidth/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/domth/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/ml-competition-moh/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/ml-team-aware/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/scrum-master/docs/todos.org" "/Users/ashimghosh/pubmatic/projbg/timeout/docs/todos.org" "/Users/ashimghosh/pubmatic/projfg/lat-moni/docs/todos.org" "/Users/ashimghosh/pubmatic/projfg/lat-moni/lat-ana-2024-06-18/docs/todos.org" "/Users/ashimghosh/pubmatic/projfg/nextgen-ads/docs/todos.org" "/Users/ashimghosh/pubmatic/projfg/ob1/docs/todos.org" "/Users/ashimghosh/pubmatic/projfg/singularity/docs/todos.org" "/Users/ashimghosh/pubmatic/projfg/singularity/model/ml-code-change/docs/todos.org" "/Users/ashimghosh/pubmatic/projint/2024-06-20-deprecate-non-drproxy-camp/docs/todos.org" "/Users/ashimghosh/clinic/bunny-whites/admin/todos.org" "/Users/ashimghosh/clinic/bunny-whites/bizdev/new-clinic-mahalunge/todos.org" "/Users/ashimghosh/clinic/bunny-whites/bizdev/new-clinic-nigdi/todos.org" "/Users/ashimghosh/clinic/bunny-whites/bizdev/todos.org" "/Users/ashimghosh/clinic/bunny-whites/brand/marketing/website/todos.org" "/Users/ashimghosh/clinic/bunny-whites/brand/marketing/todos.org" "/Users/ashimghosh/clinic/bunny-whites/clinical/todos.org" "/Users/ashimghosh/clinic/bunny-whites/finance/todos.org" "/Users/ashimghosh/family/projfg/baby/docs/todos.org"))
+   '(org-babel-load-languages '((python . t) (emacs-lisp . t) (dot . t) (shell . t)))
+   '(org-export-backends '(ascii beamer html icalendar latex odt))
+   '(org-fontify-done-headline nil)
+   '(org-fontify-todo-headline nil)
+   '(org-roam-completion-everywhere t)
+   '(package-selected-packages
+     '(git-link git-messenger git-modes git-timemachine gitignore-templates helm-git-grep orgit-forge orgit forge ghub closql treepy smeargle treemacs-magit magit git-commit with-editor compat lsp-docker yaml import-js grizzl js-doc js2-refactor multiple-cursors livid-mode nodejs-repl npm-mode skewer-mode js2-mode tern org-roam-ui websocket org-roam magit-section emacsql dash web-mode web-beautify tagedit slim-mode scss-mode pug-mode prettier-js simple-httpd helm-css-scss haml-mode emmet-mode web-completion-data add-node-modules-path yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode pydoc py-isort poetry transient pippel pipenv pyvenv pip-requirements nose lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode markdown-mode cython-mode counsel-gtags counsel swiper ivy company-anaconda blacken anaconda-mode pythonic leuven-theme yasnippet-snippets org-rich-yank org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-contrib org-cliplink htmlize helm-org-rifle helm-company helm-c-yasnippet gnuplot fuzzy flyspell-correct-helm flyspell-correct evil-org company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))
+   '(pdf-view-midnight-colors '("#fdf4c1" . "#282828"))
+   '(safe-local-variable-values
+     '((eval when
+             (locate-library "rainbow-mode")
+             (require 'rainbow-mode)
+             (rainbow-mode))
+       (org-roam-dailies-directory . "journal/")
+       (org-roam-capture-templates
+        ("d" "default" plain "%?" :target
+         (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title}\12")
+         :unnarrowed t)
+        ("f" "fleeting" plain "%?" :target
+         (file+head "fleet/%<%Y%m%d%H%M%S>.org" "#+TITLE: ${title}\12")
+         :unnarrowed t))
+       (org-roam-capture-templates
+        ("d" "default" plain "%?" :target
+         (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title}")
+         :unnarrowed t)
+        ("f" "fleeting" plain "%?" :target
+         (file+head "websites/%<%Y%m%d%H%M%S>.org" "#+ROAM_KEY: ${ref}\12#+TITLE: ${title}")
+         :unnarrowed t))
+       (org-roam-capture-templates
+        ("d" "default" plain "%?" :target
+         (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title}\12")
+         :unnarrowed t)
+        ("f" "fleeting" plain "%?" :file-name "websites/%<%Y%m%d%H%M%S>.org" :head "#+ROAM_KEY: ${ref}\12#+TITLE: ${title}\12" :unnarrowed t))
+       (org-roam-capture-templates
+        ("d" "default" plain "%?" :target
+         (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title}\12")
+         :unnarrowed t))
+       (org-roam-capture-templates
+        ("d" "default" plain "%?" :target
+         (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\12")
+         :unnarrowed t))
+       (org-roam-capture-templates quote
+                                   (("d" "default" plain "%?" :target
+                                     (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\12")
+                                     :unnarrowed t)))
+       (org-roam-capture-templates
+        '(("d" "default" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\12")
+           :unnarrowed t)))
+       (org-roam-capture-templates
+        '(("d" "default" plain "%?" :if-new
+           (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title}\12")
+           :unnarrowed t)))
+       (org-roam-capture-templates
+        '(("d" "default" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title} ")
+           :unnarrowed t)))
+       (org-roam-capture-templates
+        '(("d" "default" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title} ")
+           :unnarrowed t)
+          ("f" "fleeting" plain "%?" :file-name "websites/%<%Y%m%d%H%M%S>.org" :head "#+ROAM_KEY: ${ref}\12#+TITLE: ${title} " :unnarrowed t)))
+       (org-roam-capture-templates
+        '(("d" "default" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>.org" "#+title: ${title}")
+           :unnarrowed t)
+          ("f" "fleeting" plain "%?" :file-name "websites/%<%Y%m%d%H%M%S>.org" :head "#+ROAM_KEY: ${ref}\12#+TITLE: ${title}" :unnarrowed t)))
+       (org-roam-db-location . "/Users/ashimghosh/ashim/projbg/kaizen/kaizen-org-roam/org-roam.db")
+       (org-roam-directory . "/Users/ashimghosh/ashim/projbg/kaizen/kaizen-org-roam"))))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   )
+  )
