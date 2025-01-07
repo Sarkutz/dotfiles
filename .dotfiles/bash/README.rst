@@ -79,13 +79,13 @@ All commands are classified under following classes.  Each command is prefixed
 with a single character according to the class it falls under.  The classes
 and their prefixes are as follows:
 
-- Misc/All (Prefix: ``a``)
-- System (Prefix: ``s``)
-- Development (Prefix: ``d``)
+- `Misc/All`_ (Prefix: ``a``)
+- `System`_ (Prefix: ``s``)
+- `Development`_ (Prefix: ``d``)
 - ``fg`` (Prefix: ``f``)
-- Jump (goto location) (Prefix: ``j``)
-- Tools/Kit (Prefix: ``k``)
-- ls related (Prefix: ``l``)
+- `Jump`_ (goto location) (Prefix: ``j``)
+- `Tool/Kit`_ (Prefix: ``k``)
+- `ls related`_ (Prefix: ``l``)
 
 Misc/All
 --------
