@@ -29,6 +29,11 @@ Dependencies
 
           brew install ctags
 
+   * - peco
+     - jd alias in ``base.sh``
+     - System's package manager.
+     - .
+
 - Also install dependencies for each, required alias space (see below).
 
 
