@@ -235,6 +235,12 @@ function! s:build_go_files()
 	endif
 endfunction
 
+" disable all linters as that is taken care of by coc.nvim
+let g:go_diagnostics_enabled = 0
+let g:go_metalinter_enabled = []
+" don't jump to errors after metalinter is invoked
+let g:go_jump_to_error = 0
+
 
 " Nvim-R
 " ======
