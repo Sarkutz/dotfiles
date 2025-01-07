@@ -613,6 +613,8 @@ before packages are loaded."
            "DONE(d!)"     ;; Completed.
            )))
   (setq org-log-state-notes-into-drawer t)
+  (setq org-log-reschedule "time")
+  (setq org-log-redeadline "time")
 
   ;; Tags
   ; context
