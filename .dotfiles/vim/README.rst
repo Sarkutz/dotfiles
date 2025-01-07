@@ -452,6 +452,26 @@ to manually trigger coc.nvim's auto-complete.
      - Shortcuts
      - coc.nvim: Trigger completion using the language server.
 
+   * - ``if``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: text object for inside function around cursor.
+
+   * - ``af``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: text object for around function around cursor.
+
+   * - ``ic``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: text object for inside class around cursor.
+
+   * - ``ac``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: text object for around class around cursor.
+
    * - ``[g``
      - ``coc.vim``
      - Shortcuts
