@@ -617,30 +617,35 @@ before packages are loaded."
   (setq org-log-redeadline "time")
 
   ;; Tags
-  ; context
-  ; @user
-  ; #tag (optional)
-  ; Add tags for aTimeLogger tasks: gtd org file study knowl ankify book course idea clarify
-  (setq org-tag-alist '
+  ;; %context
+  ;; @user
+  ;; #tag (optional)
+  ;; Add tags for aTimeLogger tasks: gtd org file study knowl ankify book course idea clarify
+  ;; (setq org-tag-alist '
+  (setq org-tag-persistent-alist '
         (
-         ; Task management
+         ;; Task management
          ("inbox")  ; First contact, unprocessed
          ("urgent") ; ASAP, try to finish today
          ("next")   ; Work/finish this week
-         ; ("important")  ; Use "%gtd_weekly_review" instead
-         ; Contexts
+         ;; ("important")  ; Use "%gtd_weekly_review" instead
+         ;; Contexts
          ("%errands")
          ("%gtd_weekly_review")
          ("%gtd_daily_review")
          ("%home")
          ("%ipad")
-         ; Time
+         ("%backlog_grooming")
+         ("%sprint_planning")
+         ("%parliament")
+         ;; Time
          ("time_small")
-         ; Energy
+         ("time_mid")
+         ;; Energy
          ("energy_low")
-         ; Agendas
+         ;; Agendas
          ("@jyoti")
-         ; Type of activity
+         ;; Type of activity
          ("think")
          ("clarify")
          ("explore")
@@ -652,6 +657,12 @@ before packages are loaded."
          ("comms")
          ("routine")
          ("cleanup")
+         ;; followups poc design dev
+         ;; Topics
+         ("mang")
+         ("design_arch")
+         ("project_mang")
+         ("product_mang")
          ))
 
 
