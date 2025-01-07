@@ -45,7 +45,7 @@ This function should only modify configuration layer settings."
                       ac-auto-start 6)
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      helm
      ;; lsp
      ;; markdown
