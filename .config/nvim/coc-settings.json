@@ -81,9 +81,11 @@
 	*/
 
 	"diagnostic-languageserver.filetypes": {
-		"python": "pylint"
+		// "python": ["flake8", "pylint"]
+		"python": "flake8"
 	},
 	"diagnostic-languageserver.formatFiletypes": {
-		"python": ["black", "autopep8", "isort"]
+		// "python": ["black", "autopep8", "isort"]
+		"python": ["black", "isort"]
 	}
 }
