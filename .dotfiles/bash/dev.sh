@@ -206,9 +206,11 @@ function act_scala_alias_space() {
   act_java_alias_space
   prefix_to_alias_spaces_variable scala
 
-  export HADOOP_HOME="$DOTFILES_SOFTWARE_STANDALONE/hadoop-3.3.0/"
+  export HADOOP_HOME="$DOTFILES_SOFTWARE_STANDALONE/hadoop/hadoop-3.4.0/"
   export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop/"
   prefix_to_path "$HADOOP_HOME/bin"
+  # How to config sdkman so this is at start of PATH?
+  prefix_to_path '/Users/ashimghosh/.sdkman/candidates/java/8.0.382-zulu/bin'
 
   alias 'dnew_spark_proj=sbt new sarkutz/spark-scala.g8'
 
