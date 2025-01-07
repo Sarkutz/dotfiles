@@ -127,6 +127,14 @@ USAGE: python_venv_activate <env_name> [env_dir]
       source "${env_path}/${env_name}/bin/activate"
   }
 
+  function _complete_python_venv_activate() {
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    venv_list="$( ls $DOTFILES_PYENVS )"
+    COMPREPLY=( $( compgen -W "$venv_list" -- $cur ) )
+  }
+  complete -F _complete_python_venv_activate python_venv_activate
+
     function toconflu() {
         usage='toconflu: Convert specified Sphinx path to Confluence storage
 format and copy it to the clipboard.  This must be executed from the directory
@@ -150,14 +158,20 @@ Example: toconflu projfg/foo/doc/conflu/proj-dash'
             | scc
     }
 
-  function _complete_python_venv_activate() {
-    local cur
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    venv_list="$( ls $DOTFILES_PYENVS )"
-    COMPREPLY=( $( compgen -W "$venv_list" -- $cur ) )
-  }
-  complete -F _complete_python_venv_activate python_venv_activate
+    function ipynb_open() {
+        usage='ipynb_open: Open current directory or specified file in
+Jupyter notebook.
+USAGE: ipynb_open [relative/path/to/notebook.ipynb]
+Examples-
+- ipynb_open
+- ipynb_open foo.ipynb
+Assumptions-
+- Jupyter notebook server must already be running at "http://localhost:8888".
+  The server should have been started in the home directory.
+- If path to notebook is specified, it must be a relative path.'
 
+        pwd=$( dirs ) && open "http://localhost:8888/tree${pwd:1}/$1"
+    }
 
   function deact_python_alias_space() {
     remove_from_alias_space_variable py
@@ -170,6 +184,7 @@ Example: toconflu projfg/foo/doc/conflu/proj-dash'
     unset -f _complete_python_venv_activate
 
     unset -f toconflu
+    unset -f ipynb_open
 
     unset -f deact_python_alias_space
   }

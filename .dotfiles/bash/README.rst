@@ -540,7 +540,22 @@ Commands
 
           toconflu projfg/foo/doc/conflu/proj-dash
 
+   * - ``ipynb_open``
+     - ``dev.sh`` (Python Alias Space)
+     - Open current directory or specified file in Jupyter notebook.  Usage::
 
+          ipynb_open [relative/path/to/notebook.ipynb]
+
+       Example::
+
+          ipynb_open
+          ipynb_open foo.ipynb
+
+       - Jupyter notebook server must already be running at
+         "http://localhost:8888".  The server should have been started in the
+         home directory.
+       - If path to notebook is specified, it must be a relative path.
+         
 Java Alias Space
 ================
 
