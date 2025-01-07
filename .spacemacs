@@ -59,7 +59,11 @@ This function should only modify configuration layer settings."
      ;; version-control
      treemacs
      (xclipboard :variables xclipboard-enable-cliphist t)
-     (org :variables org-projectile-file "docs/todos.org")
+     (org :variables
+          org-projectile-file "docs/todos.org"
+          org-enable-roam-support t
+          org-enable-roam-ui t
+          )
      )
 
 
@@ -781,7 +785,201 @@ before packages are loaded."
   (setq org-clock-out-when-done t)
   (org-clock-persistence-insinuate)
 
+  ;; Customize the HTML output
+  (setq org-html-validation-link nil            ;; Don't show validation link
+        org-html-head-include-scripts nil       ;; Use our own scripts
+        org-html-head-include-default-style nil ;; Use our own styles
+        ;; org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />"
+        )
+
+  (setq org-publish-project-alist
+        '(
+          ("org-roam-inherit"
+           :base-directory "~/resources/repos/github.com/fniessen/org-html-themes/src/"
+           :base-extension "css\\|js"
+           :publishing-directory "~/private/knowl/build/html/org-roam/static/"
+           :publishing-function org-publish-attachment
+           :recursive t
+           )
+          ("org-roam-content"
+           :base-directory "~/private/knowl/source/org-roam/"
+           :publishing-directory "~/private/knowl/build/html/org-roam/"
+           :base-extension "org"
+           :publishing-function org-html-publish-to-html
+           :html-head "
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/knowl/org-roam/static/bigblow_theme/css/htmlize.css\"/>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/knowl/org-roam/static/bigblow_theme/css/bigblow.css\"/>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/knowl/org-roam/static/bigblow_theme/css/hideshow.css\"/>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/bigblow_theme/js/jquery-1.11.0.min.js\"></script>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/bigblow_theme/js/jquery-ui-1.10.2.min.js\"></script>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/bigblow_theme/js/jquery.localscroll-min.js\"></script>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js\"></script>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/bigblow_theme/js/bigblow.js\"></script>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/bigblow_theme/js/hideshow.js\"></script>
+<script type=\"text/javascript\" src=\"/knowl/org-roam/static/lib/js/jquery.stickytableheaders.min.js\"></script>"
+           :recursive t
+           :with-author nil
+           :with-toc nil
+           :section-numbers nil
+           :time-stamp-file nil
+           :auto-sitemap t                ; Generate sitemap.org automagically...
+           :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+           :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
+           )
+          ("org-roam-static"
+           :base-directory "~/private/knowl/source/org-roam/"
+           :publishing-directory "~/private/knowl/build/html/org-roam/"
+           :base-extension "css\\|js\\|pdf\\|png\\|jpg\\|gif"
+           :publishing-function org-publish-attachment
+           :recursive t
+           )
+          ("org-roam"
+           :components ("org-roam-inherit" "org-roam-content" "org-roam-static")
+           )
+
+          ("kaizen_org_roam"
+           :recursive t
+           :base-directory "~/ashim/projbg/kaizen/kaizen-org-roam/"
+           :publishing-directory "~/ashim/wiki/build/html/org-roam/"
+           :publishing-function org-html-publish-to-html
+           :with-toc nil
+           :section-numbers nil
+           )
+          ))
+  ;; (setq org-export-backends '(ascii beamer html icalendar))
+
+  (setq org-babel-load-languages '(
+                                   (python . t)
+                                   (emacs-lisp . t)
+                                   (shell . t)
+                                   (dot . t)
+                                   ))
+
   (setq org-icalendar-include-todo t)
+
+  ;; org-roam
+
+  ;; (require 'org-roam-export) ; required or not?
+
+  (setq org-roam-directory "~/private/knowl/source/org-roam/")
+  (setq org-roam-db-location "~/private/knowl/source/org-roam/org-roam.db")
+  (setq org-roam-dailies-directory "journal/")
+
+  (defun +org-roam-get-node-id-from-title (id)
+    "Get Id of node from title name"
+    (car (car (org-roam-db-query
+               [:select [id] :from nodes :where (= title $s1)]
+               id))))
+  ;; Example-
+  ;; (+org-roam-get-node-id-from-title "homepage")
+  ;; "6394F0D8-6B2C-43DD-B480-3C1B7C2C847D"
+
+  (defun +org-roam-create-link-to-node (title)
+    "Create link to node with specified id and text"
+    (format "[[id:%s][%s]]" (+org-roam-get-node-id-from-title title) title))
+  ;; Example-
+  ;; (+org-roam-create-link-to-node "homepage")
+  ;; "[[id:6394F0D8-6B2C-43DD-B480-3C1B7C2C847D][homepage]]"
+
+  (setq org-roam-capture-templates
+        '(
+          ("d" "default" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>.org" "
+#+tags: %(+org-roam-create-link-to-node \"uncategorised\")
+#+date_added: %(+org-roam-create-link-to-node \"%<%Y-%m-%d>\")
+#+title: ${title}
+")
+           :unnarrowed t)
+          ("l" "literature node" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>.org" "
+#+tags: %(+org-roam-create-link-to-node \"literature notes\")
+#+filetags: :${source_type=article}:
+#+date_added: %(+org-roam-create-link-to-node \"%<%Y-%m-%d>\")
+#+title: ${title}
+
+-----
+Source: [weblink, local attachment link]
+")
+           :unnarrowed t)
+          ("p" "project node" plain "%?" :target
+           (file+head "%<%Y%m%d%H%M%S>.org" "
+#+tags: %(+org-roam-create-link-to-node \"uncategorised\")
+#+filetags: :${title}:
+#+date_added: %(+org-roam-create-link-to-node \"%<%Y-%m-%d>\")
+#+title: ${title}
+")
+           :unnarrowed t)
+          ))
+
+  (setq org-roam-dailies-capture-templates
+        '(
+          ("d" "default" entry "* %?" :target
+           (file+head "%<%Y-%m-%d>.org" "
+#+tags: [[id:EC3D712A-F936-494B-8DFB-D379C57A2649][journal]]
+#+title: %<%Y-%m-%d>
+* Intention
+What do I want to achive/focus on today?
+* Tasks  :urgent:
+** Done
+* Habit Checklist
+* Small wins
+* Kaizen
+* Log
+"))
+          ))
+
+  (setq org-roam-completion-everywhere t)
+  (define-key evil-normal-state-map (kbd "C-M-i") 'completion-at-point)
+  (define-key evil-insert-state-map (kbd "C-M-i") 'completion-at-point)
+  ;; (define-key evil-normal-state-map (kbd "C-M-i") #'completion-at-point)
+  ;; (define-key evil-insert-state-map (kbd "C-M-i") #'completion-at-point)
+
+  (spacemacs/declare-prefix "or" "org-roam")
+  (spacemacs/set-leader-keys "ors" 'org-roam-db-sync)
+                                        ; (spacemacs/set-leader-keys "orf" 'org-roam-node-find)
+                                        ; (spacemacs/set-leader-keys "aorD" 'org-roam-dailies-map)
+  ;; (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
+  ;; (spacemacs/set-leader-keys-for-major-mode 'org-mode
+  ;; "rl"  org-roam-buffer-toggle)
+
+  (define-key evil-normal-state-map (kbd "C-c r f") 'org-roam-node-find)
+  (define-key evil-insert-state-map (kbd "C-c r f") 'org-roam-node-find)
+  (define-key evil-normal-state-map (kbd "C-c r i") 'org-roam-node-insert)
+  (define-key evil-insert-state-map (kbd "C-c r i") 'org-roam-node-insert)
+  (define-key evil-normal-state-map (kbd "C-c r d") 'org-roam-dailies-map)
+  (define-key evil-insert-state-map (kbd "C-c r d") 'org-roam-dailies-map)
+  (define-key evil-normal-state-map (kbd "C-c r l") 'org-roam-buffer-toggle)
+  (define-key evil-insert-state-map (kbd "C-c r l") 'org-roam-buffer-toggle)
+  ;; (define-key evil-normal-state-map (kbd "C-c r f") #'org-roam-node-find)
+  ;; (define-key evil-insert-state-map (kbd "C-c r f") #'org-roam-node-find)
+  ;; (define-key evil-normal-state-map (kbd "C-c r i") #'org-roam-node-insert)
+  ;; (define-key evil-insert-state-map (kbd "C-c r i") #'org-roam-node-insert)
+  ;; (define-key evil-normal-state-map (kbd "C-c r d") #'org-roam-dailies-map)
+  ;; (define-key evil-insert-state-map (kbd "C-c r d") #'org-roam-dailies-map)
+  ;; (define-key evil-normal-state-map (kbd "C-c r l") #'org-roam-buffer-toggle)
+  ;; (define-key evil-insert-state-map (kbd "C-c r l") #'org-roam-buffer-toggle)
+
+  (setq org-roam-node-display-template "${tags} ${title}")
+
+  (add-to-list 'display-buffer-alist
+               '("\\*org-roam\\*"
+                 (display-buffer-in-direction)
+                 (direction . right)
+                 (window-width . 0.33)
+                 (window-height . fit-window-to-buffer)))
+
+  ;; Get `org-roam-preview-visit' and friends to replace the main window. This
+  ;; should be applicable only when `org-roam-mode' buffer is displayed in a
+  ;; side-window.
+  ;; NOT WORKING.
+  ;; (add-hook 'org-roam-mode-hook
+  ;;           (lambda ()
+  ;;             (setq-local display-buffer--same-window-action
+  ;;                         '(display-buffer-use-some-window
+  ;;                           (main)))))
+
+
+  (org-roam-db-autosync-mode)
 
   )
 
