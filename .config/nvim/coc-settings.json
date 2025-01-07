@@ -39,6 +39,9 @@
 	// Scala
 	"metals.enable": false,
 
+	// Docker
+	"docker.enable": true,
+
 	"languageserver": {
 		"bash": {
 			"command": "bash-language-server",

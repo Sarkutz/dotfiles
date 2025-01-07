@@ -175,6 +175,10 @@ Protocol (LSP) client.  They can be installed after (Neo)Vim is setup.
        The required configurations are present in :file:`coc-settings.json`
        (part of this repo).
 
+   * - `coc-docker <https://github.com/josa42/coc-docker>`__
+     - :code:`:CocInstall coc-docker`
+     - Language server for :file:`Dockerfile`.
+
    * - coc-metals
      - :code:`:CocInstall coc-metals`
      - Deprecated?
