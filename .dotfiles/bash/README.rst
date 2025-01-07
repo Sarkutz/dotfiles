@@ -259,6 +259,14 @@ Development
 
          dgd <dirname>
 
+   * - ``dcc``
+     - ``base.sh``
+     - Fuzzy find through list of (common) commands specified in
+       ``./commands.cli`` or ``~/commands.cli`` then execute the selected
+       command.  Usage::
+
+          dcc
+
    * - ``dtag``
      - ``base.sh``
      - Create tags for code navigation.  It creates ctags and cscope.

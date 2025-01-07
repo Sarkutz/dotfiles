@@ -285,6 +285,12 @@ function dgd() {
 
 # rest() defined in bashrc-utils.sh
 
+# (dev) commands
+function dcc() {
+    eval "$( ([[ -f ./commands.cli ]] && cat ./commands.cli || cat ~/commands.cli) | peco )"
+}
+
+
 
 # fg (f)
 # ======
