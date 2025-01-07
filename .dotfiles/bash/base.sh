@@ -230,6 +230,23 @@ function cp()
 }
 
 
+# Set window's title
+# Window title is used by tmux to set tmux's pane_title.
+function set_window_title () {
+    usage='set_window_title: Set title of BASH window (by setting PROMPT_COMMAND).
+USAGE: set_window_title "Window Title"
+Example:
+  set_window_title "Window Title"'
+    if [[ $# -ne 1 ]]; then
+        echo 'Please provide correct number of arguments'
+        echo "$usage"
+        return 1
+    fi
+	BASH_WINDOW_TITLE=${@}
+	PROMPT_COMMAND='echo -ne "\033]0;${BASH_WINDOW_TITLE}\007"'
+}
+
+
 # Development (d)
 # ===============
 

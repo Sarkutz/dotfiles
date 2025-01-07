@@ -219,6 +219,12 @@ System
 
           so <file/dir>
 
+   * - ``set_window_title``
+     - ``base.sh``
+     - Set title of BASH window (by setting PROMPT_COMMAND).  Usage::
+
+          set_window_title "Window Title"
+
 Development
 -----------
 
