@@ -36,7 +36,7 @@ source ${DOTFILES}/utils/bashrc-utils.sh
 # ==========
 
 # sps (Process Search)
-alias sps='ps aux | grep -v grep - | grep'
+alias sps='ps -eaf | grep -v grep - | grep'
 
 # sj (Jobs)
 alias sj='jobs'
