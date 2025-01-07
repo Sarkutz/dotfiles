@@ -229,12 +229,12 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         ; spacemacs-light
-                         ; spacemacs-dark
-                         gruvbox-light-medium
-                         gruvbox-dark-medium
+                         ;; spacemacs-light
+                         ;; spacemacs-dark
                          leuven
                          leuven-dark
+                         gruvbox-light-medium
+                         gruvbox-dark-medium
                          )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
