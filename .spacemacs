@@ -599,9 +599,19 @@ before packages are loaded."
   ;; Todo keywords
   ; If changed, also update org-clock-out-when-done
   (setq org-todo-keywords
-        '((sequence "REVIEW(r!)" "BACKLOG(b!)" "TODO(t!)" "APPT(a!)"
-                    "BLOCKED(B@)" "FOLLOWUP(f@)"
-                    "|" "CANCELLED(c@)" "DONE(d!)")))
+        '((sequence
+           "REVIEW(r!)"   ;; Unclarified open-loop. Added to log date of addition.
+           "PROJ(p)"      ;; Project.  Has 2 or more next actions nested under it.
+           "NEXT(n!)"     ;; Next action. Have everything to start working on it.
+           "TODO(t!)"     ;; An action whose pre-requisites are not satisfied.
+           "APPT(a!)"     ;; Need to be done at specified date.
+           "BLOCKED(b@)"  ;; Can't move forward due to reason specified in note.
+           "FOLLOWUP(f@)" ;; Follow-up with tagged person at specified date.
+           "SOMEDAY(s!)"  ;; Someday maybe dreams.  Backlog
+           "|"
+           "CANCELLED(c@)";; Decided not to do due to reason specified in note.
+           "DONE(d!)"     ;; Completed.
+           )))
   (setq org-log-state-notes-into-drawer t)
 
   ;; Tags
