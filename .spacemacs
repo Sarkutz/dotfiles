@@ -39,7 +39,10 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     (auto-completion :variables auto-completion-enable-snippets-in-popup t ac-auto-start 6)
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-idle-delay nil
+                      ac-auto-start 6)
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -559,6 +562,10 @@ before packages are loaded."
   (spacemacs/declare-prefix "o" "own-menu")
 
   ;; (ac-set-trigger-key "M-TAB")
+
+  (define-key evil-insert-state-map (kbd "C-SPC") #'company-complete)
+  (define-key evil-insert-state-map (kbd "C-y") #'company-complete-selection)
+  (define-key evil-insert-state-map (kbd "C-e") #'company-abort)
 
   ;; Spellings
   (setq ispell-dictionary "en_GB")
