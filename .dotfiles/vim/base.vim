@@ -54,6 +54,14 @@ set smartcase
 set incsearch
 set hlsearch
 
+" Shell
+" -----
+" -i: set interactive shell so we use aliases
+" (-c is present by default)
+" Unfortunatly, this causes :Gdiff (vim-fugitive) to open a three-way diff!
+" :Gdiff just does: git ls-files --unmerged -- <filename>
+" set shellcmdflag=-ic
+
 
 " Shortcuts
 " =========
