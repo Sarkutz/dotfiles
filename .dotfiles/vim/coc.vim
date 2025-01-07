@@ -19,9 +19,12 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+  " Do not use reuse the number's column for signs.
+  set signcolumn=auto
+  " set signcolumn=number
 else
-  set signcolumn=yes
+  " set signcolumn=yes
+  set signcolumn=auto
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
