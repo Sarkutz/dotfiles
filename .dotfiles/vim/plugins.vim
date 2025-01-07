@@ -130,8 +130,8 @@ source ~/.dotfiles/vim/coc.vim
 " ========================
 
 " Shortcuts-
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>go :Git ok<CR>
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>go :tab Git -p ok<CR>
 
 " Delete buffers created by Fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
