@@ -570,6 +570,8 @@ before packages are loaded."
   ;; Spellings
   (setq ispell-dictionary "en_GB")
 
+  (golden-ratio-mode)
+
   (defun me/clipboard/set (astring)
     "Copy a string to clipboard"
     (with-temp-buffer
