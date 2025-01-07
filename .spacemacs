@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(html
+   '(javascript
+     html
      python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -537,7 +538,7 @@ default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
   (spacemacs/load-spacemacs-env)
-)
+  )
 
 (defun dotspacemacs/user-init ()
   "Initialization for user code:
@@ -545,7 +546,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-)
+  )
 
 
 (defun dotspacemacs/user-load ()
@@ -553,7 +554,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
 dump."
-)
+  )
 
 
 (defun dotspacemacs/user-config ()
@@ -601,7 +602,7 @@ before packages are loaded."
   (setq org-M-RET-may-split-line nil)
 
   ;; Todo keywords
-  ; If changed, also update org-clock-out-when-done
+  ;; If changed, also update org-clock-out-when-done
   (setq org-todo-keywords
         '((sequence
            "REVIEW(r!)"   ;; Unclarified open-loop. Added to log date of addition.
@@ -671,7 +672,7 @@ before packages are loaded."
 
 
   ;; Todo/note files
-  ; (setq org-agenda-files "~/private/gtd/agenda-files.txt")
+  ;; (setq org-agenda-files "~/private/gtd/agenda-files.txt")
   (setq org-agenda-file-regexp "\\`[^.].*\\.org\\'")
   (setq org-agenda-files (apply 'append
                                 (mapcar
@@ -695,7 +696,7 @@ before packages are loaded."
         '(("p" "Plan day"
            ((search (org-read-date nil nil "-1d"))
             (tags "CLOSED>\"<-1d>\"/DONE|CANCELLED")
-            ; (search "<today>")
+            ;; (search "<today>")
             (tags-todo "inbox")
             (tags-todo "%gtd_daily_review")
             (tags-todo "urgent")
@@ -713,7 +714,7 @@ before packages are loaded."
             (tags "next" ((org-use-tag-inheritance nil)))
             ))
           ("w" "Weekly Review"
-                                        ; Add everything required to plan the week.
+           ;; Add everything required to plan the week.
            ((tags "%gtd_weekly_review")))
           ("D" "Day diary"
            ((agenda ""
@@ -752,24 +753,30 @@ before packages are loaded."
   (setq org-refile-targets '(
                              (nil . (:maxlevel . 9))
                              (org-agenda-files . (:tag . "inbox"))
-                             ; ("~/private/diary/source/2021/08/tasks-completed-1.org" . (:maxlevel . 1))
+                             ;; ("~/private/diary/source/2021/08/tasks-completed-1.org" . (:maxlevel . 1))
                              ))
+  ;; org-refile-use-outline-path does-
+  ;; - show full filename in list of refile targets
+  ;; - allow refiling to root level of the file
   (setq org-refile-use-outline-path 'full-file-path)
+  ;; org-outline-path-complete-in-steps nil works better with helm
   (setq org-outline-path-complete-in-steps nil)
+  ;; Explore org-refile-use-cache
+  ;; (setq org-refile-use-cache t)
 
   (setq org-default-notes-file "~/private/gtd/gtd-dash.org")
   (setq org-capture-templates
-        (quote (
-                ("c" "Capture" entry
-                 (file+olp "" "Inbox")
-                 "** REVIEW %?\n:LOGBOOK:\n- State \"REVIEW\"       from              %U\n:END:")
-                ("t" "Today's Task" entry
-                 (file+olp "" "Today")
-                 "** REVIEW %?\n:LOGBOOK:\n- State \"REVIEW\"       from              %U\n:END:")
-                ("i" "Idea" entry
-                 (file+olp "gtd-dreams.org" "Ideas")
-                 "** REVIEW %?\n:LOGBOOK:\n- State \"REVIEW\"       from              %U\n:END:")
-                )))
+        '(
+          ("c" "Capture" entry
+           (file+olp "" "Inbox")
+           "** REVIEW %?\n:LOGBOOK:\n- State \"REVIEW\"       from              %U\n:END:")
+          ("t" "Today's Task" entry
+           (file+olp "" "Today")
+           "** REVIEW %?\n:LOGBOOK:\n- State \"REVIEW\"       from              %U\n:END:")
+          ("i" "Idea" entry
+           (file+olp "gtd-dreams.org" "Ideas")
+           "** REVIEW %?\n:LOGBOOK:\n- State \"REVIEW\"       from              %U\n:END:")
+          ))
 
   (defun +org-goto-todos () (interactive) (find-file org-default-notes-file))
   (spacemacs/set-leader-keys "ooo" '+org-goto-todos)
