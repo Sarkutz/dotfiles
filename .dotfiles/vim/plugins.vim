@@ -49,9 +49,14 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=124 gui=bold guibg=#bdae93
 
 " golden-ratio.vim
 " ================
-let g:golden_ratio_exclude_nonmodifiable = 1
-nmap <Leader>tg :GoldenRatioToggle<CR>
 
+" disable plugin
+let g:loaded_golden_ratio = 0
+
+" Toggle plugin
+" nmap <Leader>tg :GoldenRatioToggle<CR>
+
+" let g:golden_ratio_exclude_nonmodifiable = 1
 
 " Ultisnips Snippet Engine
 " ========================
