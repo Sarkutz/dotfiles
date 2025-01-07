@@ -96,7 +96,7 @@ Dependencies
           # export LC_CTYPE=en_US.UTF-8  # if required
 
    * - ``rg``
-     - ``<leader>rg`` LeaderF command in ``plugins.vim``.
+     - ``<leader>jrg`` LeaderF command in ``plugins.vim``.
      - `BurntSushi/ripgrep <https://github.com/BurntSushi/ripgrep>`__
      - .
 
@@ -394,22 +394,32 @@ to manually trigger coc.nvim's auto-complete.
      - Shortcuts
      - UltiSnips: List all applicable snippets that start with ``prefix``.
 
-   * - ``<leader>f``
+   * - ``<leader>ff``
      - ``plugins.vim``
      - Shortcuts
      - LeaderF: Fuzzy search for files under current directory hierarchy.
 
-   * - ``<leader>b``
+   * - ``<leader>bb``
      - ``plugins.vim``
      - Shortcuts
      - LeaderF: Fuzzy search for open buffers.
 
-   * - ``<leader>l``
+   * - ``<leader>jt``
+     - ``plugins.vim``
+     - Shortcuts
+     - LeaderF: Fuzzy search for tag.
+
+   * - ``<leader>ji``
+     - ``plugins.vim``
+     - Shortcuts
+     - LeaderF: Fuzzy search for line in current buffer.
+
+   * - ``<leader>hlc``
      - ``plugins.vim``
      - Shortcuts
      - LeaderF: Fuzzy search LeaderF's commands.
 
-   * - ``<leader>rg``
+   * - ``<leader>jrg``
      - ``plugins.vim``
      - Shortcuts
      - LeaderF: Search using ripgrep and fuzzy search over it's output.
