@@ -616,6 +616,11 @@ to manually trigger coc.nvim's auto-complete.
      - Dev.
      - vim-go ``:GoTest``
 
+   * - ``<leader>t``
+     - ``coc.vim``
+     - Dev.
+     - coc.vim: goto corresponding test file.
+
    * - ``<leader>gct``
      - ``ft.vim``
      - Dev.

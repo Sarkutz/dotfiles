@@ -246,3 +246,11 @@ nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
 
 let g:coc_filetype_map = { 'rst': 'restructuredtext' }
 
+
+" golang
+" ------
+
+autocmd BufEnter *.go nmap <leader>t <Plug>(go-test-func)
+" autocmd BufEnter *.go nmap <leader>c  <Plug>(go-coverage-toggle)
+" SEE https://pmihaylov.com/vim-for-go-development/#mappings-for-the-most-useful-commands
+
