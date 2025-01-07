@@ -570,6 +570,19 @@ before packages are loaded."
   ;; Spellings
   (setq ispell-dictionary "en_GB")
 
+  (defun me/clipboard/set (astring)
+    "Copy a string to clipboard"
+    (with-temp-buffer
+      (insert astring)
+      (clipboard-kill-region (point-min) (point-max))))
+
+  (defun me/clipboard/get ()
+    "Return the content of clipboard as string"
+    (interactive)
+    (with-temp-buffer
+      (clipboard-yank)
+      (buffer-substring-no-properties (point-min) (point-max))))
+
   ;; Org Mode
   ;; ========
 
