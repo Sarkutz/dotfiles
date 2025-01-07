@@ -3,3 +3,5 @@ sphinx-book-theme>=0.0.39
 alabaster>=0.7.12
 sphinxcontrib-confluencebuilder
 sphinxcontrib-svg2pdfconverter
+sphinxcontrib.asciinema
+Pygments
