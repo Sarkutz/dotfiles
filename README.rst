@@ -325,6 +325,7 @@ the dependency is listed in the "Used by" column).
        - sklearn: :code:`https://scikit-learn.org/stable/search.html?q=%s`
        - pd: :code:`https://pandas.pydata.org/docs/search.html?q=%s`
        - git: :code:`https://github.com/search?q=%s`
+       - man: :code:`https://duckduckgo.com/?va=p&t=hd&q=%s+site%3Ahttps%3A%2F%2Fwww.man7.org&ia=web`
        - jash: :code:`http://localhost:8080/ashim/search.html?q=%s`
        - jkno: :code:`http://localhost:8080/knowl/search.html?q=%s`
        - jcli: :code:`http://localhost:8080/clinic/search.html?q=%s`
@@ -341,14 +342,22 @@ the dependency is listed in the "Used by" column).
        - `pyspark
          <https://spark.apache.org/docs/2.3.0/api/python/index.html>`__
        - `tensorflow <https://www.tensorflow.org/api_docs/python/tf/keras>`__
+       - `go <https://pkg.go.dev/%s>`__
+       - `gopkg <https://pkg.go.dev/search?q=%s>`__
+       - `goeg <https://duckduckgo.com/?q=\%s+site:gobyexample.com>`__
 
-       Bookmarks: misc-
+       Bookmarks: tools-
 
        - `sql-validator
          <https://www.eversql.com/sql-syntax-check-validator/>`__
+       - `json-ed <https://jsoneditoronline.org/>`__
+       - `jsondiff <https://jsondiff.com/>`__
        - `Optimizilla <https://imagecompressor.com/>`__
        - `Mathcha <https://www.mathcha.io/editor>`__
        - `latex-math-ed <https://latexeditor.lagrida.com/>`__
+
+       Bookmarks: misc-
+
        - `Syncthing <http://127.0.0.1:8384/>`__
        - `local-yarn-rm-ui <http://localhost:8088/cluster/scheduler>`__
        - `local-jupyter <http://localhost:8888/tree>`__
