@@ -64,7 +64,21 @@
 				}
 			}
 		}
+
+		/*
+		, "golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"]
+		}
+		*/
 	},
+
+	/*
+	"go.goplsOptions": {
+		"staticcheck": true
+	},
+	*/
 
 	"diagnostic-languageserver.filetypes": {
 		"python": "pylint"
