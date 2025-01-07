@@ -165,25 +165,27 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-" nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <leader>ld  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <leader>he  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <leader>cvc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <leader>hcc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <leader>jo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <leader>js  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 " nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 " nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <leader>lr  :<C-u>CocListResume<CR>
+nnoremap <leader>hl :CocList<CR>
 
-nnoremap <leader>l :CocList<CR>
+" Highlight cursor line in CocList
+highlight CocListLine cterm=underline
 
-nnoremap <silent><nowait> <space>O  :call ToggleOutline()<CR>
+nnoremap <silent><nowait> <leader>O  :call ToggleOutline()<CR>
 function! ToggleOutline() abort
 	let winid = coc#window#find('cocViewId', 'OUTLINE')
 	if winid == -1

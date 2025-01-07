@@ -534,35 +534,49 @@ to manually trigger coc.nvim's auto-complete.
      - Shortcuts
      - coc.nvim: Format selected code using the language server.
 
-   * - ``<leader>a``
+   * - ``<leader>ld``
      - ``coc.vim``
      - Shortcuts
-     - coc.nvim: Run diagnositics using the language server.
+     - coc.nvim: "List Diagnostics": Run diagnositics using the language
+       server.
 
-   * - ``<leader>e``
+   * - ``<leader>jo``
      - ``coc.vim``
      - Shortcuts
-     - coc.nvim: List coc.nvim's extensions.
+     - coc.nvim: "Jump Outline": List outline of symbols in current file using
+       the language server.
 
-   * - ``<leader>cvc``
+   * - ``<leader>O``
      - ``coc.vim``
      - Shortcuts
-     - coc.nvim: List language servers's commands.
+     - coc.nvim: "Outline": Toggle outline of symbols in current file in
+       sidebar using the language server.
 
-   * - ``<leader>o``
+   * - ``<leader>js``
      - ``coc.vim``
      - Shortcuts
-     - coc.nvim: List outline of current file using the language server.
+     - coc.nvim: "Jump Symbols": List symbols in the current workspace using
+       the language server.
 
-   * - ``<leader>s``
+   * - ``<leader>lr``
      - ``coc.vim``
      - Shortcuts
-     - coc.nvim: List symbols in the current file using the language server.
+     - coc.nvim: "List Resume": Resume latest coc list.
 
-   * - ``<leader>p``
+   * - ``<leader>he``
      - ``coc.vim``
      - Shortcuts
-     - coc.nvim: Resume latest coc list.
+     - coc.nvim: "Help Extensions": List coc.nvim's extensions.
+
+   * - ``<leader>hcc``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: "Help Common Commands": List language servers's commands.
+
+   * - ``<leader>hl``
+     - ``coc.vim``
+     - Shortcuts
+     - coc.nvim: "Help List": Run ``:CocList``.
 
 .. list-table:: Shortcuts Provided (reST)
    :widths: auto
