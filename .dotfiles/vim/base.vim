@@ -73,7 +73,7 @@ nnoremap <C-Q> :q<CR>
 " Open new tab
 nnoremap <leader>tn :tabnew<CR>
 " Close location list
-noremap <Leader>c :ccl <bar> lcl<CR>
+noremap <Leader>cq :ccl <bar> lcl<CR>
 " Copy visually selected text to clipboard selection using <C-c>
 map <C-c> "+y<CR>
 " Get :pwd

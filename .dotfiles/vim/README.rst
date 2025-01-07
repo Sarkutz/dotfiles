@@ -359,7 +359,7 @@ to manually trigger coc.nvim's auto-complete.
      - Shortcuts
      - Tab New: Open new (empty) tab.
 
-   * - ``<leader>c``
+   * - ``<leader>cq``
      - ``base.vim``
      - Shortcuts
      - Close location lists
