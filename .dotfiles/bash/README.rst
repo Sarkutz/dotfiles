@@ -261,10 +261,11 @@ Development
 
    * - ``dtag``
      - ``base.sh``
-     - Create tags for code navigation.
+     - Create tags for code navigation.  It creates ctags and cscope.
        Usage::
 
          dtag
+
 
 fg (f)
 ------

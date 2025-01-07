@@ -273,9 +273,9 @@ alias dpy='$(get_python_bin)'
 
 # dtag (Tag): Create tags for code navigation
 if [[ $(get_os) == 'mac_os' ]]; then
-    alias dtag="$( brew --prefix )/bin/ctags -R . 2> /dev/null; cscope -Rb"
+    alias dtag="$( brew --prefix )/bin/ctags -R * 2> /dev/null; cscope -Rbq"
 else
-    alias dtag='ctags -R . 2> /dev/null; cscope -Rb'
+    alias dtag='ctags -R . 2> /dev/null; cscope -Rbq'
 fi
 
 # dgd (Grep Directory)
