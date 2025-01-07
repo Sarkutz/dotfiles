@@ -693,6 +693,7 @@ before packages are loaded."
             (tags "CLOSED>\"<-1d>\"/DONE|CANCELLED")
             ; (search "<today>")
             (tags-todo "inbox")
+            (tags-todo "%gtd_daily_review")
             (tags-todo "urgent")
             (agenda ""
                     ((org-agenda-start-day "<today>")
