@@ -593,6 +593,8 @@ before packages are loaded."
   ;; Org Mode
   ;; ========
 
+  (define-key evil-normal-state-map (kbd "C-j") 'org-insert-item)
+
   (spacemacs/declare-prefix "oo" "own-org-menu")
 
   ;; org-directory
