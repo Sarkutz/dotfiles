@@ -644,6 +644,7 @@ before packages are loaded."
          ("%ipad")
          ("%backlog_grooming")
          ("%sprint_planning")
+         ("%standup")
          ("%parliament")
          ;; Time
          ("time_small")
@@ -670,6 +671,7 @@ before packages are loaded."
          ("design_arch")
          ("project_mang")
          ("product_mang")
+         ("genai")
          ))
 
 
