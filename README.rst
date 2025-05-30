@@ -52,6 +52,22 @@ installing additional dependencies.  As these are different for different
 dotfiles, they are documented in the corresponding sub-folder.  Please see the
 `Dotfiles Provided`_ section in this document for links to further details.
 
+Dependencies Provided
+=====================
+
+The following dependencies are packaged into this repo as submodules.  You do
+not need to install them separately.  They will be installed as part of
+setting up this repo.
+
+.. list-table:: Dependencies Provided as submodules
+   :widths: auto
+
+   * - Name
+     - Path
+
+   * - ``pandoc-md-to-slack``
+     - ``.dotfiles/resources/pandoc-md-to-slack``
+
 
 ********************
 Install All Dotfiles
@@ -77,6 +93,12 @@ Clone and install as follows (`source
   kdfgit config status.submodulesummary 1
   kdfgit config push.recurseSubmodules check
   kdfgit config submodule.recurse true
+
+Prepare all submodules.  Various dependencies are packaged as submodules. This
+step with setup such dependencies. ::
+
+  kdfgit submodule init
+  kdfgit submodule update --recursive
 
 
 *******************
@@ -167,6 +189,12 @@ the dependency is listed in the "Used by" column).
      - Systems's package manager.
      - See `Install NeoVim`_.  ``vim`` dotfiles provided by this repository.
        Please see `Dotfiles Provided`_.
+
+   * - Pandoc
+     - ``rst2slack.sh``
+     - Systems's package manager.
+     - This is required by utility scripts (like ``rst2slack.sh``) to convert
+       between documentation formats.
 
    * - Docker
      - BASH dotfiles (several features)
@@ -812,6 +840,19 @@ Please find the details of the utilities provided in this repository as follows.
 
    * - jsbeautify.py
      - Used in JavaScript Alias Space.
+
+   * - ``rst2slack.sh``
+     - Convert ReStructuredText (rst) format to Slack Markdown format.
+
+       Usage::
+
+          echo "Test :code:\`x=y\`" | rst2slack.sh
+
+       Provide the input text in ``stdin``.  The output is printed to
+       ``stdout`` and copied to the system clipboard.
+
+       Note: ``rst2slack.sh`` will be installed into the ``PATH`` by
+       ``setup-folder.sh``.
 
    * - Python Virtual Environments
      - Python Virtual Environments are stored in
