@@ -33,7 +33,8 @@
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/vim-slime"]
 	path = .vim/bundle/vim-slime
-	url = https://github.com/jpalardy/vim-slime.git
+	url = https://github.com/Sarkutz/vim-slime.git
+	branch = aag_multi_pane
 [submodule ".vim/bundle/screen"]
 	path = .vim/bundle/screen
 	url = https://github.com/ervandew/screen
