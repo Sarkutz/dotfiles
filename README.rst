@@ -917,15 +917,21 @@ Repository Conventions
 - Document vim dotfiles in .dotfiles/vim/README.rst
 - Get venvs working on linux and mac
 
+- Deprecate Freeplane?
+
+====
+
 - Check-in
 
-  - [base] Vim plugins (as submodules): vim-signature, black (add to vim/README)
-  - [base] is-repo-dirty (add to README)
-  - [base] make-proj-dirs.sh
-  - [base] sync-proj-todos.sh
+  - .vim/bundle/firenvim
+  - tmux: create a Github fork of tmux-config so that I can track my custom
+    changes. See diff for custom changes::
 
-- Deprecate Freeplane?
-- Add ~/.emacs.d/private ???
-- Add instructions on how to install nvim from sources?
+       diff ~/.tmux/tmux.conf ~/dotfiles/tmux/tmux-config/tmux/tmux.conf
 
---
+  - ~/.dotfiles/vim/vimonly.vim
+  - Spacemacs
+
+    - Add to setup-folders.sh: cd /Users/ashimghosh/.emacs.d && rm private && ln -s ~/.dotfiles/spacemacs/private/
+    - Add README/folder for spacemacs.
+
