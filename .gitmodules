@@ -65,3 +65,6 @@
 [submodule ".dotfiles/resources/pandoc-md-to-slack"]
 	path = .dotfiles/resources/pandoc-md-to-slack
 	url = https://github.com/Sarkutz/pandoc-md-to-slack.git
+[submodule ".vim/bundle/firenvim"]
+	path = .vim/bundle/firenvim
+	url = https://github.com/glacambre/firenvim
