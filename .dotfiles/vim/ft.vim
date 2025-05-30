@@ -19,6 +19,12 @@ endfunction
 autocmd Filetype text call ConfigText()
 
 
+" File type: msg
+" ==============
+
+au! BufRead,BufNewFile *.msg setfiletype msg
+
+
 " File type: rst
 " ==============
 
@@ -106,6 +112,16 @@ function! ConfigSh()
 	setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 endfunction
 autocmd Filetype sh call ConfigSh()
+
+
+" File type: cli
+" ==============
+
+function! ConfigCli()
+	UltiSnipsAddFiletypes cli.bash
+	set ft=bash
+endfunction
+au! BufRead,BufNewFile *.cli call ConfigCli()
 
 
 " File type: r
