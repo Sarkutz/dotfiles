@@ -132,7 +132,11 @@ Example:
 # ----
 
 # Stop terminal flow control
-stty -ixon -ixoff
+# if checks for interactive terminal: $- contains the shopt; shopt i indicates
+# interactive shell
+if [[ $- == *i* ]]; then
+    stty -ixon -ixoff
+fi
 
 # To fix "ValueError: unknown locale: UTF-8" Python error
 export LC_ALL=en_US.UTF-8
