@@ -1,0 +1,4 @@
+e ~/.commands.txt  # add command
+docker container run --name java_dev -it -d --rm -v $(pwd):/home/java_user/dev -w /home/java_user/dev local/java_dev /bin/bash  # docker run java_dev
+docker container run --name c_dev -it -d --rm -v$(pwd):/home/cdev_user/dev -w /home/cdev_user/dev local/c_dev /bin/bash  # docker run c_dev
+echo $CONTAINER_ID && docker container exec -it $CONTAINER_ID bash  # docker dev connect
