@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 usage='make-proj-dirs.sh: Create project scaffolding for data science/ML
-projects.
+and general projects.
 USAGE: bash make-proj-dirs.sh <artifact-type> <artifact-name>
 where-
-artifact-type: proj, ana, model, deploy, deploy_ana, deploy_model
+artifact-type-
+- For ML projects: ml_proj, ml_ana, ml_model, ml_deploy, ml_deploy_ana, ml_deploy_model
+- For general projects: proj
 artifact-name: Name of artifact
 EXAMPLE: bash make-proj-dirs.sh ana verify-deployment'
 
@@ -47,6 +49,26 @@ function make_proj() {
     ARTIFACT_NAME=$1
     old_dir="$( pwd )"
 
+    make_repo $ARTIFACT_NAME
+
+    cd $ARTIFACT_NAME
+    touch README.rst
+
+    $MKDIR docs/ docs/journal/ docs/publish docs/publish/docs/ docs/publish/figures/
+    touch docs/index.rst docs/journal/index.rst docs/todos.org
+
+    $MKDIR references/
+
+    $MKDIR scratch/
+
+    cd "$old_dir"
+}
+
+
+function make_ml_proj() {
+    ARTIFACT_NAME=$1
+    old_dir="$( pwd )"
+
     # make_dummy_repo
     # git clone $DUMMY_REPO_PATH $ARTIFACT_NAME
     make_repo $ARTIFACT_NAME
@@ -57,9 +79,10 @@ function make_proj() {
 
     cd $ARTIFACT_NAME
     touch README.rst
+    touch README.rst
 
     $MKDIR docs/ docs/journal/ docs/publish docs/publish/docs/ docs/publish/figures/
-    touch docs/index.rst docs/journal/index.rst
+    touch docs/index.rst docs/journal/index.rst docs/todos.org
 
     $MKDIR data/ data/raw/ data/raw/external/
 
@@ -78,7 +101,7 @@ function make_proj() {
     cd "$old_dir"
 }
 
-function make_ana() {
+function make_ml_ana() {
     ARTIFACT_NAME=$1
     old_dir="$( pwd )"
 
@@ -103,7 +126,7 @@ function make_ana() {
     cd "$old_dir"
 }
 
-function make_model() {
+function make_ml_model() {
     ARTIFACT_NAME=$1
     old_dir="$( pwd )"
 
@@ -126,7 +149,7 @@ function make_model() {
     cd "$old_dir"
 }
 
-function make_deploy() {
+function make_ml_deploy() {
     ARTIFACT_NAME=$1
     old_dir="$( pwd )"
 
@@ -145,7 +168,7 @@ function make_deploy() {
     cd "$old_dir"
 }
 
-function make_deploy_ana() {
+function make_ml_deploy_ana() {
     ARTIFACT_NAME=$1
     old_dir="$( pwd )"
 
@@ -165,7 +188,7 @@ function make_deploy_ana() {
     cd "$old_dir"
 }
 
-function make_deploy_model() {
+function make_ml_deploy_model() {
     ARTIFACT_NAME=$1
     old_dir="$( pwd )"
 
@@ -191,16 +214,18 @@ function main() {
 
     if [[ $ARTIFACT_TYPE == 'proj' ]]; then
         make_proj $ARTIFACT_NAME
-    elif [[ $ARTIFACT_TYPE == 'ana' ]]; then
-        make_ana $ARTIFACT_NAME
-    elif [[ $ARTIFACT_TYPE == 'model' ]]; then
-        make_model $ARTIFACT_NAME
-    elif [[ $ARTIFACT_TYPE == 'deploy' ]]; then
-        make_deploy $ARTIFACT_NAME
-    elif [[ $ARTIFACT_TYPE == 'deploy_ana' ]]; then
-        make_deploy_ana $ARTIFACT_NAME
-    elif [[ $ARTIFACT_TYPE == 'deploy_model' ]]; then
-        make_deploy_model $ARTIFACT_NAME
+    elif [[ $ARTIFACT_TYPE == 'ml_proj' ]]; then
+        make_ml_proj $ARTIFACT_NAME
+    elif [[ $ARTIFACT_TYPE == 'ml_ana' ]]; then
+        make_ml_ana $ARTIFACT_NAME
+    elif [[ $ARTIFACT_TYPE == 'ml_model' ]]; then
+        make_ml_model $ARTIFACT_NAME
+    elif [[ $ARTIFACT_TYPE == 'ml_deploy' ]]; then
+        make_ml_deploy $ARTIFACT_NAME
+    elif [[ $ARTIFACT_TYPE == 'ml_deploy_ana' ]]; then
+        make_ml_deploy_ana $ARTIFACT_NAME
+    elif [[ $ARTIFACT_TYPE == 'ml_deploy_model' ]]; then
+        make_ml_deploy_model $ARTIFACT_NAME
     fi
 }
 
