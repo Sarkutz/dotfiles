@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: GTD Project Dashboard
+# key: gtdproj
+# --
+#+CATEGORY: $1
+* Tasks
+** $0
+** Review
+* Inbox                                                               :inbox:
+* Notes
+* Study

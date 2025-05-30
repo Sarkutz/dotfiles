@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: GTD Task Sheet
+# key: gtdsheet
+# --
+* Sunday
+  `(format-time-string "%Y-%m-%d")`
+* Monday
+* Tuesday
+* Wednesday
+* Thursday
+* Friday
+* Saturday
