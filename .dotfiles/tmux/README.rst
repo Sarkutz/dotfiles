@@ -99,3 +99,25 @@ Keybindings Provided
    * - ``A``
      - Create new pane and swap current pane with it.
 
+   * - ``C-l``
+     - Load latest saved tmux sessions (using tmux-resurrect).
+
+
+Plugins Installed
+=================
+
+.. list-table:: Plugins Installed
+   :widths: auto
+   :header-rows: 1
+
+   * - Keybinding
+     - Description
+
+   * - tmux-resurrect
+     - Load and save all sessions.
+
+       - ``C-s``: save all sessions.
+       - ``C-l`` (configured by dotfiles): Load latest saved sessions.
+
+       Sessions are saved in :file:`~/.tmux/resurrect/`.
+
