@@ -61,6 +61,14 @@ function base.apply_to_config(config)
 			action = wezterm.action.Nop,
 		},
 	}
+
+	-- Selecting Text
+	-- config.quick_select_remove_styling = true
+	-- regex syntax: https://docs.rs/regex/latest/regex/#syntax
+	-- config.quick_select_patterns = { '[0-9a-f]{7,40}' }
+
+	-- hyperlinks
+	-- https://wezterm.org/hyperlinks.html#implicit-hyperlinks
 end
 
 return base
