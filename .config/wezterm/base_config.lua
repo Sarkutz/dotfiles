@@ -48,6 +48,18 @@ function base.apply_to_config(config)
 			mods = "NONE",
 			action = wezterm.action.DisableDefaultAssignment,
 		},
+		-- Open hyperlinks
+		{
+			event = { Up = { streak = 1, button = "Left" } },
+			mods = "CTRL|ALT",
+			action = wezterm.action.OpenLinkAtMouseCursor,
+		},
+		-- Open hyperlinks: disable 'Down' event to avoid weird program behaviors
+		{
+			event = { Down = { streak = 1, button = "Left" } },
+			mods = "CTRL|ALT",
+			action = wezterm.action.Nop,
+		},
 	}
 end
 
