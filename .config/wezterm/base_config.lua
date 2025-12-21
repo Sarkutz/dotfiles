@@ -3,6 +3,8 @@ local wezterm = require("wezterm")
 local base = {}
 
 function base.apply_to_config(config)
+	-- Appearance
+	-- ==========
 	config.hide_tab_bar_if_only_one_tab = true
 	config.window_padding = {
 		left = 0,
@@ -16,13 +18,15 @@ function base.apply_to_config(config)
 	config.font_size = 12
 	config.line_height = 1.0
 
+	-- Keybindings
+	-- ===========
 	-- Modifers: SUPER|CTRL|SHIFT|ALT|LEADER
 	config.leader = { key = "w", mods = "CTRL|ALT", timeout_milliseconds = 1000 }
 	config.keys = {
 		{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
 	}
-	-- Disable copy to system clipboard on select
 	config.mouse_bindings = {
+		-- Disable copy to system clipboard on select
 		{
 			event = { Up = { streak = 1, button = "Left" } },
 			mods = "NONE",
