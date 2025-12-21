@@ -13,10 +13,15 @@ function base.apply_to_config(config)
 		bottom = 0,
 	}
 
-	config.color_scheme = "Gruvbox (Gogh)"
-	config.font = wezterm.font("JetBrains Mono")
-	config.font_size = 12
-	config.line_height = 1.0
+	-- Font
+	-- ====
+	local env = os.getenv("WEZTERM_ENV")
+	if env ~= "emacs" then
+		config.color_scheme = "Gruvbox (Gogh)"
+		config.font = wezterm.font("JetBrains Mono")
+		config.font_size = 12
+		config.line_height = 1.0
+	end
 
 	-- Keybindings
 	-- ===========
