@@ -412,6 +412,12 @@ the dependency is listed in the "Used by" column).
        <https://stedolan.github.io/jq/>`__.
      - .
 
+   * - ``lazygit``
+     - :code:`lg` and :code:`kdflg` aliases
+     - `jesseduffield/lazygit <https://github.com/jesseduffield/lazygit>`__
+       or system's package manager
+     - Simple terminal UI for git commands.
+
    * - ``vlc``
      - .
      - System's package manager
