@@ -251,7 +251,12 @@ the dependency is listed in the "Used by" column).
    * - Node.js and NPM
      - .
      - System's package manager.
-     - .
+     - Ubuntu: install from PPA::
+
+          curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+          sudo bash /tmp/nodesource_setup.sh
+          sudo apt update
+          sudo apt install node npm
 
    * - yarn (Node.js)
      - Node.js.
