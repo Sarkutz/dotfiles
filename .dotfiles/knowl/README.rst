@@ -53,6 +53,22 @@ Dependencies
 
         - Start PHP-FPM: :code:`brew services start php@7.4`
 
+       On Ubuntu-
+
+       - :code:`sudo apt install php php-fpm`
+       - Update :file:`/etc/php/8.3/fpm/pool.d/www.conf` (update version number)::
+
+            user = ashim
+            group = ashim
+            listen = /run/php/php8.3-fpm.sock
+
+            ; If required
+            listen.owner = ashim
+            listen.group = ashim
+            listen.mode = 0660
+
+        - Start PHP-FPM: :code:`sudo systemctl start php8.3-fpm.service`
+
    * - Nginx
      - Required to serve knowl on localhost.
      - System's package manager.
