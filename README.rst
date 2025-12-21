@@ -634,7 +634,11 @@ Note that "config-dir" option should point to the folder containing
 Install NeoVim
 ==============
 
-Install using System's package manager
+Install using System's package manager.
+
+- Ubuntu: use NeoVim AppImage. Move AppImage tools
+  :file:`~/resources/software/installed/bin/` (which is added to :code:`PATH`
+  by these dotfiles).
 
 - Verify::
 
