@@ -472,6 +472,14 @@ the dependency is listed in the "Used by" column).
      - Clipboard manager.  Add to Startup Applications.  Configure <C-M-v> as
        trigger/hot key.
 
+       CopyQ might not capture the clipboard on Wayland (Ubuntu). To fix this
+       update :file:`~/.config/autostart/copyq.desktop`::
+
+          Exec=env QT_QPA_PLATFORM=xcb copyq
+
+       Similarly, CopyQ's hotkeys might not work on Wayland (Ubuntu). Use
+       Ubuntu's shortcut manager "Settings > Keyboard > Customise Shortcuts"
+       instead.
 
 .. list-table:: System Softwares (Mac-only)
    :widths: auto
