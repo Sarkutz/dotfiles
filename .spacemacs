@@ -572,6 +572,9 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-y") #'company-complete-selection)
   (define-key evil-insert-state-map (kbd "C-e") #'company-abort)
 
+  ;; C-s: save file
+  (global-set-key (kbd "C-s") #'save-buffer)
+
   ;; Spellings
   (setq ispell-dictionary "en_GB")
 
