@@ -17,13 +17,12 @@
 # -------
 # DRY_RUN=1
 
-if [[ $DRY_RUN -eq 1 ]]
-then
-  MKDIR='echo mkdir'
-  LN='echo ln -s'
+if [[ $DRY_RUN -eq 1 ]]; then
+    MKDIR='echo mkdir'
+    LN='echo ln -s'
 else
-  MKDIR='mkdir -p'
-  LN='ln -s'
+    MKDIR='mkdir -p'
+    LN='ln -s'
 fi
 
 # PREFIX
@@ -37,18 +36,16 @@ PREFIX="$HOME"
 # Note: Do NOT change as base.sh searches for this file in the following path.
 PATH_INFO=${DOTFILES}/utils/path-info.sh
 
-
 # Export Paths
 # ============
 
 # Ensure $DOTFILES is set
 if [[ -z $DOTFILES ]]; then
-  echo 'Please set $DOTFILES'
-  exit 1
+    echo 'Please set $DOTFILES'
+    exit 1
 fi
 
-
-cat <<EOF > $PATH_INFO
+cat <<EOF >$PATH_INFO
 export DOTFILES_REPOS="$PREFIX/resources/repos"
 export DOTFILES_SOFTWARE_INSTALL_PREFIX="$PREFIX/resources/software/installed/"
 export DOTFILES_SOFTWARE_STANDALONE="$PREFIX/resources/software/standalone/"
@@ -65,10 +62,9 @@ EOF
 source $PATH_INFO
 
 if [[ $ONLY_EXPORT_PATHS -eq 1 ]]; then
-  echo "Quiting after exporting paths to $PATH_INFO"
-  exit 0
+    echo "Quiting after exporting paths to $PATH_INFO"
+    exit 0
 fi
-
 
 # Functions
 # =========
@@ -89,73 +85,71 @@ Output values-
 }
 
 function mkdir_if_not_exists() {
-  dir="$1"
-  [[ $( ls -a | grep -i "$dir" | wc -l ) -eq 0 ]] &&
-    $MKDIR "$dir"
+    dir="$1"
+    [[ $(ls -a | grep -i "$dir" | wc -l) -eq 0 ]] &&
+        $MKDIR "$dir"
 }
 
 function create_workspace() {
-  space_name="$1"
-  mkdir "$space_name"
-  cd "$space_name" &&
-    $MKDIR sandbox projfg projbg projint projar knowl wiki
+    space_name="$1"
+    mkdir "$space_name"
+    cd "$space_name" &&
+        $MKDIR sandbox projfg projbg projint projar knowl wiki
 }
 
 # Folder Setup
 # ------------
 
 function setup_base() {
-  cd "$PREFIX" &&
-    $MKDIR resources
-  
-  cd "$PREFIX/resources/" &&
-    $MKDIR data ashim repos \
-        software/archive/vm software/installed/bin software/pyenvs software/standalone
+    cd "$PREFIX" &&
+        $MKDIR resources
 
-  cp $DOTFILES/../resources/trashit.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/sqlout2csv.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/jsbeautify.py      $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/painlessmerge.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/make-proj-dirs.sh  $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/sync-proj-todos.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/is-repo-dirty.sh   $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/tsv2csv.sh         $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/rst2slack.sh       $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
-  cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
-  # TODO Check if $DOTFILES_WWW exists
-  cp $DOTFILES/../knowl/index.html $DOTFILES_WWW
-  cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
+    cd "$PREFIX/resources/" &&
+        $MKDIR data ashim repos \
+            software/archive/vm software/installed/bin software/pyenvs software/standalone
+
+    cp $DOTFILES/../resources/trashit.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/sqlout2csv.py $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/jsbeautify.py $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/painlessmerge.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/make-proj-dirs.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/sync-proj-todos.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/is-repo-dirty.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/tsv2csv.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/rst2slack.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
+    cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
+    # TODO Check if $DOTFILES_WWW exists
+    cp $DOTFILES/../knowl/index.html $DOTFILES_WWW
+    cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
 }
 
 function setup_home() {
-  setup_base
+    setup_base
 
-  cd "$PREFIX" &&
-    mkdir_if_not_exists downloads
-  
-  cd "$PREFIX" &&
-    $MKDIR private public archives storage
-  
-  # MacOS Only
-  [[ $(get_os) == 'mac_os' ]] &&
-    sudo /bin/mv Public/ public
-  
-  cd "$PREFIX/private/" &&
-    $MKDIR active secret gtd knowl anki orgzly diary zotero ghosh-family/ashim
-  
-  cd "$PREFIX/public/" &&
-    $MKDIR website www file-share
-  
-  cd "$PREFIX/public/website/" &&
-    $LN "$PREFIX/private/knowl/" &&
-    $MKDIR online/blog online/kbase
+    cd "$PREFIX" &&
+        mkdir_if_not_exists downloads
 
+    cd "$PREFIX" &&
+        $MKDIR private public archives storage
 
-  cd "$PREFIX/" &&
-    create_workspace ashim
-  cd "$PREFIX/" &&
-    create_workspace clinic
+    # MacOS Only
+    [[ $(get_os) == 'mac_os' ]] &&
+        sudo /bin/mv Public/ public
+
+    cd "$PREFIX/private/" &&
+        $MKDIR active secret gtd knowl anki orgzly diary zotero ghosh-family/ashim
+
+    cd "$PREFIX/public/" &&
+        $MKDIR website www file-share
+
+    cd "$PREFIX/public/website/" &&
+        $LN "$PREFIX/private/knowl/" &&
+        $MKDIR online/blog online/kbase
+
+    cd "$PREFIX/" &&
+        create_workspace ashim
+    cd "$PREFIX/" &&
+        create_workspace clinic
 }
-
 
 setup_home
