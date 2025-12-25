@@ -1,0 +1,106 @@
+{
+  "link": {
+    "prefix": "a",
+    "body": [
+      "`$1 <$2>`__$0"
+    ],
+    "description": "link"
+  },
+
+  "role: generic": {
+    "prefix": "rr",
+    "body": [
+      ":$1:`$2`$0"
+    ],
+    "description": "role: generic"
+  },
+
+  "role: code": {
+    "prefix": "rc",
+    "body": [
+      ":code:`${1:${TM_SELECTED_TEXT}}`$0"
+    ],
+    "description": "role: code"
+  },
+
+  "role: math": {
+    "prefix": "rm",
+    "body": [
+      ":math:`${1:${TM_SELECTED_TEXT}}`$0"
+    ],
+    "description": "role: math"
+  },
+
+  "role: definition": {
+    "prefix": "rd",
+    "body": [
+      ":dfn:`${1:${TM_SELECTED_TEXT}}`$0"
+    ],
+    "description": "role: definition"
+  },
+
+  "role: file": {
+    "prefix": "rf",
+    "body": [
+      ":file:`${1:${TM_SELECTED_TEXT}}`$0"
+    ],
+    "description": "role: file"
+  },
+
+  "toctree (Child pages)": {
+    "prefix": "toc:",
+    "body": [
+      ".. toctree::",
+      "   :caption: ${1:Topics}",
+      "   :maxdepth: 1",
+      "",
+      "   $0"
+    ],
+    "description": "toctree directive"
+  },
+
+  "Page table of contents": {
+    "prefix": "con:",
+    "body": [
+      ".. contents:: ${1:Contents}",
+      "   :depth: 1",
+      "   :local:",
+      "",
+      "$0"
+    ],
+    "description": "Page table of contents"
+  },
+
+  "list-table (custom)": {
+    "prefix": "lis:",
+    "body": [
+      ".. list-table:: ${1:Caption}",
+      "   :widths: auto",
+      "   :header-rows: 1",
+      "",
+      "   * - $0"
+    ],
+    "description": "list-table directive"
+  },
+
+  "Math Block": {
+    "prefix": "m:",
+    "body": [
+      ".. math::",
+      "",
+      "   $0"
+    ],
+    "description": "Math block"
+  },
+
+  "seealso directive": {
+    "prefix": "see:",
+    "body": [
+      ".. seealso::",
+      "",
+      "   ${1:${TM_SELECTED_TEXT}}$0"
+    ],
+    "description": "seealso directive"
+  }
+}
+
