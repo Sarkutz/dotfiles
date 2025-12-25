@@ -118,9 +118,6 @@ function setup_base() {
     cp $DOTFILES/../resources/tsv2csv.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
     cp $DOTFILES/../resources/rst2slack.sh $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin
     cp $DOTFILES/../resources/pyenvs/*.requirements.txt $DOTFILES_PYENVS
-    # TODO Check if $DOTFILES_WWW exists
-    cp $DOTFILES/../knowl/index.html $DOTFILES_WWW
-    cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
 }
 
 function setup_home() {
@@ -145,6 +142,10 @@ function setup_home() {
     cd "$PREFIX/public/website/" &&
         $LN "$PREFIX/private/knowl/" &&
         $MKDIR online/blog online/kbase
+
+    cd "$PREFIX/" &&
+        cp $DOTFILES/../knowl/index.html $DOTFILES_WWW &&
+        cp $DOTFILES/../knowl/phpinfo.php $DOTFILES_WWW
 
     cd "$PREFIX/" &&
         create_workspace ashim
