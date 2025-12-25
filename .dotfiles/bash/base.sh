@@ -8,7 +8,6 @@
 # - $DOTFILES is set
 # - utils/path-info.sh (created by setup-folders.sh)
 
-
 # Pre-requisites
 # ==============
 
@@ -20,17 +19,14 @@
 # Please create path-info.sh by executing utils/setup-folder.sh
 source ${DOTFILES}/utils/path-info.sh
 
-
 # Utilities
 # =========
 
 # Import utility functions used by BASH config. files.
 source ${DOTFILES}/utils/bashrc-utils.sh
 
-
 # Misc/All (a)
 # ============
-
 
 # System (s)
 # ==========
@@ -105,7 +101,7 @@ Example:
 
 # anoti
 function anoti() {
-	rv=$?
+    rv=$?
 
     usage='anoti: Send notification based on return value of previous command to
 Matrix room.
@@ -119,14 +115,13 @@ Example:
         echo "$usage"
         return 1
     fi
-	msg_success=$1
-	msg_fail=$2
+    msg_success=$1
+    msg_fail=$2
 
-	if [[ $rv -eq 0 ]]; then msg="$msg_success"; else msg="$msg_fail"; fi
-	ts=$( date +%Y-%m-%d-%H-%M-%S )
-	amxs "($ts): $msg"
+    if [[ $rv -eq 0 ]]; then msg="$msg_success"; else msg="$msg_fail"; fi
+    ts=$(date +%Y-%m-%d-%H-%M-%S)
+    amxs "($ts): $msg"
 }
-
 
 # BASH
 # ----
@@ -143,10 +138,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # export LC_CTYPE=en_US.UTF-8  # if required
 
-
 # Set command prompt (PS)
 source "${DOTFILES}/utils/bash-powerline.sh"
-
 
 # Setup paths
 # HomeBrew/LinuxBrew: Add path to sbin.
@@ -154,38 +147,33 @@ prefix_to_path '/usr/local/sbin'
 # Add binaries added by user.
 prefix_to_path "${DOTFILES_SOFTWARE_INSTALL_PREFIX}/bin/"
 
-
 # Keep longer bash history
-if [[ -a ${HOME}/.bash_history ]]
-then
+if [[ -e ${HOME}/.bash_history ]]; then
     HISTFILE="${HOME}/.bash_history"
     HISTSIZE=1000000000
     HISTFILESIZE=1000000000
     HISTCONTROL=ignorespace
 fi
 
-
 # Safety: rm moves to trash (~/.Trash)
 [[ -f $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin/trashit.sh ]] &&
     alias rm='bash $DOTFILES_SOFTWARE_INSTALL_PREFIX/bin/trashit.sh'
 
-
 # Safety: Prevent mv from overwriting files.
-function mv()
-{
+function mv() {
     # Separate options from filenames
     flags=()
     files=()
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            -* )
-                flags+=("$1")
-                shift
-                ;;
-            * )
-                files+=("$1")
-                shift
-                ;;
+        -*)
+            flags+=("$1")
+            shift
+            ;;
+        *)
+            files+=("$1")
+            shift
+            ;;
         esac
     done
 
@@ -198,26 +186,24 @@ function mv()
         return 1
 
     /bin/mv ${flags[@]} "$source_path" "$dest_path"
-	return $?
+    return $?
 }
 
-
 # Safety: Prevent cp from overwriting files.
-function cp()
-{
+function cp() {
     # Separate options from filenames
     flags=()
     files=()
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            -* )
-                flags+=("$1")
-                shift
-                ;;
-            * )
-                files+=("$1")
-                shift
-                ;;
+        -*)
+            flags+=("$1")
+            shift
+            ;;
+        *)
+            files+=("$1")
+            shift
+            ;;
         esac
     done
 
@@ -230,13 +216,12 @@ function cp()
         return 1
 
     /bin/cp -rf ${flags[@]} "$source_path" "$dest_path"
-	return $?
+    return $?
 }
-
 
 # Set window's title
 # Window title is used by tmux to set tmux's pane_title.
-function set_window_title () {
+function set_window_title() {
     usage='set_window_title: Set title of BASH window (by setting PROMPT_COMMAND).
 USAGE: set_window_title "Window Title"
 Example:
@@ -246,17 +231,16 @@ Example:
         echo "$usage"
         return 1
     fi
-	BASH_WINDOW_TITLE=${@}
-	PROMPT_COMMAND='echo -ne "\033]0;${BASH_WINDOW_TITLE}\007"'
+    BASH_WINDOW_TITLE=${@}
+    PROMPT_COMMAND='echo -ne "\033]0;${BASH_WINDOW_TITLE}\007"'
 }
-
 
 # Development (d)
 # ===============
 
 # Set the default editor
-[[ "$( which  vim )" ]] && export EDITOR=vim
-[[ "$( which nvim )" ]] && export EDITOR=nvim
+[[ "$(which vim)" ]] && export EDITOR=vim
+[[ "$(which nvim)" ]] && export EDITOR=nvim
 alias e="$EDITOR"
 alias dvi="find . -maxdepth 1 -name '*.sw?'; sps -wE 'n?vim'"
 
@@ -265,7 +249,7 @@ alias diff='/usr/bin/diff -u'
 
 # dpy: Alias for opening Python bin.
 function get_python_bin() {
-    which 'ipython' &> /dev/null
+    which 'ipython' &>/dev/null
     if [[ $? -eq 0 ]]; then
         echo 'ipython'
     else
@@ -277,7 +261,7 @@ alias dpy='$(get_python_bin)'
 
 # dtag (Tag): Create tags for code navigation
 if [[ $(get_os) == 'mac_os' ]]; then
-    alias dtag="$( brew --prefix )/bin/ctags -R * 2> /dev/null; cscope -Rbq"
+    alias dtag="$(brew --prefix)/bin/ctags -R * 2> /dev/null; cscope -Rbq"
 else
     alias dtag='ctags -R . 2> /dev/null; cscope -Rbq'
 fi
@@ -291,27 +275,22 @@ function dgd() {
 
 # (dev) commands
 function dcc() {
-    eval "$( ([[ -f ./commands.cli ]] && cat ./commands.cli || cat ~/commands.cli) | peco )"
+    eval "$( ([[ -f ./commands.cli ]] && cat ./commands.cli || cat ~/commands.cli) | peco)"
 }
-
-
 
 # fg (f)
 # ======
 
 alias f='fg'
 
-
 # Jump (j)
 # ========
-
 
 # Tools/Kit (k)
 # =============
 
 # dfgit: dotfiles git: Manipulate the Git bare repo containing all dotfiles
 alias kdfgit='git --git-dir=${HOME}/.dotfiles.git/ --work-tree=${HOME}'
-
 
 # kd (Docker)
 alias kd='sudo docker'
@@ -320,7 +299,6 @@ alias km='minikube'
 # kk (kubectl)
 alias kk='kubectl'
 
-
 # ls (l)
 # ======
 
@@ -328,8 +306,6 @@ alias kk='kubectl'
 alias l='ls -GCF'
 
 # ll (List): summarised List
-function ll()
-{
+function ll() {
     ls -lrt $1 | tail
 }
-
