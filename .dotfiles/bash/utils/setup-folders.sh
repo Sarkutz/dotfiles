@@ -151,6 +151,8 @@ function setup_home() {
         create_workspace ashim
     cd "$PREFIX/" &&
         create_workspace clinic
+    cd "$PREFIX/" &&
+        create_workspace family
 }
 
 setup_home
