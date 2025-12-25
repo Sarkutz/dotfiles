@@ -3,3 +3,4 @@ docker container run --name java_dev -it -d --rm -v $(pwd):/home/java_user/dev -
 docker container run --name c_dev -it -d --rm -v$(pwd):/home/cdev_user/dev -w /home/cdev_user/dev local/c_dev /bin/bash  # docker run c_dev
 echo $CONTAINER_ID && docker container exec -it $CONTAINER_ID bash  # docker dev connect
 WEZTERM_ENV=emacs wezterm start --always-new-process
+env QT_QPA_PLATFORM=xcb copyq
