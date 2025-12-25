@@ -278,6 +278,8 @@ function dcc() {
     eval "$( ([[ -f ./commands.cli ]] && cat ./commands.cli || cat ~/commands.cli) | peco)"
 }
 
+alias dlg=lazygit
+
 # fg (f)
 # ======
 
@@ -289,8 +291,9 @@ alias f='fg'
 # Tools/Kit (k)
 # =============
 
-# dfgit: dotfiles git: Manipulate the Git bare repo containing all dotfiles
+# kdfgit and kdflg: dotfiles git: Manipulate the Git bare repo containing all dotfiles
 alias kdfgit='git --git-dir=${HOME}/.dotfiles.git/ --work-tree=${HOME}'
+alias kdflg="lazygit --git-dir=${HOME}/.dotfiles.git/ --work-tree=${HOME}"
 
 # kd (Docker)
 alias kd='sudo docker'

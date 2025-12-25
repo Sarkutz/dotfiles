@@ -274,6 +274,14 @@ Development
 
          dtag
 
+   * - ``dlg``
+     - ``base.sh``
+     - Alias for :command:`lazygit`.
+
+       Usage::
+
+         dtag
+
 
 fg (f)
 ------
@@ -402,6 +410,11 @@ Tool/Kit
    * - ``kdfgit``
      - ``base.sh``
      - Manipulate the Git bare repo containing all dotfiles.
+
+   * - ``kdflg``
+     - ``base.sh``
+     - Manipulate the Git bare repo containing all dotfiles using
+       :command:`lazygit`.
 
 
 ls Related
