@@ -1,6 +1,6 @@
 [user]
-        name = Ashim Ghosh
-	email = ashim.atiit@gmail.com
+  name = Ashim Ghosh
+  email = ashim.atiit@gmail.com
 
 [http]
 	sslverify = false
