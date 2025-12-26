@@ -6,6 +6,7 @@
 .. |git-repo-url| replace:: https://github.com/Sarkutz/dotfiles.git
 
 .. contents:: Contents
+   :depth: 2
 
 **************
  Introduction
@@ -135,7 +136,7 @@ script.  The following can be configured by editing the script.
 System Setup
 ************
 
-I use the following software on all systems.  
+Setup `Scratch Buffer for Text Edits`_.
 
 Some of these software are dependencies of different dotfiles (in which case
 the dependency is listed in the "Used by" column).
@@ -157,7 +158,7 @@ the dependency is listed in the "Used by" column).
        `Dotfiles Provided`_.
 
    * - ``curl`` and ``wget``
-     - .
+     - Several deps.
      - System's package manager
      - .
 
@@ -166,6 +167,37 @@ the dependency is listed in the "Used by" column).
      - System's package manager
      - ranger is an advanced CLI based file browser with vim-like keybinding
        and Mac-like interface.
+
+   * - ``tree``
+     - .
+     - System's package manager
+     - .
+
+   * - ``jq``
+     - Various utilities (base.sh)
+     - Systems's package manager.  
+     - `Website <https://stedolan.github.io/jq/>`__.
+
+   * - ``lazygit``
+     - :code:`lg` and :code:`kdflg` aliases
+     - `jesseduffield/lazygit <https://github.com/jesseduffield/lazygit>`__
+       or system's package manager
+     - Simple terminal UI for git commands.
+
+   * - Graphviz/dot
+     - .
+     - System's package manager.
+     - .
+
+   * - LaTeX
+     - .
+     - System's package manager.
+     - TODO check the best way to install this. ::
+
+          sudo apt-get install texlive-latex-base
+          sudo apt-get install texlive-fonts-recommended
+          sudo apt-get install texlive-fonts-extra
+          sudo apt-get install texlive-latex-extra
 
    * - `Syncthing <https://syncthing.net/downloads/>`__
      - File sync/share, sync GTD, backup
@@ -184,14 +216,43 @@ the dependency is listed in the "Used by" column).
          - :file:`~/resources` (:file:`.stignore` is checked-in)
          - One for each workspace
 
-   * - (Neo)Vim
+   * - NeoVim
      - ``e`` alias
      - Systems's package manager.
-     - See `Install NeoVim`_.  ``vim`` dotfiles provided by this repository.
+     - See "Install NeoVim" section in ``lazyvim`` dotfiles. 
+
+       This repo also provides ``vim`` dotfiles, but these are DEPRECATED.
        Please see `Dotfiles Provided`_.
 
+   * - Font: Source Code Pro
+     - .
+     - System's package manager.
+
+       On Mac OS (using brew)::
+
+          brew tap homebrew/cask-fonts
+          brew install font-source-code-pro
+
+     - This is a great font for the terminal.
+
+   * - Nerd font for Jet Brains Mono
+     - WezTerm terminal
+     - `ryanoasis/nerd-fonts
+       <https://github.com/ryanoasis/nerd-fonts#option-1-release-archive-download>`__
+     - Nerd font adds additional glyphs that are more suited for development
+       to Jet Brains Mono font.
+
+       Installation::
+
+          curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+          tar xz JetBrainsMono.tar.xz
+
+          # Ubuntu
+          /bin/cp JetBrainsMono*.ttf ~/.local/share/fonts/
+          fc-cache -fv
+
    * - Pandoc
-     - ``rst2slack.sh``
+     - Utility scripts like ``rst2slack.sh``
      - Systems's package manager.
      - This is required by utility scripts (like ``rst2slack.sh``) to convert
        between documentation formats.
@@ -249,14 +310,14 @@ the dependency is listed in the "Used by" column).
      - .
 
    * - Node.js and NPM
-     - .
+     - System and NeoVim
      - System's package manager.
      - Ubuntu: install from PPA::
 
-          curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+          curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/nodesource_setup.sh
           sudo bash /tmp/nodesource_setup.sh
           sudo apt update
-          sudo apt install node npm
+          sudo apt install nodejs
 
    * - yarn (Node.js)
      - Node.js.
@@ -272,39 +333,9 @@ the dependency is listed in the "Used by" column).
      - .
 
    * - Nginx
-     - .
+     - Knowledge bases
      - System's package manager.
-     - .
-
-   * - `Freeplane <https://sourceforge.net/projects/freeplane/>`__
-       (Deprecated)
-     - ``gtd`` alias in home.sh; GTD workflow
-     - System's package manager.
-     - If required, configure Freeplane as follows:
-
-       - Create template
-
-       - Config
-
-         - Env
-
-           - "Save folding" "if map is changed"
-
-         - Behaviour
-
-           - Disable "Fold on click inside"
-           - "On key type": "Do nothing"
-           - "Selection method": "By click"
-
-       - Tools > Assign Hotkeys
-
-         - <Tab> to "Create new child node"
-         - Icons: C for check mark; X for cross mark; Z for questions mark
-
-       If the version of Freeplane provided by the system's package manager is
-       old, then please install the latest version of Freeplane using the
-       binary package provided at the `Freeplane SourceForge page
-       <https://sourceforge.net/projects/freeplane/>`__.
+     - See knowl dotfiles.
 
    * - Anki
      - .
@@ -326,7 +357,7 @@ the dependency is listed in the "Used by" column).
        - `True Retention <https://ankiweb.net/shared/info/613684242>`__:
          613684242
 
-       Import your old Anki decks, if required.
+       Import old Anki decks.
 
    * - Zotero
      - .
@@ -401,48 +432,40 @@ the dependency is listed in the "Used by" column).
      - Used to analyse data in DB.  After installation, immediately migrate
        application database from embedded H2 DB to external DB (like MySQL).
 
-   * - ``tree``
+   * - VLC
      - .
      - System's package manager
      - .
 
-   * - ``jq``
-     - Various utilities (base.sh)
-     - Systems's package manager.  `Website
-       <https://stedolan.github.io/jq/>`__.
-     - .
-
-   * - ``lazygit``
-     - :code:`lg` and :code:`kdflg` aliases
-     - `jesseduffield/lazygit <https://github.com/jesseduffield/lazygit>`__
-       or system's package manager
-     - Simple terminal UI for git commands.
-
-   * - ``vlc``
-     - .
-     - System's package manager
-     - .
-
-   * - Powerline Pached Fonts
-     - ``tmux``
-     - .
-     - Please see README in tmux dotfiles: `Dotfiles Provided`_.
-
-   * - Font: Source Code Pro
-     - .
+   * - `Freeplane <https://sourceforge.net/projects/freeplane/>`__
+       (DEPRECATED)
+     - ``afreeplane`` alias in home.sh
      - System's package manager.
+     - If required, configure Freeplane as follows:
 
-       On Mac OS (using brew)::
+       - Create template
 
-          brew tap homebrew/cask-fonts
-          brew install font-source-code-pro
+       - Config
 
-     - This is a great font for the terminal.
+         - Env
 
-   * - Graphviz/dot
-     - .
-     - System's package manager.
-     - .
+           - "Save folding" "if map is changed"
+
+         - Behaviour
+
+           - Disable "Fold on click inside"
+           - "On key type": "Do nothing"
+           - "Selection method": "By click"
+
+       - Tools > Assign Hotkeys
+
+         - <Tab> to "Create new child node"
+         - Icons: C for check mark; X for cross mark; Z for questions mark
+
+       If the version of Freeplane provided by the system's package manager is
+       old, then please install the latest version of Freeplane using the
+       binary package provided at the `Freeplane SourceForge page
+       <https://sourceforge.net/projects/freeplane/>`__.
 
 
 .. list-table:: System Softwares (Linux-only)
@@ -462,7 +485,7 @@ the dependency is listed in the "Used by" column).
      - .
 
    * - redshift
-     - .
+     - (DEPRECATED)
      - System's package manager
      - Add to Startup Applications.
 
@@ -472,14 +495,37 @@ the dependency is listed in the "Used by" column).
      - Clipboard manager.  Add to Startup Applications.  Configure <C-M-v> as
        trigger/hot key.
 
-       CopyQ might not capture the clipboard on Wayland (Ubuntu). To fix this
-       update :file:`~/.config/autostart/copyq.desktop`::
+       CopyQ on Wayland/Ubuntu-
 
-          Exec=env QT_QPA_PLATFORM=xcb copyq
+       - CopyQ might not capture the clipboard on Wayland (Ubuntu). To fix this
+         update :file:`~/.config/autostart/copyq.desktop`::
 
-       Similarly, CopyQ's hotkeys might not work on Wayland (Ubuntu). Use
-       Ubuntu's shortcut manager "Settings > Keyboard > Customise Shortcuts"
-       instead.
+            Exec=env QT_QPA_PLATFORM=xcb copyq
+
+       - Similarly, CopyQ's hotkeys might not work on Wayland (Ubuntu). Use
+         Ubuntu's shortcut manager "Settings > Keyboard > Customise Shortcuts"
+         instead. Set-
+
+         - ``<C-A-v>``: ``copyq toggle``
+
+   * - LibreOffice suite
+     - .
+     - System's package manager
+     - Installation::
+
+          sudo apt install libreoffice
+          sudo apt install \
+            hunspell-en-gb \
+            hyphen-en-gb \
+            libreoffice-gtk3 \
+            libreoffice-gnome \
+            cups-bsd \
+            libxrender1 \
+            libgl1 \
+            libreoffice-l10n-en-gb \
+            libreoffice-help-en-gb
+          sudo apt install mythes-en-us
+
 
 .. list-table:: System Softwares (Mac-only)
    :widths: auto
@@ -609,8 +655,40 @@ We might get the following errors on macOS's default vim::
    UltiSnips requires py >= 2.7 or py3
 
 
-Install Vim (from sources)
-==========================
+Install NeoVim
+==============
+
+Install using System's package manager.
+
+- Ubuntu: use NeoVim AppImage. Move AppImage tools
+  :file:`~/resources/software/installed/bin/` (which is added to :code:`PATH`
+  by these dotfiles).
+
+- Verify::
+
+     :checkhealth provider
+
+If there is any problem reported for Python, setup Python2 and Python3, as
+follows:
+
+- Ensure python environments nvim and nvimpy2 have been installed (as per
+  steps in `Install Python Virtual Environments`_).
+
+- Ensure that ``~/.config/nvim/lua/config/options.lua`` contains the
+  following::
+
+     vim.g.python_host_prog = "~/resources/software/pyenvs/nvimpy2/bin/python"
+     vim.g.python3_host_prog = "~/resources/software/pyenvs/nvim/bin/python3"
+
+- (DEPRECATED) Ensure that ``~/.config/nvim.bak/init.vim`` contains the
+  following::
+
+    let g:python_host_prog="$DOTFILES_PYENVS/nvimpy2/bin/python"
+    let g:python3_host_prog="$DOTFILES_PYENVS/nvim/bin/python3"
+
+
+(DEPRECATED) Install Vim (from sources)
+=======================================
 
 .. TODO: Deprecate Vim???
 
@@ -637,31 +715,6 @@ Install using the `usual process to build from sources
 
 Note that "config-dir" option should point to the folder containing
 ``config.c``.
-
-
-Install NeoVim
-==============
-
-Install using System's package manager.
-
-- Ubuntu: use NeoVim AppImage. Move AppImage tools
-  :file:`~/resources/software/installed/bin/` (which is added to :code:`PATH`
-  by these dotfiles).
-
-- Verify::
-
-     :checkhealth provider
-
-
-If there is any problem reported for Python, setup Python2 and Python3, as
-follows (these are already done when you checkout this repo and run
-:file:`setup-folders.sh`):
-
-- Create a separate virtualenv and install ``pynvim``.
-- Update ``~/.config/nvim/init.vim``::
-
-    let g:python_host_prog="$DOTFILES_PYENVS/nvimpy2/bin/python"
-    let g:python3_host_prog="$DOTFILES_PYENVS/nvim/bin/python3"
 
 
 ********
@@ -731,12 +784,16 @@ Please find the details of the dotfiles provided by this repository.
      - :file:`.dotfiles/git/`
      -
 
-   * - Vim
+   * - LazyVim
+     - :file:`.dotfiles/lazyvim/`, :file:`$HOME/.config/nvim/`
+     -
+
+   * - (DEPRECATED) Vim
      - :file:`.dotfiles/vim/`
      - 
 
-   * - NeoVim
-     - :file:`.dotfiles/vim/`, :file:`$HOME/.config/nvim/init.vim`
+   * - (DEPRECATED) NeoVim
+     - :file:`.dotfiles/vim/`, :file:`$HOME/.config/nvim.bak/init.vim`
      -
 
    * - Ctags
@@ -882,6 +939,27 @@ Please find the details of the utilities provided in this repository as follows.
        :file:`.dotfiles/resources/pyenvs/`.
 
 
+Scratch Buffer for Text Edits
+=============================
+
+I like to use NeoVim keybindings to edit text in all textboxes in all
+software. This section shows how to setup a global hotkey that invokes NeoVim,
+letting us draft our text. When we exit NeoVim it copies the content of NeoVim
+into the clipboard, allowing us to paste it into the required text box.
+
+Workflow-
+
+- Type ``<C-A-e>`` from any application or anywhere in the system.
+- Once NeoVim opens up, draft the required text.
+- Quit NeoVim. The buffer content are automatically copied to the clipboard.
+- Paste into the required textbox.
+
+Setup: Use Ubuntu's shortcut manager "Settings > Keyboard > Customise
+Shortcuts" instead. Set ``<C-A-e>`` to::
+
+   wezterm cli spawn --new-window -- ~/resources/software/installed/bin/nvim /tmp/scratch.msg +"autocmd VimLeavePre * silent! %y+"
+
+
 Repository Creation
 ===================
 
@@ -957,4 +1035,11 @@ Repository Conventions
 
     - Add to setup-folders.sh: cd /Users/ashimghosh/.emacs.d && rm private && ln -s ~/.dotfiles/spacemacs/private/
     - Add README/folder for spacemacs.
+
+- TODO
+
+  - Replace xclip by wl-clipboard on Wayland/Ubuntu? ::
+
+      sudo apt install wl-clipboard
+      wl-copy, wl-paste
 
