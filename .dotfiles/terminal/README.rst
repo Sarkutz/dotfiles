@@ -110,3 +110,23 @@ Shortcuts Provided
      - .
      - .
 
+Shortcuts Disabled
+==================
+
+.. list-table:: Shortcuts Disabled
+   :header-rows: 1
+
+   * - Shortcut
+     - Definition in
+     - Description
+
+   * - :kbd:`<C-w>`
+     - :file:`base_config.lua`
+     - Disable default keybinding for close pane, so that we can use it in
+       Vim.
+
+   * - Mouse
+     - :file:`base_config.lua`
+     - Disable copy to clipboard using mouse clicks, to avoid clobbering the
+       system clipboard.
+

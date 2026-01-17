@@ -29,6 +29,18 @@ function base.apply_to_config(config)
 	config.leader = { key = "w", mods = "CTRL|ALT", timeout_milliseconds = 1000 }
 	config.keys = {
 		{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
+
+		-- DISABLE C-w (which closes the pane) so that we can use it in Vim.
+		{
+			key = "w",
+			mods = "CTRL",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+		{
+			key = "w",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
 	}
 	config.mouse_bindings = {
 		-- Disable copy to system clipboard on select
