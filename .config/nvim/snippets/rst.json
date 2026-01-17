@@ -48,7 +48,7 @@
   },
 
   "toctree (Child pages)": {
-    "prefix": "toc:",
+    "prefix": "toc_",
     "body": [
       ".. toctree::",
       "   :caption: ${1:Topics}",
@@ -60,7 +60,7 @@
   },
 
   "Page table of contents": {
-    "prefix": "con:",
+    "prefix": "con_",
     "body": [
       ".. contents:: ${1:Contents}",
       "   :depth: 1",
@@ -72,7 +72,7 @@
   },
 
   "list-table (custom)": {
-    "prefix": "lis:",
+    "prefix": "lis_",
     "body": [
       ".. list-table:: ${1:Caption}",
       "   :widths: auto",
@@ -84,7 +84,7 @@
   },
 
   "Math Block": {
-    "prefix": "m:",
+    "prefix": "math_",
     "body": [
       ".. math::",
       "",
@@ -94,7 +94,7 @@
   },
 
   "seealso directive": {
-    "prefix": "see:",
+    "prefix": "see_",
     "body": [
       ".. seealso::",
       "",
