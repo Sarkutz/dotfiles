@@ -13,10 +13,8 @@
 
 source "${DOTFILES}/dev.sh"
 
-
 # Misc/All (a)
 # ============
-
 
 # System (s)
 # ==========
@@ -29,13 +27,12 @@ fi
 # sr: Open ranger (file browser)
 alias sr='ranger'
 
-
 # Development (d)
 # ===============
 
 # gtd: Start GTD resources
 freeplane_path=
-which 'freeplane' &> /dev/null
+which 'freeplane' &>/dev/null
 if [[ $? -eq 0 ]]; then
     freeplane_path='freeplane'
 else
@@ -49,7 +46,6 @@ else
 fi
 export FREEPLANE_PATH="$freeplane_path"
 alias afreeplane='$FREEPLANE_PATH $DOTFILES_GTD/gtd-dash.mm &> /dev/null &'
-
 
 # Jump (j)
 # ========
@@ -68,8 +64,8 @@ Example: jgtd f spark'
     command="$1"
 
     if [[ $command == 'tickler' ]]; then
-        cd tickler/$( date +%Y )/$( date +%m )
-        cd $( date +%d )
+        cd tickler/$(date +%Y)/$(date +%m)
+        cd $(date +%d)
         ls -GCF
 
     elif [[ $command == 'dreams' ]]; then
@@ -94,25 +90,23 @@ function _complete_jgtd() {
 
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    prev="${COMP_WORDS[COMP_CWORD - 1]}"
 
     case "$prev" in
-        tickler)
-            return 0
-            ;;
-        dreams)
-            dirs="$( find $DOTFILES_GTD/dreams/ -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
-            COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
-            return 0
-            ;;
-        *)
-            ;;
+    tickler)
+        return 0
+        ;;
+    dreams)
+        dirs="$(find $DOTFILES_GTD/dreams/ -type d -name '*'"$cur"'*' -exec basename '{}' \;)"
+        COMPREPLY=($(compgen -W "$dirs" -- $cur))
+        return 0
+        ;;
+    *) ;;
     esac
 
-    COMPREPLY=( $(compgen -W "$commands" -- "$cur" ) )
+    COMPREPLY=($(compgen -W "$commands" -- "$cur"))
 }
 complete -F _complete_jgtd jgtd
-
 
 function jkno() {
     usage='jkno: Jump to knowl directory.
@@ -131,17 +125,15 @@ If ``searchterm`` is provided, ``find`` for path that matches ``*searchterm*``.'
 function _complete_jkno() {
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    prev="${COMP_WORDS[COMP_CWORD - 1]}"
 
-    dirs="$( find $DOTFILES_KNOWL/source/ -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
-    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+    dirs="$(find $DOTFILES_KNOWL/source/ -type d -name '*'"$cur"'*' -exec basename '{}' \;)"
+    COMPREPLY=($(compgen -W "$dirs" -- $cur))
 }
 complete -F _complete_jkno jkno
 
-
 # Jump to diary
 alias 'jdia=cd ${DOTFILES_DIARY}/source/$( date +%Y )/$( date +%m ) && ls -GCF'
-
 
 function jash() {
     usage='jash: Jump to ashim workspace directory.
@@ -169,14 +161,13 @@ If ``searchterm`` is provided-
 function _complete_jash() {
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    prev="${COMP_WORDS[COMP_CWORD - 1]}"
 
-    dirs="$( find $DOTFILES_PERSONAL_WORKSPACE/knowl/ $DOTFILES_PERSONAL_WORKSPACE/proj* \
-        -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
-    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+    dirs="$(find $DOTFILES_PERSONAL_WORKSPACE/knowl/ $DOTFILES_PERSONAL_WORKSPACE/proj* \
+        -type d -name '*'"$cur"'*' -exec basename '{}' \;)"
+    COMPREPLY=($(compgen -W "$dirs" -- $cur))
 }
 complete -F _complete_jash jash
-
 
 function jcli() {
     usage='jcli: Jump to clinic workspace directory.
@@ -189,7 +180,11 @@ If ``searchterm`` is provided-
     cd $DOTFILES_CLINIC_WORKSPACE
     if [[ $# -eq 1 ]]; then
         find_root="proj*"
-        find_output="$( find $find_root -name "$search_term" -depth 1 )"
+        if [[ $(get_os) == 'mac_os' ]]; then
+            find_output="$(find $find_root -name "$search_term" -depth 1)"
+        else
+            find_output="$(find $find_root -maxdepth 1 -name "$search_term")"
+        fi
         get_num_lines "$find_output"
         [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
 
@@ -199,11 +194,11 @@ If ``searchterm`` is provided-
 function _complete_jcli() {
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    prev="${COMP_WORDS[COMP_CWORD - 1]}"
 
-    dirs="$( find $DOTFILES_CLINIC_WORKSPACE/knowl/ $DOTFILES_CLINIC_WORKSPACE/proj* \
-        -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
-    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+    dirs="$(find $DOTFILES_CLINIC_WORKSPACE/knowl/ $DOTFILES_CLINIC_WORKSPACE/proj* \
+        -type d -name '*'"$cur"'*' -exec basename '{}' \;)"
+    COMPREPLY=($(compgen -W "$dirs" -- $cur))
 }
 complete -F _complete_jcli jcli
 
@@ -233,14 +228,13 @@ If ``searchterm`` is provided-
 function _complete_jfam() {
     local prev cur
     cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    prev="${COMP_WORDS[COMP_CWORD - 1]}"
 
-    dirs="$( find $DOTFILES_FAMILY_WORKSPACE/knowl/ $DOTFILES_FAMILY_WORKSPACE/proj* \
-        -type d -name '*'"$cur"'*' -exec basename '{}' \; )"
-    COMPREPLY=( $( compgen -W "$dirs" -- $cur ) )
+    dirs="$(find $DOTFILES_FAMILY_WORKSPACE/knowl/ $DOTFILES_FAMILY_WORKSPACE/proj* \
+        -type d -name '*'"$cur"'*' -exec basename '{}' \;)"
+    COMPREPLY=($(compgen -W "$dirs" -- $cur))
 }
 complete -F _complete_jfam jfam
 
 # Tools/Kit (k)
 # =============
-
