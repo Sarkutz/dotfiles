@@ -948,6 +948,14 @@ What do I want to achive/focus on today?
 * Tasks  :urgent:
 ** Done
 * Habit Checklist
+- [ ] Exercise
+- [ ] Anki
+- [ ] Meditate
+- [ ] Open Books
+- [ ] Closing Time
+- [ ] Hydrotherapy
+- [ ] Read a Book
+- [ ] Touch Typing
 * Small wins
 * Kaizen
 * Log
