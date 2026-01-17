@@ -5,18 +5,19 @@ Terminal Dotfiles
 
 .. contents:: Contents
    :depth: 2
+   :local:
 
-############
+************
 Introduction
-############
+************
 
 I use `WezTerm <https://wezterm.org/>`__ as my terminal. This section
 provides configurations for WezTerm.
 
 
-############
+************
 Dependencies
-############
+************
 
 .. list-table:: Dependencies
    :header-rows: 1
@@ -43,18 +44,22 @@ Dependencies
 
 
 
-############
+************
 Installation
-############
+************
 
 #. Install `dependencies`_.
 
 #. The dotfiles are automatically installed in :file:`~/.config`.
 
 
-##############
+**************
 Setup Overview
-##############
+**************
+
+.. contents:: Contents
+   :depth: 1
+   :local:
 
 Usage
 =====
@@ -91,7 +96,7 @@ Shortcuts Provided
 
    * - :kbd:`<C-A-w>`
      - :file:`base_config.lua`
-     - Leader Key
+     - *Leader Key*
 
    * - :kbd:`LEADER l`
      - :file:`base_config.lua`
