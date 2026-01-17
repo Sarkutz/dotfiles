@@ -433,9 +433,9 @@ ls Related
      - ``base.sh``
      - Shortcut for ls
 
-   * - ``ll``
+   * - ``lr``
      - ``base.sh``
-     - List Less.  Lists ten most recent files.
+     - List Recent.  Lists ten most recent files.
 
 
 Overrides

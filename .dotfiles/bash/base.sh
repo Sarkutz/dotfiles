@@ -309,6 +309,6 @@ alias kk='kubectl'
 alias l='ls -GCF'
 
 # ll (List): summarised List
-function ll() {
+function lr() {
     ls -lrt $1 | tail
 }
