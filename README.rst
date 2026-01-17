@@ -818,6 +818,11 @@ Please find the details of the dotfiles provided by this repository.
      - :file:`.dotfiles/backups/`
      - Design and resources for data sync and backup (including to cloud).
 
+   * - Tridactly
+     - :file:`.dotfiles/tridactyl/`
+     - Configs for the Firefox Tridactyl extension.
+
+
 Utilities Provided
 ==================
 

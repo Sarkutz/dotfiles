@@ -1,0 +1,5 @@
+" E.g. https://raw.githubusercontent.com/tridactyl/tridactyl/master/.tridactylrc
+
+" Use FF's find
+unbind <C-f>
+
