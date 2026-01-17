@@ -6,6 +6,7 @@
 .. |git-repo-url| replace:: https://github.com/Sarkutz/dotfiles.git
 
 .. contents:: Contents
+   :local:
    :depth: 2
 
 **************
@@ -137,6 +138,9 @@ System Setup
 ************
 
 Setup `Scratch Buffer for Text Edits`_.
+
+System Softwares (All Systems)
+==============================
 
 Some of these software are dependencies of different dotfiles (in which case
 the dependency is listed in the "Used by" column).
@@ -468,6 +472,9 @@ the dependency is listed in the "Used by" column).
        <https://sourceforge.net/projects/freeplane/>`__.
 
 
+System Softwares (Linux-only)
+=============================
+
 .. list-table:: System Softwares (Linux-only)
    :widths: auto
    :header-rows: 1
@@ -512,11 +519,6 @@ the dependency is listed in the "Used by" column).
        <https://github.com/astrand/xclip>`__
      - .
 
-   * - redshift
-     - (DEPRECATED)
-     - System's package manager
-     - Add to Startup Applications.
-
    * - CopyQ
      - .
      - System's package manager
@@ -554,6 +556,14 @@ the dependency is listed in the "Used by" column).
             libreoffice-help-en-gb
           sudo apt install mythes-en-us
 
+   * - redshift
+     - (DEPRECATED)
+     - System's package manager
+     - Add to Startup Applications.
+
+
+System Softwares (Mac-only)
+===========================
 
 .. list-table:: System Softwares (Mac-only)
    :widths: auto
