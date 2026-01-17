@@ -47,7 +47,7 @@ return {
           name = "dict",
           -- https://github.com/Kaiser-Yang/blink-cmp-dictionary
           module = "blink-cmp-dictionary",
-          min_keyword_length = 3,
+          min_keyword_length = 4,
           max_items = 5,
           opts = {
             dictionary_files = {
@@ -61,7 +61,7 @@ return {
           name = "tmux",
           -- https://github.com/mgalliou/blink-cmp-tmux
           module = "blink-cmp-tmux",
-          min_keyword_length = 3,
+          min_keyword_length = 4,
           max_items = 8,
           opts = {
             all_panes = true,
