@@ -43,14 +43,14 @@ Dependencies
    * - ``tree-sitter-cli``
      - LazyVim
      - NPM
-     - Ubuntu::
+     - Installation on Ubuntu::
 
           sudo npm install -g tree-sitter-cli
 
    * - ``mermaid-cli``
      - LazyVim
      - NPM
-     - Ubuntu::
+     - Installation on Ubuntu::
 
           sudo npm install -g @mermaid-js/mermaid-cli
 
