@@ -678,11 +678,12 @@ before packages are loaded."
          ("cleanup")
          ;; followups poc design dev
          ;; Topics
-         ("mang")
+         ("sw_dev")
          ("design_arch")
+         ("genai")
+         ("mang")
          ("project_mang")
          ("product_mang")
-         ("genai")
          ))
 
 
