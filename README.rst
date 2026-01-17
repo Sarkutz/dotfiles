@@ -478,6 +478,34 @@ the dependency is listed in the "Used by" column).
      - Installation Source
      - Notes
 
+   * - build-essential
+     - .
+     - System's package manager.
+     - Installation::
+
+          sudo apt install build-essential
+
+   * - ``fdfind``
+     - .
+     - System's package manager.
+     - A user-friendly ``find``. Installation::
+
+          sudo apt install fd-find
+
+   * - ``fzf``
+     - .
+     - System's package manager.
+     - Installation::
+
+          sudo apt install fzf
+
+   * - SQLite
+     - .
+     - System's package manager.
+     - Installation::
+
+          sudo apt install sqlite3 libsqlite3-dev
+
    * - ``xclip``
      - ``scc`` and ``spc`` aliases in base.sh
      - Systems's package manager.  Repo: `astrand/xclip
