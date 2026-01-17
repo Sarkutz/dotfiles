@@ -2,6 +2,23 @@ local wezterm = require("wezterm")
 
 local base = {}
 
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Gruvbox (Gogh)"
+end
+
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Gruvbox Dark (Gogh)"
+	else
+		return "Gruvbox (Gogh)"
+	end
+end
+
 function base.apply_to_config(config)
 	-- Appearance
 	-- ==========
@@ -17,7 +34,8 @@ function base.apply_to_config(config)
 	-- ====
 	local env = os.getenv("WEZTERM_ENV")
 	if env ~= "emacs" then
-		config.color_scheme = "Gruvbox (Gogh)"
+		-- config.color_scheme = "Gruvbox (Gogh)"
+		config.color_scheme = scheme_for_appearance(get_appearance())
 		config.font = wezterm.font("JetBrains Mono")
 		config.font_size = 12
 		config.line_height = 1.0
