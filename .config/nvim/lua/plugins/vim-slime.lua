@@ -10,11 +10,12 @@ return {
       socket_name = "default",
       target_pane = "{last}",
     }
+
+    vim.g.slime_preserve_curpos = 0
   end,
   keys = {
-    { "<leader>t", "", desc = "+text" },
-    { "<leader>ts", "<Plug>SlimeLineSend", mode = "n", desc = "Send (slime)" },
-    { "<leader>ts", "<Plug>SlimeRegionSend", mode = "x", desc = "Send (slime)" },
-    { "<leader>tsc", "<Plug>SlimeConfig", mode = "n", desc = "Config (slime)" },
+    { "<C-I>", "<Plug>SlimeLineSendj", mode = "n", desc = "Send (slime)" },
+    { "<C-I>", "<Plug>SlimeRegionSend}", mode = "x", desc = "Send (slime)" },
+    { "<leader>ue", "<Plug>SlimeConfig", mode = "n", desc = "config (slimE)" },
   },
 }

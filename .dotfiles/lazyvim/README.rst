@@ -115,13 +115,13 @@ Shortcuts Provided
      - ``lua/plugins/mini-surround.lua``
      - Configure keybindings that match vim-surround.
 
-   * - ``<leader>tsc``
+   * - ``<leader>ue``
      - ``lua/plugins/vim-slime.lua``
-     - Text/Slime Config. Configure slime for sending text to tmux pane.
+     - Slime Config. Configure slime for sending text to tmux pane.
 
-   * - ``<leader>tss``
+   * - ``<C-i>``
      - ``lua/plugins/vim-slime.lua``
-     - Text/Slime Send: Send text to configured tmux pane.
+     - Slime Send: Send text to configured tmux pane.
 
    * - ``C-q``
      - ``lua/plugins/snacks-nvim.lua``
