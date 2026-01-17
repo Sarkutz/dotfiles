@@ -937,6 +937,9 @@ Source: [weblink, local attachment link]
         '(
           ("d" "default" entry "* %?" :target
            (file+head "%<%Y-%m-%d>.org" "
+:PROPERTIES:
+:ID: %(org-id-new)
+:END:
 #+tags: [[id:EC3D712A-F936-494B-8DFB-D379C57A2649][journal]]
 #+title: %<%Y-%m-%d>
 * Intention
