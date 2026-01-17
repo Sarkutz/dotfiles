@@ -155,7 +155,11 @@ If ``searchterm`` is provided-
 
     if [[ $# -eq 1 ]]; then
         find_root="proj*"
-        find_output="$( find $find_root -name "$search_term" -depth 1 )"
+        if [[ $(get_os) == 'mac_os' ]]; then
+            find_output="$(find $find_root -name "$search_term" -depth 1)"
+        else
+            find_output="$(find $find_root -maxdepth 1 -name "$search_term")"
+        fi
         get_num_lines "$find_output"
         [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
 
@@ -215,7 +219,11 @@ If ``searchterm`` is provided-
 
     if [[ $# -eq 1 ]]; then
         find_root="proj*"
-        find_output="$( find $find_root -name "$search_term" -depth 1 )"
+        if [[ $(get_os) == 'mac_os' ]]; then
+            find_output="$(find $find_root -name "$search_term" -depth 1)"
+        else
+            find_output="$(find $find_root -maxdepth 1 -name "$search_term")"
+        fi
         get_num_lines "$find_output"
         [[ $? -eq 1 ]] && cd "$find_output" && ls -GCF && return 0
 
